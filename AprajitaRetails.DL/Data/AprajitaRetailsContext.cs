@@ -25,27 +25,27 @@ namespace AprajitaRetails.DL.Data
             ApplyMigrations(this);
         }
 
-        public DbSet<Store> Stores { get; set; }
-        public DbSet<TranscationMode> TranscationModes { get; set; }
-        public DbSet<Salesman> Salesmen { get; set; }
+        public DbSet<Store> Stores { get; set; } //Ok
+        public DbSet<TranscationMode> TranscationModes { get; set; } //ok
+        public DbSet<Salesman> Salesmen { get; set; } //ok
 
         //Banking
-        public DbSet<Bank> Banks { get; set; }
+        public DbSet<Bank> Banks { get; set; } //ok
 
         //TODO
         public DbSet<ToDoMessage> ToDoMessages { get; set; }
 
         public DbSet<TodoItem> Todos { get; set; }
         public DbSet<FileInfo> Files { get; set; }
-        public DbSet<SaleTaxType> SaleTaxTypes { get; set; }
+        public DbSet<SaleTaxType> SaleTaxTypes { get; set; } //ok
         public DbSet<RegisteredUser> RegisteredUsers { get; set; }
-        public DbSet<AppInfo> Apps { get; set; }
+        public DbSet<AppInfo> Apps { get; set; } //ok
 
         //Payrolls
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; } //ok
 
         public DbSet<EmployeeUser> EmployeeUsers { get; set; }
-        public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Attendance> Attendances { get; set; } //ok
 
         //Tailoring
         public DbSet<TalioringBooking> TalioringBookings { get; set; }

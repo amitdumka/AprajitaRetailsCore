@@ -23,10 +23,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
   <Import Project="..\AprajitaRetails.Shared\AprajitaRetails.Shared.projitems" Label="Shared" />
 
 </Project>
