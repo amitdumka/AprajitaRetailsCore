@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// <summary>
 /// Version 4.0
 /// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
     //Banking 
 
@@ -91,7 +91,7 @@ namespace AprajitaRetails.Areas.Accountings.Models
 
 }
 
-namespace AprajitaRetails.Areas.Accountings.ViewModels
+namespace AprajitaRetails.Shared.Models.Accountings.ViewModels
 {
     public class BankDeposit
     {

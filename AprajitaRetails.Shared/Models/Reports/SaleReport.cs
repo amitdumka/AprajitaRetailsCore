@@ -3,7 +3,7 @@ using AprajitaRetails.Ops.Triggers;
 using System;
 using System.Linq;
 
-namespace AprajitaRetails.Areas.Reports.Models
+namespace AprajitaRetails.Shared.Models.Reports.Models
 {
     //Can be Used at DailySale or any place to reduce no of different function
     public class SaleReportInfo

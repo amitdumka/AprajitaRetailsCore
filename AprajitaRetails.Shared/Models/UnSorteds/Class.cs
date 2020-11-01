@@ -3,7 +3,7 @@
 /// <summary>
 /// Version 3.0
 /// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
 
     public enum VoucherType { Sale, Purchase, Expenses, Reciepts, Payment, BankDeposit, BankWidthral, Others }
@@ -239,7 +239,7 @@ namespace AprajitaRetails.Areas.Accountings.Models
 
 }
 
-namespace AprajitaRetails.Areas.Accountings.Operations
+namespace AprajitaRetails.Shared.Models.Accountings.Operations
 {
     public class TranscationOperation
     {

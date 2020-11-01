@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Areas.Voyager.Models
+namespace AprajitaRetails.Shared.Models.Voyager.Models
 {
     public class Store
     {

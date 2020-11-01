@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AprajitaRetails.Shared.Models.Stores
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class ArvindPayment
     {
         public int ArvindPaymentId { get; set; }
@@ -18,5 +21,5 @@ namespace AprajitaRetails.Shared.Models.Stores
 
         public string UserName { get; set; }
 
-    }
+    }    
 }

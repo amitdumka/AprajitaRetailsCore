@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// <summary>
 /// Version 3.0
 /// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
     public class Party
     {

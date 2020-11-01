@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader.Models
 {
     public class BookEntry
     {

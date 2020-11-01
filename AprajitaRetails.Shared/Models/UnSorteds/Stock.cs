@@ -1,7 +1,7 @@
 ﻿using AprajitaRetails.Areas.Voyager.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Areas.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase.Models
 {
     //Store Based Class
     public class Stock

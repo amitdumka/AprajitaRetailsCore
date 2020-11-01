@@ -52,7 +52,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RegisteredUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RoleUserView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AppInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Contacts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Contacts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\Attendance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\CurrentSalary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\Employee.cs" />
@@ -75,20 +75,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\OnlineVendor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\SaleInvoice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\StoreLocation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\ArvindAccount.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\ArvindPayment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Customer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\EndOfDay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\MonthEnd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Salesman.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Store.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\TableList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Tailorings\TalioringBooking.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Tailorings\TalioringDelivery.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Tailorings\uo\TalioringBooking.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Tailorings\uo\TalioringDelivery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TelegramAuthUser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\ToDoMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ToDos\ToDoMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ToDos\CalendarViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ToDos\DeleteViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ToDos\EditViewModel.cs" />
@@ -213,9 +209,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Uploaders\ImportSaleRegister.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Uploaders\InputData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Uploaders\ReturnInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Voyagers\ArvindAccount.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Voyagers\ArvindPayment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Voyagers\Customer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Voyagers\Store.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Types\ArvindAccount.cs" />
   </ItemGroup>
 </Project>

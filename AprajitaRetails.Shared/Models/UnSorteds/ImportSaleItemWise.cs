@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader.Models
 {
     //TODO: Need to Create View So String Date error problem will be solved
     public class ImportSaleItemWise

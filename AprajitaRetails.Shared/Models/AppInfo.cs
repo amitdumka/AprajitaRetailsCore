@@ -1,10 +1,10 @@
 ﻿using System;
 
-/// <summary>
-/// Version 3.0
-/// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+namespace AprajitaRetails.Shared.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class AppInfo
     {
         public int AppInfoId { get; set; }

@@ -3,8 +3,11 @@ using LinqToExcel.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class ImportSaleRegister
     {
         public int ImportSaleRegisterId { get; set; }

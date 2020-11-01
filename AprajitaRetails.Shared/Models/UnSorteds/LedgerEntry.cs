@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// <summary>
 /// Version 3.0
 /// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
     //TODO : There will no direct entry for Ledger Entry , just listing  and editing purpose. 
     //       Editing will be in advance stage, Delete should be there

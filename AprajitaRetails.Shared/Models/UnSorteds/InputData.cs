@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader.Models
 {
     public class InputData
     {

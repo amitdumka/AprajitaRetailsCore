@@ -1,10 +1,11 @@
-﻿//using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AprajitaRetails.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+
     public class TelegramAuthUser
     {
         public int TelegramAuthUserId { get; set; }
@@ -17,7 +18,4 @@ namespace AprajitaRetails.Models
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
     }
-
-
-
 }

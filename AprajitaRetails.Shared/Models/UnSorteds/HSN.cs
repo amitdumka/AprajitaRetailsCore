@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Areas.Sales.Models.Views
+namespace AprajitaRetails.Shared.Models.Sales.Models.Views
 {
 
 

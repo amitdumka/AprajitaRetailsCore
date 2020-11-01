@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Reports.Models
+namespace AprajitaRetails.Shared.Models.Reports.Models
 {
 
 

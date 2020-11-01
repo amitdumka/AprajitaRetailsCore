@@ -3,8 +3,12 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader.Models
 {
+
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class BookEntry
     {
         public int BookEntryId { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace AprajitaRetails.Areas.Uploader.Models
+﻿namespace AprajitaRetails.Shared.Models.Uploader.Models
 {
     public class ReturnInfo
     {

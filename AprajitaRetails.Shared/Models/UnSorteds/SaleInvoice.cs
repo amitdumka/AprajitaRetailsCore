@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Sales.Models
+namespace AprajitaRetails.Shared.Models.Sales.Models
 {
     public class SaleInvoice
     {

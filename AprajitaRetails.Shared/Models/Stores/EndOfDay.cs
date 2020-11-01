@@ -1,13 +1,13 @@
-﻿//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using AprajitaRetails.Areas.Voyager.Models;
-using System;
+﻿using System;
 using System.ComponentModel;
-//using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AprajitaRetails.Shared.Models.Stores
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class EndOfDay
     {
         public int EndOfDayId { get; set; }
@@ -37,7 +37,4 @@ namespace AprajitaRetails.Shared.Models.Stores
         public int? StoreId { get; set; }
         public virtual Store Store { get; set; }
     }
-
-
-
 }

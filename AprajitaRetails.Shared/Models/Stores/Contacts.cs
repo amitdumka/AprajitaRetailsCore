@@ -1,7 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Areas.AddressBook.Models
+namespace AprajitaRetails.Shared.Models.AddressBook
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class Contact
     {
         public int ContactId { get; set; }

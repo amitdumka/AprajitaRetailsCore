@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TodoList.Web.Models
+namespace AprajitaRetails.Shared.Models.ToDos
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class TodoItemCreateViewModel
     {
         [Required]

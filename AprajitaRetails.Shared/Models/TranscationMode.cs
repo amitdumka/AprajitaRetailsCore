@@ -1,14 +1,14 @@
-﻿//using System.Data.Entity;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
-namespace AprajitaRetails.Models
+
+namespace AprajitaRetails.Shared.Models
 {
-    //TODO: Add Support for Mix Payment
-
-
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class TranscationMode
     {
         [Display(Name = "Mode")]

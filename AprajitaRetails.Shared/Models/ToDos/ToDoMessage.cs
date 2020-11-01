@@ -1,10 +1,11 @@
 ﻿using System;
-//using System.Data.Entity;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.ToDos
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class ToDoMessage
     {
         public int ToDoMessageId { get; set; }

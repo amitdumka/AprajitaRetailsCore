@@ -15,11 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.BL", "Apraj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.DL", "AprajitaRetails.DL\AprajitaRetails.DL.csproj", "{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.API", "AprajitaRetails.API\AprajitaRetails.API.csproj", "{16D4031F-988A-4C38-BFDF-B9394FCF02F9}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{c7b7db2f-2a0d-4d72-bb2a-317f8bb9ae6f}*SharedItemsImports = 5
 		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{c8d8a2e6-4d43-4766-8d80-6b9f6a4b1c82}*SharedItemsImports = 13
-		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{e8b79f25-8138-469f-9541-55fc7b03595d}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +38,10 @@ Global
 		{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D4031F-988A-4C38-BFDF-B9394FCF02F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D4031F-988A-4C38-BFDF-B9394FCF02F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D4031F-988A-4C38-BFDF-B9394FCF02F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D4031F-988A-4C38-BFDF-B9394FCF02F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

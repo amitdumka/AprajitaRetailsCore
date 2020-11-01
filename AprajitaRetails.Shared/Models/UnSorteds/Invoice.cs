@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Sales.Models.Views
+namespace AprajitaRetails.Shared.Models.Sales.Models.Views
 {
     #region BaseInvoice
     public class Invoice

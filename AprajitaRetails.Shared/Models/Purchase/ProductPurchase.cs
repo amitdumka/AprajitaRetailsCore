@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase.Models
 {
     //Store Based Class
     public class ProductPurchase

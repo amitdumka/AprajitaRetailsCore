@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AprajitaRetails.Areas.Admin.Models
+namespace AprajitaRetails.Shared.Models.Admin.Models
 {
     public class RegisteredUser
     {

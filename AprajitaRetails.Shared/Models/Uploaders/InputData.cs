@@ -1,12 +1,14 @@
-﻿using AprajitaRetails.Data.Json;
-using AprajitaRetails.Models;
+﻿
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Areas.Uploader.Models
+namespace AprajitaRetails.Shared.Models.Uploader
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class InputData
     {
         public int StartRow { get; set; }

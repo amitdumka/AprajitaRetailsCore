@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Areas.AddressBook.Models
+namespace AprajitaRetails.Shared.Models.AddressBook.Models
 {
     public class Contact
     {

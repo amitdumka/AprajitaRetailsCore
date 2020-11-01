@@ -7,7 +7,7 @@
 
 
 
-//namespace AprajitaRetails.Areas.Accounts.Models
+//namespace AprajitaRetails.Shared.Models.Accounts.Models
 //{
 //    public class LedgerManager
 //    {

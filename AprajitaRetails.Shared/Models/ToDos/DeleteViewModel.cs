@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace TodoList.Web.Models
+namespace AprajitaRetails.Shared.Models.ToDos
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class DeleteViewModel
     {
         public Guid Id { get; set; }

@@ -1,12 +1,15 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace AprajitaRetails.Models
-{
 
+namespace AprajitaRetails.Shared.Models.Tailorings
+{
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class TalioringBooking
     {
         public int TalioringBookingId { get; set; }

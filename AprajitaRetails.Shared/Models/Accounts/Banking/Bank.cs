@@ -6,24 +6,26 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-/// <summary>
-/// Version 4.0
-/// </summary>
-namespace AprajitaRetails.Areas.Accountings.Models
+
+namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
-    //Banking 
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
 
+    public class Bank
+    {
+        public int BankId { get; set; }
 
-    //public class Bank
-    //{
-    //    public int BankId { get; set; }
-    //    [Display(Name = "Bank Name")]
-    //    public string BankName { get; set; }
+        [Display(Name = "Bank Name")]
+        public string BankName { get; set; }
 
-    //    public ICollection<BankAccount> Accounts { get; set; }
-    //    public ICollection<BankAccountInfo> BankAccounts { get; set; }
-    //    public ICollection<BankSetting> BankSettings { get; set; }
-    //}
+        public ICollection<AccountNumber> Accounts { get; set; }
+        public ICollection<BankAccountInfo> BankAccounts { get; set; }
+        public ICollection<Areas.Uploader.Models.BankSetting> BankSettings { get; set; }
+        public ICollection<Areas.Accountings.Models.BankAccount> BankAcc { get; set; }
+
+    }
 
     public class BankAccount
     {
@@ -91,7 +93,7 @@ namespace AprajitaRetails.Areas.Accountings.Models
 
 }
 
-namespace AprajitaRetails.Areas.Accountings.ViewModels
+namespace AprajitaRetails.Shared.Models.Accountings.ViewModels
 {
     public class BankDeposit
     {
