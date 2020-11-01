@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AprajitaRetails.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AprajitaRetails.Data
 {
-    public class AprajitaRetailsContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
-        public AprajitaRetailsContext(DbContextOptions<AprajitaRetailsContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }

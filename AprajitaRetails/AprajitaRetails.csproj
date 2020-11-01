@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-AprajitaRetails-BEA0734B-D725-49A1-A40F-FFF8B1F12A72</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <Version>5.0</Version>
+    <Authors>Amit Kumar</Authors>
+    <Company>AKS Labs</Company>
+    <Product>AprajitaRetails ERP</Product>
+    <Description>Web ERP for Aprajita Retails</Description>
+    <Copyright>AKS Labs</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\Role\AssignRole.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Create.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Details.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Index.cshtml" />
     <None Include="wwwroot\css\font\Flaticon.svg" />
     <None Include="wwwroot\css\font\Flaticon.woff2" />
     <None Include="wwwroot\css\font\_flaticon.scss" />
@@ -325,6 +335,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
 
 </Project>
