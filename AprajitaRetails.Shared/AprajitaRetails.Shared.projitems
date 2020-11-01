@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RegisteredUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RoleUserView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AppInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BaseT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Indentity\AppUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Contacts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\Attendance.cs" />
