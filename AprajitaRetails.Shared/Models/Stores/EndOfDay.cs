@@ -8,7 +8,7 @@ namespace AprajitaRetails.Shared.Models.Stores
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class EndOfDay
+    public class EndOfDay:BaseST
     {
         public int EndOfDayId { get; set; }
 
@@ -32,9 +32,6 @@ namespace AprajitaRetails.Shared.Models.Stores
         [Display(Name = "Cash at Store")]
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal CashInHand { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
+       
     }
 }

@@ -7,7 +7,7 @@ namespace AprajitaRetails.Shared.Models.Stores
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class ArvindPayment
+    public class ArvindPayment:BaseGT
     {
         public int ArvindPaymentId { get; set; }
         public ArvindAccount Arvind { get; set; }
@@ -18,8 +18,6 @@ namespace AprajitaRetails.Shared.Models.Stores
         public decimal Amount { get; set; }
         public string BankDetails { get; set; }
         public string Remarks { get; set; }
-
-        public string UserName { get; set; }
 
     }    
 }

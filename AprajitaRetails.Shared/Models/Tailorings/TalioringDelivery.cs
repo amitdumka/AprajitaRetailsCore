@@ -1,7 +1,4 @@
-﻿
-using AprajitaRetails.Shared.Models.Stores;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +7,7 @@ namespace AprajitaRetails.Shared.Models.Tailorings
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class TalioringDelivery
+    public class TalioringDelivery : BaseST
     {
         public int TalioringDeliveryId { get; set; }
 
@@ -29,11 +26,5 @@ namespace AprajitaRetails.Shared.Models.Tailorings
         public decimal Amount { get; set; }
 
         public string Remarks { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
     }
 }

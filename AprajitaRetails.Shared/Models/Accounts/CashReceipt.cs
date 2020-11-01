@@ -9,7 +9,7 @@ namespace AprajitaRetails.Shared.Models.Accounts
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class CashReceipt
+    public class CashReceipt:BaseST
     {
         public int CashReceiptId { get; set; }
 
@@ -27,12 +27,6 @@ namespace AprajitaRetails.Shared.Models.Accounts
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal Amount { get; set; }
         [Display(Name = "Receipt No")]
-        public string SlipNo { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
+        public string SlipNo { get; set; }       
     }
 }

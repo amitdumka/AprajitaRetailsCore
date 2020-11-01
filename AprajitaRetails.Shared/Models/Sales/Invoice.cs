@@ -168,7 +168,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         [DefaultValue(false)]
         public bool IsManualBill { get; set; }
 
-        public string UserName { get; set; }
+         
     }
 
     public class RegularSaleItem : SaleItem

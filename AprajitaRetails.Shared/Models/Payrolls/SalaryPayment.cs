@@ -1,6 +1,4 @@
-﻿using AprajitaRetails.Shared.Models.Stores;
-using System;
-using System.ComponentModel;
+﻿using System;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +8,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class SalaryPayment
+    public class SalaryPayment : BaseST
     {
         public int SalaryPaymentId { get; set; }
 
@@ -35,11 +33,5 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public PayMode PayMode { get; set; }
 
         public string Details { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
     }
 }

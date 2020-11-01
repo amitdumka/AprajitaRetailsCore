@@ -10,7 +10,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// @Version: 5.0
     /// </summary>
 
-    public class Employee
+    public class Employee:BaseST
     {
         public int EmployeeId { get; set; }
 
@@ -40,17 +40,16 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public bool IsTailors { get; set; }
 
         [Display(Name = "eMail"), EmailAddress]
-        public string? EMail { get; set; }
+        public string  EMail { get; set; }
 
-        public DateTime? DateOfBirth { get; set; }
-        public string? AdharNumber { get; set; }
-        public string? PanNo { get; set; }
-        public string? OtherIdDetails { get; set; }
-        public string? Address { get; set; }
-        public string? City { get; set; }
-        public string? State { get; set; }
-        public string? FatherName { get; set; }
-
+        public DateTime  DateOfBirth { get; set; }
+        public string  AdharNumber { get; set; }
+        public string  PanNo { get; set; }
+        public string  OtherIdDetails { get; set; }
+        public string  Address { get; set; }
+        public string  City { get; set; }
+        public string  State { get; set; }
+        public string  FatherName { get; set; }
         public string HighestQualification { get; set; }
 
         // public ICollection<SalaryPayment> SalaryPayments { get; set; }
@@ -60,17 +59,9 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         // public ICollection<Expense> Expenses { get; set; }
         //public virtual ICollection<CurrentSalary> CurrentSalaries { get; set; }
         public ICollection<Salesman> Salesmen { get; set; }
-
         public ICollection<Attendance> Attendances { get; set; }
         public virtual EmployeeUser User { get; set; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
+       
     }
 
     public class EmployeeUser
@@ -80,7 +71,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
 
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
-        public string UserName { get; set; }
+         
         public bool IsWorking { get; set; }
     }
 }

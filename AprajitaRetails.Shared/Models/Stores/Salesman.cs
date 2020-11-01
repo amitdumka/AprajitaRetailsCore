@@ -11,7 +11,7 @@ namespace AprajitaRetails.Shared.Models.Stores
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class Salesman
+    public class Salesman:BaseST
     {
         public int SalesmanId { get; set; }
         [Display(Name = "Salesman")]
@@ -19,12 +19,7 @@ namespace AprajitaRetails.Shared.Models.Stores
 
         public virtual ICollection<DailySale> DailySales { get; set; }
         public virtual ICollection<RegularSaleItem> SaleItems { get; set; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
+      
         public int? EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
     }

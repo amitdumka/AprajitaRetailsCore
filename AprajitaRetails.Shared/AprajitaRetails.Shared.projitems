@@ -41,7 +41,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\OnlineSale.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\OnlineVendor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\SaleInvoice.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\StoreLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\ArvindPayment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Customer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\EndOfDay.cs" />

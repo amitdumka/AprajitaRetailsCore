@@ -10,7 +10,7 @@ namespace AprajitaRetails.Shared.Models.Sales
     /// @Version: 5.0
     /// </summary>
 
-    public class DailySale
+    public class DailySale:BaseST
     {
         public int DailySaleId { get; set; }
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -45,12 +45,6 @@ namespace AprajitaRetails.Shared.Models.Sales
 
         public int? MixAndCouponPaymentId { get; set; }
         public virtual MixAndCouponPayment MixAndCouponPayment { get; set; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-        public string UserName { get; set; }
 
         public virtual CouponPayment CouponPayment { get; set; }
         public virtual PointRedeemed PointRedeemed { get; set; }
@@ -91,7 +85,7 @@ namespace AprajitaRetails.Shared.Models.Sales
         public string Remark { get; set; }
     }
 
-    public class EDC
+    public class EDC:BaseSNT
     {
         public int EDCId { get; set; }
         public int TID { get; set; }
@@ -106,10 +100,9 @@ namespace AprajitaRetails.Shared.Models.Sales
         public bool IsWorking { get; set; }
         public string MID { get; set; }
         public string Remark { get; set; }
-        public int StoreId { get; set; }
-        public virtual Store Store { get; set; }
+        
     }
-    public class EDCTranscation
+    public class EDCTranscation :BaseSNT
     {
         public int EDCTranscationId { get; set; }
         public int EDCId { get; set; }
@@ -121,12 +114,10 @@ namespace AprajitaRetails.Shared.Models.Sales
         public string CardEndingNumber { get; set; }
         public CardMode CardTypes { get; set; }
         public string InvoiceNumber { get; set; }
-
-        public int StoreId { get; set; }
-        public virtual Store Store { get; set; }
+      
     }
 
-    public class MixAndCouponPayment
+    public class MixAndCouponPayment:BaseSNT
     {
         public int MixAndCouponPaymentId { get; set; }
 
@@ -139,7 +130,6 @@ namespace AprajitaRetails.Shared.Models.Sales
         public string Details { get; set; }
         public string Remarks { get; set; }
 
-        public int StoreId { get; set; }
-        public virtual Store Store { get; set; }
+       
     }
 }

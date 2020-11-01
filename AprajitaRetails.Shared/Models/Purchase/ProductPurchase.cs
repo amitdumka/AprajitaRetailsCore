@@ -10,13 +10,9 @@ namespace AprajitaRetails.Shared.Models.Purchase
     /// @Version: 5.0
     /// </summary>
     ///
-    public class ProductPurchase
+    public class ProductPurchase:BaseST
     {
         public int ProductPurchaseId { get; set; }
-
-        [Display(Name = "Store")]
-        public int StoreId { get; set; }
-        public virtual Store Store { get; set; }
 
         public string InWardNo { get; set; }
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -45,6 +41,6 @@ namespace AprajitaRetails.Shared.Models.Purchase
         public bool IsPaid { get; set; }
         public ICollection<PurchaseItem> PurchaseItems { get; set; }
 
-        public string UserName { get; set; }
+         
     }
 }

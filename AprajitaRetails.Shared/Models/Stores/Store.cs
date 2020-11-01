@@ -11,7 +11,7 @@ namespace AprajitaRetails.Shared.Models.Stores
     /// <summary>
     /// Version:5.0
     /// </summary>
-    public class Store
+    public class Store:BaseGT
     {
         public int StoreId { get; set; }
         [Display(Name = "Store Code")]

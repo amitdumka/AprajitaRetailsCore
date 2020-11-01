@@ -1,8 +1,6 @@
 ﻿//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-using AprajitaRetails.Shared.Models.Stores;
 using System;
-using System.ComponentModel;
 //using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,7 +10,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class StaffAdvanceReceipt
+    public class StaffAdvanceReceipt : BaseST
     {
         public int StaffAdvanceReceiptId { get; set; }
 
@@ -33,15 +31,5 @@ namespace AprajitaRetails.Shared.Models.Payrolls
 
         [Display(Name = "Party")]
         public int? PartyId { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
-
     }
-
-
-
 }

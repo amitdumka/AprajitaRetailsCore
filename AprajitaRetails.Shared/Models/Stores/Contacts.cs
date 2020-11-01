@@ -24,6 +24,6 @@ namespace AprajitaRetails.Shared.Models.AddressBook
         [Display(Name = "Notes")]
         public string? Remarks { get; set; }
 
-        public string UserName { get; set; }
+         
     }
 }

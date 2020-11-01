@@ -9,7 +9,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// @Version: 5.0
     /// </summary>
 
-    public class Attendance
+    public class Attendance:BaseST
     {
         public int AttendanceId { get; set; }
 
@@ -27,31 +27,26 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public AttUnit Status { get; set; }
         public string Remarks { get; set; }
         public bool? IsTailoring { get; set; }
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
+      
     }
 
-    public class AttendanceVM
-    {
-        public int AttendanceVMId { get; set; }
-        [Display(Name = "Staff Name")]
-        public string EmployeeName { get; set; }
+    //public class AttendanceVM
+    //{
+    //    public int AttendanceVMId { get; set; }
+    //    [Display(Name = "Staff Name")]
+    //    public string EmployeeName { get; set; }
 
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Attendance Date")]
-        public DateTime AttDate { get; set; }
+    //    [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    //    [Display(Name = "Attendance Date")]
+    //    public DateTime AttDate { get; set; }
 
-        [Display(Name = "Entry Time")]
-        public string EntryTime { get; set; }
+    //    [Display(Name = "Entry Time")]
+    //    public string EntryTime { get; set; }
 
-        public int Status { get; set; }
-        public string Remarks { get; set; }
-        public bool? IsTailoring { get; set; }
-        public int StoreCode { get; set; }
-        public bool? IsDataConsumed { get; set; }
-    }
+    //    public int Status { get; set; }
+    //    public string Remarks { get; set; }
+    //    public bool? IsTailoring { get; set; }
+    //    public int StoreCode { get; set; }
+    //    public bool? IsDataConsumed { get; set; }
+    //}
 }

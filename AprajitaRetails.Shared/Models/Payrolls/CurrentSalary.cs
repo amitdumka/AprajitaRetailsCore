@@ -10,7 +10,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// @Version: 5.0
     /// </summary>
 
-    public class CurrentSalary
+    public class CurrentSalary:BaseGT
     {
         //TODO: Think some thing others also
         //TODO: Implement tailoring division on this model
@@ -55,7 +55,6 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public bool IsTailoring { get; set; }
 
         public virtual ICollection<PaySlip> PaySlips { get; set; }
-
-        public string UserName { get; set; }
+       
     }
 }

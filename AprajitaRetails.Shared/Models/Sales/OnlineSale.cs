@@ -7,7 +7,7 @@ namespace AprajitaRetails.Shared.Models.Sales
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class OnlineSale
+    public class OnlineSale:BaseST
     {
         public int OnlineSaleId { get; set; }
 
@@ -45,11 +45,11 @@ namespace AprajitaRetails.Shared.Models.Sales
 
         public virtual OnlineSaleReturn SaleReturn { get; set; }
 
-        public string UserName { get; set; }
+         
 
     }
 
-    public class OnlineSaleReturn
+    public class OnlineSaleReturn:BaseST
     {
         public int OnlineSaleReturnId { get; set; }
 
@@ -83,7 +83,7 @@ namespace AprajitaRetails.Shared.Models.Sales
         [Display(Name = "Recived Date")]
         public DateTime? RecivedDate { get; set; }
 
-        public string UserName { get; set; }
+         
 
         //[ForeignKey("OnlineVendor")]
         //public int OnlineVendorId { get; set; }

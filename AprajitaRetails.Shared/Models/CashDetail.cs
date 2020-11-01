@@ -1,6 +1,4 @@
-﻿using AprajitaRetails.Shared.Models.Stores;
-using System;
-using System.ComponentModel;
+﻿using System;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +8,7 @@ namespace AprajitaRetails.Shared.Models
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class CashDetail
+    public class CashDetail : BaseST
     {
         public int CashDetailId { set; get; }
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -42,10 +40,5 @@ namespace AprajitaRetails.Shared.Models
         public int Coin2 { set; get; }
         [Display(Name = "Coin 1")]
         public int Coin1 { set; get; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
     }
 }

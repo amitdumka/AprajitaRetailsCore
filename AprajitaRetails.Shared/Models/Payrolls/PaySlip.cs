@@ -8,7 +8,7 @@ namespace AprajitaRetails.Shared.Models.Payrolls
     /// @Version: 5.0
     /// </summary>
     //TODO: convert to implement tailioring division also
-    public class PaySlip
+    public class PaySlip : BaseNT
     {
         public int PaySlipId { get; set; }
 
@@ -58,7 +58,5 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public string Remarks { get; set; }
 
         public bool? IsTailoring { get; set; }
-
-        public string UserName { get; set; }
     }
 }

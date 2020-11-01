@@ -7,7 +7,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class ElectricityConnection
+    public class ElectricityConnection:BaseSNT
     {
         public int ElectricityConnectionId { get; set; }
         public string LocationName { get; set; }
@@ -35,7 +35,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
         public string Remarks { get; set; }
     }
 
-    public class EletricityBill
+    public class EletricityBill:BaseSNT
     {
         public int EletricityBillId { get; set; }
         public int ElectricityConnectionId { get; set; }
@@ -60,7 +60,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
         public ElectricityConnection Connection { get; set; }
     }
 
-    public class EBillPayment
+    public class EBillPayment:BaseST
     {
         public int EBillPaymentId { get; set; }
         public int EletricityBillId { get; set; }

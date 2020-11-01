@@ -8,7 +8,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
     /// @Version: 5.0
     /// </summary>
 
-    public class RentedLocation
+    public class RentedLocation:BaseSNT
     {
         public int RentedLocationId { get; set; }
         public string PlaceName { get; set; }
@@ -31,7 +31,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
         public RentType RentType { get; set; }
     }
 
-    public class Rent
+    public class Rent:BaseST
     {
         public int RentId { get; set; }
         [Display(Name = "Location")]

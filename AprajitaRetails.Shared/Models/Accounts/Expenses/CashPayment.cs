@@ -1,4 +1,5 @@
-﻿using AprajitaRetails.Shared.Models.Stores;
+﻿using AprajitaRetails.Shared.Models;
+using AprajitaRetails.Shared.Models.Stores;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
     /// @Version: 5.0
     /// </summary>
     // Expenses
-    public class CashPayment
+    public class CashPayment:BaseST
     {
         public int CashPaymentId { get; set; }
 
@@ -29,12 +30,6 @@ namespace AprajitaRetails.Shared.Models.Accounts.Expenses
         public decimal Amount { get; set; }
         [Display(Name = "Receipt No")]
         public string SlipNo { get; set; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
+       
     }
 }

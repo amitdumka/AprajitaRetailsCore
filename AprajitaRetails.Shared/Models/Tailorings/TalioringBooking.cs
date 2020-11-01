@@ -1,6 +1,4 @@
-﻿
-using AprajitaRetails.Shared.Models.Stores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +9,7 @@ namespace AprajitaRetails.Shared.Models.Tailorings
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class TalioringBooking
+    public class TalioringBooking : BaseST
     {
         public int TalioringBookingId { get; set; }
 
@@ -79,13 +77,6 @@ namespace AprajitaRetails.Shared.Models.Tailorings
         public bool IsDelivered { get; set; }
 
         public virtual ICollection<TalioringDelivery> Deliveries { get; set; }
-
-        //Version 3.0
-        [DefaultValue(1)]
-        public int? StoreId { get; set; }
-        public virtual Store Store { get; set; }
-
-        public string UserName { get; set; }
     }
 
     public class BookingOverDue
@@ -106,5 +97,4 @@ namespace AprajitaRetails.Shared.Models.Tailorings
         [Display(Name = "Due Days")]
         public int NoDays { get; set; }
     }
-
 }
