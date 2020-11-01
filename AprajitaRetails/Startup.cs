@@ -1,5 +1,7 @@
 using AprajitaRetails.Areas.Identity.Data;
 using AprajitaRetails.Data;
+using AprajitaRetails.DL.Data;
+using AprajitaRetails.Shared.Models.Indentity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,13 +39,13 @@ namespace AprajitaRetails
             });
 
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<AprajitaRetailsContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<AprajitaRetailsContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest)
                 .AddRazorPagesOptions(options =>

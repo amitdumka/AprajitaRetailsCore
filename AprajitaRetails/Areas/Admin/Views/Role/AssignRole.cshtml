@@ -1,6 +1,6 @@
-﻿  @model AprajitaRetails.Areas.Admin.Models.RoleUserView
+﻿@using AprajitaRetails.Shared.Models.Indentity
 @{
-    ViewData ["Title"] = "AssignRole";
+    ViewData["Title"] = "AssignRole";
 }
 
 <h1>AssignRole</h1>
@@ -31,6 +31,6 @@
     <a asp-action="Index" class="btn btn-outline-default btn-sm">Back to List</a>
 </div>
 @section Scripts {
-    @{await Html.RenderPartialAsync ("_ValidationScriptsPartial");
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }

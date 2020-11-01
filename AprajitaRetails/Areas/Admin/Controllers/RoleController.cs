@@ -1,5 +1,4 @@
-﻿using AprajitaRetails.Areas.Admin.Models;
-using AprajitaRetails.Areas.Identity.Data;
+﻿using AprajitaRetails.Shared.Models.Indentity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

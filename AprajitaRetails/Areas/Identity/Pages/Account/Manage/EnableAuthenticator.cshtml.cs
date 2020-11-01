@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using AprajitaRetails.Areas.Identity.Data;
+using AprajitaRetails.Shared.Models.Indentity;
 
 namespace AprajitaRetails.Areas.Identity.Pages.Account.Manage
 {

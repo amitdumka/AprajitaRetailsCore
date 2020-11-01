@@ -340,7 +340,10 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AprajitaRetails.DL\AprajitaRetails.DL.csproj" />
   </ItemGroup>
 
 </Project>

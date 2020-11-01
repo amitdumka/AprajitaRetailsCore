@@ -20,9 +20,9 @@ namespace AprajitaRetails.DL.Data
 {
     public class AprajitaRetailsContext : IdentityDbContext<AppUser>
     {
-        public AprajitaRetailsContext(DbContextOptions<AprajitaRetailsContext> options)
-            : base(options)
+        public AprajitaRetailsContext(DbContextOptions<AprajitaRetailsContext> options): base(options)
         {
+            ApplyMigrations(this);
         }
 
         public DbSet<Store> Stores { get; set; }
