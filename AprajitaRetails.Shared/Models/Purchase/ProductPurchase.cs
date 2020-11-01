@@ -1,12 +1,14 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase
 {
-    //Store Based Class
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+    ///
     public class ProductPurchase
     {
         public int ProductPurchaseId { get; set; }
@@ -43,10 +45,5 @@ namespace AprajitaRetails.Shared.Models.Purchase.Models
         public ICollection<PurchaseItem> PurchaseItems { get; set; }
 
         public string UserName { get; set; }
-
-
-
     }
-
-
 }

@@ -1,10 +1,10 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
 
     public class Employee

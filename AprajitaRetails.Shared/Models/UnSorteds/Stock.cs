@@ -1,4 +1,4 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
+﻿
 using System.ComponentModel.DataAnnotations;
 
 namespace AprajitaRetails.Shared.Models.Purchase.Models

@@ -1,4 +1,4 @@
-﻿namespace AprajitaRetails.Models.AprajitaRetails
+﻿namespace AprajitaRetails.Shared.Models.AprajitaRetails
 {
     public class LedgerHead
     {

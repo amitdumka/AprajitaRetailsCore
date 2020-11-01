@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AprajitaRetails.Models.Voy
+namespace AprajitaRetails.Shared.Models.Voy
 {
     public class VBInvoice
     {
@@ -52,7 +52,7 @@ namespace AprajitaRetails.Models.Voy
     }
 }
 
-namespace AprajitaRetails.Models.JsonData
+namespace AprajitaRetails.Shared.Models.JsonData
 {
     public class Rootobject
     {

@@ -1,9 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase
 {
-    // This is Store Based but still StoreID linking is not done. will check for it in final realase
+    /// <summary>
+    /// @Version: 5.0
+    /// This is Store Based but still StoreID linking is not done. will check for it in final realase
+    /// </summary>
+    /// 
+
     public class PurchaseItem
     {
         public int PurchaseItemId { get; set; }//Pk

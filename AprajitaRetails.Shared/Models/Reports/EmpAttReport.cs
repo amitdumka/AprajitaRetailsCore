@@ -1,11 +1,24 @@
-﻿using AprajitaRetails.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Reports.Models
+namespace AprajitaRetails.Shared.Models.Reports
 {
-
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+    
+    //Can be Used at DailySale or any place to reduce no of different function
+    public class SaleReportInfo
+    {
+        public decimal LastMonthSale { get; set; }
+        public decimal CurrentMonthSale { get; set; }
+        public decimal ManualSale { get; set; }
+        public decimal TodaySale { get; set; }
+        public decimal CashInHand { get; set; }
+        public decimal TotalDues { get; set; }
+        public decimal AdjustedAmount { get; set; }
+    }
 
     public class EmpAttReport
     {
@@ -25,7 +38,6 @@ namespace AprajitaRetails.Shared.Models.Reports.Models
         public DateTime? LeavingDate { get; set; }
         public bool IsWorking { get; set; }
 
-
         public decimal TotalDaysPresent { get; set; }
 
         public decimal TotalDaysAbsent { get; set; }
@@ -37,7 +49,6 @@ namespace AprajitaRetails.Shared.Models.Reports.Models
         public decimal TotalFinalPresent { get; set; }
 
         public int NoOfWorkingDays { get; set; }
-
     }
     public class EmpFinReport
     {
@@ -53,7 +64,6 @@ namespace AprajitaRetails.Shared.Models.Reports.Models
         [Display(Name = "Leaving Date")]
         public DateTime? LeavingDate { get; set; }
         public bool IsWorking { get; set; }
-
 
         public int EmpFinReportId { get; set; }
         [DataType(DataType.Currency), Column(TypeName = "money")]
@@ -91,12 +101,9 @@ namespace AprajitaRetails.Shared.Models.Reports.Models
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
 
-
         public EmpAttReport? AttReport { get; set; }
         public EmpFinReport? FinReport { get; set; }
-
     }
-
 
     public class BookingOverDue
     {
@@ -115,8 +122,5 @@ namespace AprajitaRetails.Shared.Models.Reports.Models
         public int Quantity { get; set; }
         [Display(Name = "Due Days")]
         public int NoDays { get; set; }
-
     }
-
-
 }

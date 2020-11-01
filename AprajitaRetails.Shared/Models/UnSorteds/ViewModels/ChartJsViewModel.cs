@@ -1,4 +1,4 @@
-﻿namespace AprajitaRetails.Models.ViewModels
+﻿namespace AprajitaRetails.Shared.Models.ViewModels
 {
     public class ChartJsViewModel
     {

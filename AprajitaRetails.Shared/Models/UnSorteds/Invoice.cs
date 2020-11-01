@@ -1,5 +1,5 @@
 ﻿using AprajitaRetails.Areas.Purchase.Models;
-using AprajitaRetails.Areas.Voyager.Models;
+
 using AprajitaRetails.Models;
 using System;
 using System.Collections.Generic;

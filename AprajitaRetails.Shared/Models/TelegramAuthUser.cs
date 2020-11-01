@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     /// <summary>
     /// @Version: 5.0

@@ -1,5 +1,5 @@
 ﻿using AprajitaRetails.Areas.Purchase.Models;
-using AprajitaRetails.Areas.Voyager.Models;
+
 using AprajitaRetails.Models;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,14 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Sales.Models.Views
+namespace AprajitaRetails.Shared.Models.Sales.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+
     #region BaseInvoice
+
     public class Invoice
     {
         [Key]
@@ -44,7 +49,6 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
 
         [DataType(DataType.Currency), Column(TypeName = "money"), Display(Name = "Taxes")]
         public decimal TotalTaxAmount { get; set; }
-
     }
 
     public class SaleItem
@@ -78,8 +82,6 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public virtual Salesman Salesman { get; set; }
         public long? HSNCode { get; set; }
         public virtual HSN HSN { get; set; }
-
-
     }
 
     public class PaymentDetail
@@ -130,8 +132,10 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public virtual PaymentDetail PaymentDetail { get; set; }
     }
 
-    #endregion
+    #endregion BaseInvoice
+
     //Tables
+
     #region RegularInvoiec
 
     public class RegularInvoice : Invoice
@@ -154,14 +158,9 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public virtual RegularInvoice Invoice { get; set; }
     }
 
+    #endregion RegularInvoiec
 
 
-    #endregion
-
-    #region ManualInvoice
-
-
-    #endregion
 
     #region SalesReturn
     public class SaleReturn : Invoice
@@ -178,9 +177,10 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public int SaleItemReturnId { get; set; }
     }
 
-    #endregion
+    #endregion SalesReturn
 
     #region DTO
+
     public class SaveOrderDTO
     {
         public string Name { get; set; }
@@ -223,7 +223,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public string CardNo { get; set; }
     }
 
-    #endregion
+    #endregion DTO
 
     //TODO: Need to generalized
 

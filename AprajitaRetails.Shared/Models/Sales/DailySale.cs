@@ -1,14 +1,13 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.Sales
 {
-    //Version 3.0 
-    // Added Feature
-    //Income
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
 
     public class DailySale
     {
@@ -72,7 +71,6 @@ namespace AprajitaRetails.Models
         public string InvoiceNumber { get; set; }
 
         public string Remark { get; set; }
-
     }
     public class PointRedeemed
     {
@@ -109,7 +107,6 @@ namespace AprajitaRetails.Models
         public string Remark { get; set; }
         public int StoreId { get; set; }
         public virtual Store Store { get; set; }
-
     }
     public class EDCTranscation
     {
@@ -126,9 +123,7 @@ namespace AprajitaRetails.Models
 
         public int StoreId { get; set; }
         public virtual Store Store { get; set; }
-
     }
-
 
     public class MixAndCouponPayment
     {
@@ -145,8 +140,5 @@ namespace AprajitaRetails.Models
 
         public int StoreId { get; set; }
         public virtual Store Store { get; set; }
-
-
     }
-
 }

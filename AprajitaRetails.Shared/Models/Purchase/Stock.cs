@@ -1,8 +1,10 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AprajitaRetails.Shared.Models.Purchase.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     //Store Based Class
     public class Stock
     {
@@ -19,9 +21,5 @@ namespace AprajitaRetails.Shared.Models.Purchase.Models
         [Display(Name = "Purchase Qty")]
         public double PurchaseQty { get; set; }
         public Unit Units { get; set; }
-
-
-
     }
-
 }

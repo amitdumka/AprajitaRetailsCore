@@ -1,13 +1,13 @@
-﻿//using System.Data.Entity;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using AprajitaRetails.Areas.Voyager.Models;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AprajitaRetails.Shared.Models.Stores
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class MonthEnd
     {
         //Table Data

@@ -1,10 +1,10 @@
-﻿using AprajitaRetails.Areas.Voyager.Models;
+﻿
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     //Version 3.0 
     // Added Feature

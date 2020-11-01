@@ -2,8 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.Sales
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class OnlineSale
     {
         public int OnlineSaleId { get; set; }

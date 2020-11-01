@@ -1,13 +1,16 @@
 ﻿//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using AprajitaRetails.Areas.Voyager.Models;
+
 using System;
 using System.ComponentModel;
 //using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.Payrolls
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class StaffAdvanceReceipt
     {
         public int StaffAdvanceReceiptId { get; set; }

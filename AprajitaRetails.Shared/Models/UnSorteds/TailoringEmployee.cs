@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     //Tailoring
     public class TailoringEmployee

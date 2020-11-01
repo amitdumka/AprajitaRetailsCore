@@ -1,8 +1,8 @@
 ﻿//using System.Data.Entity;
 //using AprajitaRetails.Areas.Sales.Models.Views;
-////using AprajitaRetails.Areas.Voyager.Models;
+////
 ////using Microsoft.EntityFrameworkCore.Metadata.Internal;
-//using AprajitaRetails.Areas.Voyager.Models;
+//
 using AprajitaRetails.Areas.Sales.Models.Views;
 using AprajitaRetails.Models;
 using System.Collections.Generic;
@@ -11,6 +11,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AprajitaRetails.Shared.Models.Stores
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class Salesman
     {
         public int SalesmanId { get; set; }
@@ -24,7 +27,6 @@ namespace AprajitaRetails.Shared.Models.Stores
         [DefaultValue(1)]
         public int? StoreId { get; set; }
         public virtual Store Store { get; set; }
-        // public int StoreLocationId { get; internal set; }
 
         public int? EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }

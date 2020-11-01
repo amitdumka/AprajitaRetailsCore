@@ -2,9 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase
 {
-    //Global Class
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
 
     public class ProductItem
     {
@@ -44,11 +46,6 @@ namespace AprajitaRetails.Shared.Models.Purchase.Models
         public Size Size { get; set; }
         public Unit Units { get; set; }
 
-
         public virtual ICollection<PurchaseItem> PurchaseItems { get; set; }
-
-
     }
-
-
 }

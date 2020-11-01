@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     //Version 3.0
     public class StoreLocation

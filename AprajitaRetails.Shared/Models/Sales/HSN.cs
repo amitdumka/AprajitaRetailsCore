@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AprajitaRetails.Shared.Models.Sales.Models.Views
+namespace AprajitaRetails.Shared.Models.Sales
 {
-
-
-
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class HSN
     {
         [Key]
@@ -25,8 +25,6 @@ namespace AprajitaRetails.Shared.Models.Sales.Models.Views
         public static void GetHSNList()
         {
             List<HSN> list = new List<HSN>();
-
-
         }
     }
 }

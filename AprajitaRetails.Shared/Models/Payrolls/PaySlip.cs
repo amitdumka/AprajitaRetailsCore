@@ -2,8 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.Payrolls
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     //TODO: convert to implement tailioring division also
     public class PaySlip
     {
@@ -57,8 +60,5 @@ namespace AprajitaRetails.Models
         public bool? IsTailoring { get; set; }
 
         public string UserName { get; set; }
-
-
     }
-
 }

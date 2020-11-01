@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     public class OnlineVendor
     {

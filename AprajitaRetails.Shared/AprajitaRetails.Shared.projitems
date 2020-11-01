@@ -9,9 +9,6 @@
     <Import_RootNamespace>AprajitaRetails.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\AprajitaRetails\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Data\Json\JsonToObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Paging\PaginatedList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Types\DataTypes.cs" />
@@ -58,16 +55,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\Employee.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\PaySlip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\SalaryPayment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\StaffAdvancePayment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\StaffAdvanceReceipt.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\uo\Attendance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Purchase\Brand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Purchase\ProductItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Purchase\ProductPurchase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Purchase\PurchaseItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Purchase\Stock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Reports\EmpAttReport.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Reports\SaleReport.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\DailySale.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\HSN.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Sales\Invoice.cs" />

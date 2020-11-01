@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 //using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models
 {
     public class TelegramAuthUser
     {

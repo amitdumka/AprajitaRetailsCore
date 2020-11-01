@@ -1,4 +1,4 @@
-﻿namespace AprajitaRetails.Models
+﻿namespace AprajitaRetails.Shared.Models
 {
     /// <summary>
     /// ChartJs: Data Structer

@@ -2,8 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Purchase.Models
+namespace AprajitaRetails.Shared.Models.Purchase
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+
     //global Class
     public class Brand
     {
@@ -44,5 +48,4 @@ namespace AprajitaRetails.Shared.Models.Purchase.Models
         //Navigation
         public ICollection<PurchaseItem> PurchaseItems { get; set; }
     }
-
 }

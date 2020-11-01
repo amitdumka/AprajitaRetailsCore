@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AprajitaRetails.Models
+namespace AprajitaRetails.Shared.Models.Sales
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class OnlineVendor
     {
         public int OnlineVendorId { get; set; }
