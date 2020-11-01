@@ -17,8 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.DL", "Apraj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.API", "AprajitaRetails.API\AprajitaRetails.API.csproj", "{16D4031F-988A-4C38-BFDF-B9394FCF02F9}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AprajitaRetails.Dumps", "AprajitaRetails.Dumps\AprajitaRetails.Dumps.shproj", "{1FFD2A6B-426F-4132-8E71-5D351237C784}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AprajitaRetails.Dumps\AprajitaRetails.Dumps.projitems*{1ffd2a6b-426f-4132-8e71-5d351237c784}*SharedItemsImports = 13
 		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{c8d8a2e6-4d43-4766-8d80-6b9f6a4b1c82}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

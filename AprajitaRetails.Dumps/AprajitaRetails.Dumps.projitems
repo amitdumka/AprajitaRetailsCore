@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1ffd2a6b-426f-4132-8e71-5d351237c784</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>AprajitaRetails.Dumps</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\AccountInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\AccountNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\AccountsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\AppInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Bank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\AccountInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\AccountNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\Bank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\BankDeposit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\BankWithdrawal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Banking\ChequesLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\BasicVoucher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\BookEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\CashDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\CashInBank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\CashInHand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\CashPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\CashReceipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Class.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\DueRecoverd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\DuesList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\ElectricityConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Expense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\LedgerEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\LedgerHead.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\LedgerMaster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\LedgerType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Party.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Payment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\PettyCashExpense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\Receipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\RentedLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Accounts\SuspenseAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\AccountInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\AccountNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\BankDeposit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\BankWithdrawal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\CashDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\CashInBank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\CashInHand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\CashPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\CashReceipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\ChequesLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\DueRecoverd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\DuesList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\EndOfDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\Expense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\LedgerHead.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\MonthEnd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\Payment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\PettyCashExpense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\Receipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\SalaryPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\Salesman.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\StaffAdvancePayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\StaffAdvanceReceipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\SuspenseAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\TableList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\TelegramAuthUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\ToDoMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\AprajitaRetails\TranscationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Bank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\BankDeposit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\BankWithdrawal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\BasicVoucher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\BookEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\CashPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\CashReceipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\ChartJs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\ChequesLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Class.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Contacts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\CurrentSalary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Customer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\DailySale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\DueRecoverd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\DuesList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Employee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\EndOfDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Expense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\InputData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Invoice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\LedgerEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\LedgerHead.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\LedgerMaster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\LedgerType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Party (2).cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Party.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Payment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\PettyCashExpense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\Receipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\ReturnInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\RoleUserView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\SalaryPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\SaleInvoice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\SuspenseAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uo\Party.cs" />
+  </ItemGroup>
+</Project>

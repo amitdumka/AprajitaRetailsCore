@@ -1,12 +1,13 @@
-﻿using AprajitaRetails.Areas.Reports.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.ViewModels
+namespace AprajitaRetails.Shared.ViewModels
 {
-
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class ContactUsVM
     {
         public string FirstName { get; set; }

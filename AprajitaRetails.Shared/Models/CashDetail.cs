@@ -1,13 +1,14 @@
-﻿//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-using System;
+﻿using System;
 using System.ComponentModel;
-//using System.Data.Entity;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AprajitaRetails.Shared.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class CashDetail
     {
         public int CashDetailId { set; get; }
@@ -47,5 +48,3 @@ namespace AprajitaRetails.Shared.Models
         public virtual Store Store { get; set; }
     }
 }
-
-

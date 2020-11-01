@@ -1,14 +1,13 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
-//using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
 
 namespace AprajitaRetails.Shared.Models
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
     public class CashInBank
     {
         public int CashInBankId { get; set; }
@@ -17,7 +16,6 @@ namespace AprajitaRetails.Shared.Models
         public DateTime CIBDate { get; set; }
         [Display(Name = "Opening Balance")]
         [DataType(DataType.Currency), Column(TypeName = "money")]
-
         public decimal OpenningBalance { get; set; }
         [DataType(DataType.Currency), Column(TypeName = "money")]
         [Display(Name = "ClosingBalance")]
@@ -41,8 +39,4 @@ namespace AprajitaRetails.Shared.Models
         public int? StoreId { get; set; }
         public virtual Store Store { get; set; }
     }
-
-
-
-
 }

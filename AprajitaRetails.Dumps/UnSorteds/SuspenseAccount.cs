@@ -1,12 +1,15 @@
 ﻿using System;
-//using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
-namespace AprajitaRetails.Shared.Models
+
+namespace AprajitaRetails.Shared.Models.Accounts
 {
+    /// <summary>
+    /// @Version: 5.0
+    /// </summary>
+    /// 
     //Suspenses
     public class SuspenseAccount
     {

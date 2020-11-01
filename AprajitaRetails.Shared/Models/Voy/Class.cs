@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// @Version: 5.0
+/// </summary>
 namespace AprajitaRetails.Shared.Models.Voy
 {
     public class VBInvoice
@@ -52,6 +55,9 @@ namespace AprajitaRetails.Shared.Models.Voy
     }
 }
 
+/// <summary>
+/// @Version: 5.0
+/// </summary>
 namespace AprajitaRetails.Shared.Models.JsonData
 {
     public class Rootobject
