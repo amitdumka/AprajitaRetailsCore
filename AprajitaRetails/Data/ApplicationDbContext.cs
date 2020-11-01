@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AprajitaRetails.Areas.Identity.Data;
+using AprajitaRetails.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,5 +14,7 @@ namespace AprajitaRetails.Data
             : base(options)
         {
         }
+
+        
     }
 }

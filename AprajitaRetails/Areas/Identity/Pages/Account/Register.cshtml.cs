@@ -47,7 +47,7 @@ namespace AprajitaRetails.Areas.Identity.Pages.Account
         {
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "Last Name")]
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
 
             [Required]
