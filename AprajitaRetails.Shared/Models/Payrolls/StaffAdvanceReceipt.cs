@@ -1,5 +1,6 @@
 ﻿//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
+using AprajitaRetails.Shared.Models.Stores;
 using System;
 using System.ComponentModel;
 //using System.Data.Entity;

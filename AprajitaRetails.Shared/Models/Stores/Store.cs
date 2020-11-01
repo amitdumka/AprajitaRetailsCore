@@ -1,6 +1,7 @@
-﻿using AprajitaRetails.Areas.Purchase.Models;
-using AprajitaRetails.Areas.Uploader.Models;
-using AprajitaRetails.Models;
+﻿using AprajitaRetails.Shared.Models.Purchase;
+using AprajitaRetails.Shared.Models.Purchase.Models;
+using AprajitaRetails.Shared.Models.Sales;
+using AprajitaRetails.Shared.Models.Uploader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

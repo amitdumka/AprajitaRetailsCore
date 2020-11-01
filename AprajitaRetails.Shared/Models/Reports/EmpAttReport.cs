@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AprajitaRetails.Shared.Models.Payrolls;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -105,22 +106,5 @@ namespace AprajitaRetails.Shared.Models.Reports
         public EmpFinReport? FinReport { get; set; }
     }
 
-    public class BookingOverDue
-    {
-        [Display(Name = "Booking ID")]
-        public int BookingId { get; set; }
-        [Display(Name = "Customer Name")]
-        public string CustomerName { get; set; }
-        [Display(Name = "Slip No")]
-        public string SlipNo { get; set; }
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Booking Date")]
-        public DateTime BookingDate { get; set; }
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Delivery Date")]
-        public DateTime DelveryDate { get; set; }
-        public int Quantity { get; set; }
-        [Display(Name = "Due Days")]
-        public int NoDays { get; set; }
-    }
+    
 }

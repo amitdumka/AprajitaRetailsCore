@@ -1,4 +1,4 @@
-﻿using AprajitaRetails.Areas.Sales.Models.Views;
+﻿using AprajitaRetails.Shared.Models.Sales.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

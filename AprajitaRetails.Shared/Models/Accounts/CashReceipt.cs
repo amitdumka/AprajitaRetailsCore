@@ -1,34 +1,33 @@
-﻿
-using AprajitaRetails.Shared.Models.Stores;
+﻿using AprajitaRetails.Shared.Models.Stores;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprajitaRetails.Shared.Models.Tailorings
+namespace AprajitaRetails.Shared.Models.Accounts
 {
     /// <summary>
     /// @Version: 5.0
     /// </summary>
-    public class TalioringDelivery
+    public class CashReceipt
     {
-        public int TalioringDeliveryId { get; set; }
+        public int CashReceiptId { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Delivery Date")]
-        public DateTime DeliveryDate { get; set; }
+        [Display(Name = "Receipt Date")]
+        public DateTime InwardDate { get; set; }
 
-        [Display(Name = "Booking ID")]
-        public int TalioringBookingId { get; set; }
-        public TalioringBooking Booking { get; set; }
+        [Display(Name = "Mode")]
+        public int TranscationModeId { get; set; }
+        public TranscationMode Mode { get; set; }
 
-        [Display(Name = "Voy Inv No")]
-        public string InvNo { get; set; }
+        [Display(Name = "Receipt From"), Required]
+        public string ReceiptFrom { get; set; }
 
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal Amount { get; set; }
-
-        public string Remarks { get; set; }
+        [Display(Name = "Receipt No")]
+        public string SlipNo { get; set; }
         //Version 3.0
         [DefaultValue(1)]
         public int? StoreId { get; set; }

@@ -12,9 +12,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Json\JsonToObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Paging\PaginatedList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Types\DataTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Accounts\Banking\Bank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Accounts\Expenses\CashPayment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Accounts\CashReceipt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Accounts\Expenses\ElectricityConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Accounts\Expenses\RentedLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RegisteredUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Admin\RoleUserView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AppInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Indentity\AppUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Stores\Contacts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\Attendance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Payrolls\CurrentSalary.cs" />
@@ -72,7 +78,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Types\ArvindAccount.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\Accounts\Banking\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Accounts\Ledgers\" />
   </ItemGroup>
 </Project>

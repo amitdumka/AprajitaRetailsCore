@@ -1,4 +1,5 @@
-﻿using AprajitaRetails.Areas.Purchase.Models;
+﻿
+using AprajitaRetails.Shared.Models.Purchase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

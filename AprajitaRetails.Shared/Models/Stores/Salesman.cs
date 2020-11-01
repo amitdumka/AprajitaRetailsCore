@@ -1,10 +1,7 @@
-﻿//using System.Data.Entity;
-//using AprajitaRetails.Areas.Sales.Models.Views;
-////
-////using Microsoft.EntityFrameworkCore.Metadata.Internal;
-//
-using AprajitaRetails.Areas.Sales.Models.Views;
-using AprajitaRetails.Models;
+﻿
+using AprajitaRetails.Shared.Models.Payrolls;
+using AprajitaRetails.Shared.Models.Sales;
+using AprajitaRetails.Shared.Models.Sales.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;

@@ -1,6 +1,5 @@
-﻿using AprajitaRetails.Areas.Purchase.Models;
-
-using AprajitaRetails.Models;
+﻿using AprajitaRetails.Shared.Models.Purchase;
+using AprajitaRetails.Shared.Models.Stores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,10 +22,12 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         //Store Info
         [Display(Name = "Store"), DefaultValue((int)1)]
         public int StoreId { get; set; }
+
         public Store Store { get; set; }
 
         [Display(Name = "Customer Name")]
         public int CustomerId { get; set; }
+
         public virtual Customer Customer { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true), Display(Name = "Sale Date")]
@@ -55,29 +56,41 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
     {
         [Display(Name = "Product")]
         public int ProductItemId { get; set; }
+
         [Display(Name = "Product")]
         public virtual ProductItem ProductItem { get; set; }
+
         public string BarCode { get; set; }
+
         [Display(Name = "Quantity")]
         public double Qty { get; set; }
+
         [Display(Name = "Unit")]
         public Unit Units { get; set; }
+
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal MRP { get; set; }
+
         [DataType(DataType.Currency), Column(TypeName = "money")]
         [Display(Name = "Basic Amount")]
         public decimal BasicAmount { get; set; }
+
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal Discount { get; set; }
+
         [DataType(DataType.Currency), Column(TypeName = "money")]
         [Display(Name = "Tax Amount")]
         public decimal TaxAmount { get; set; }
+
         [Display(Name = "Sale Tax")]
         public int? SaleTaxTypeId { get; set; }
+
         public virtual SaleTaxType SaleTaxType { get; set; }
+
         [DataType(DataType.Currency), Column(TypeName = "money")]
         [Display(Name = "Bill Amount")]
         public decimal BillAmount { get; set; }
+
         public int SalesmanId { get; set; }
         public virtual Salesman Salesman { get; set; }
         public long? HSNCode { get; set; }
@@ -88,8 +101,10 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PaymentDetailId { get; set; }
+
         [Key]
         public string InvoiceNo { get; set; }
+
         [ForeignKey("InvoiceNo")]
         public virtual RegularInvoice Invoice { get; set; }
 
@@ -106,6 +121,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         [DefaultValue(0)]
         [DataType(DataType.Currency), Column(TypeName = "money")]
         public decimal MixAmount { get; set; }
+
         public CardDetail? CardDetail { get; set; }
 
         [DefaultValue(false)]
@@ -115,8 +131,10 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
     public class CardDetail
     {
         public int CardDetailId { get; set; }
+
         [Display(Name = "Card Type")]
         public CardMode CardType { get; set; }
+
         public CardType CardCode { get; set; }
 
         [DataType(DataType.Currency), Column(TypeName = "money")]
@@ -128,6 +146,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         //public int PaymentDetailId { get; set; }
 
         public string InvoiceNo { get; set; }
+
         [ForeignKey("InvoiceNo")]
         public virtual PaymentDetail PaymentDetail { get; set; }
     }
@@ -142,6 +161,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RegularInvoiceId { get; set; }
+
         public PaymentDetail PaymentDetail { get; set; }
         public virtual ICollection<RegularSaleItem> SaleItems { get; set; }
 
@@ -150,25 +170,29 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
 
         public string UserName { get; set; }
     }
+
     public class RegularSaleItem : SaleItem
     {
         public int RegularSaleItemId { get; set; }
+
         //Navigation for Invoice
         public string InvoiceNo { get; set; }
+
         public virtual RegularInvoice Invoice { get; set; }
     }
 
     #endregion RegularInvoiec
 
-
-
     #region SalesReturn
+
     public class SaleReturn : Invoice
     {
         public int SaleReturnId { get; set; }
         public int RegularInvoiceId { get; set; }
+
         // public virtual RegularInvoice RegularInvoice { get; set; }
         public virtual ICollection<SaleItemReturn> ItemReturns { get; set; }
+
         //AutoCredit Note Created Id:
     }
 
@@ -186,12 +210,16 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public List<SaleItemList> SaleItems { get; set; }
+
         [MinLength(10), MaxLength(15)]
         public string MobileNo { get; set; }
+
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true), Display(Name = "Sale Date")]
         public DateTime OnDate { get; set; }
+
         public PaymentInfo PaymentInfo { get; set; }
     }
+
     public class EditOrderDTO
     {
         public string Name { get; set; }
@@ -199,11 +227,14 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
 
         [MinLength(10), MaxLength(15)]
         public string MobileNo { get; set; }
+
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true), Display(Name = "Sale Date")]
         public DateTime OnDate { get; set; }
+
         public List<SaleItemList> SaleItems { get; set; }
         public PaymentInfo PaymentInfo { get; set; }
     }
+
     public class SaleItemList
     {
         public string BarCode { get; set; }
@@ -214,6 +245,7 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
         public int Salesman { get; set; }
         public Unit Units { get; set; }
     }
+
     public class PaymentInfo
     {
         public decimal CardAmount { get; set; }

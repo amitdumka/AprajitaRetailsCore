@@ -1,4 +1,5 @@
 ﻿
+using AprajitaRetails.Shared.Models.Stores;
 using LinqToExcel.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -1,8 +1,7 @@
-﻿
+﻿using AprajitaRetails.Shared.Models.Accounts;
+using AprajitaRetails.Shared.Models.Accounts.Expenses;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
-
 
 namespace AprajitaRetails.Shared.Models
 {
@@ -13,16 +12,12 @@ namespace AprajitaRetails.Shared.Models
     {
         [Display(Name = "Mode")]
         public int TranscationModeId { get; set; }
+
         //[Index(IsUnique = true)]
         [Display(Name = "Transaction Mode")]
         public string Transcation { get; set; }
 
         public virtual ICollection<CashReceipt> CashReceipts { get; set; }
         public virtual ICollection<CashPayment> CashPayments { get; set; }
-        //Modes Name  write Seed 
-        // Amit Kumar , Mukesh, HomeExp, OtherHomeExpenses,CashInOut
     }
-
-
-
 }

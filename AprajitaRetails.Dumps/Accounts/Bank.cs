@@ -11,19 +11,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// </summary>
 namespace AprajitaRetails.Shared.Models.Accountings.Models
 {
-    //Banking 
-
-
-    //public class Bank
-    //{
-    //    public int BankId { get; set; }
-    //    [Display(Name = "Bank Name")]
-    //    public string BankName { get; set; }
-
-    //    public ICollection<BankAccount> Accounts { get; set; }
-    //    public ICollection<BankAccountInfo> BankAccounts { get; set; }
-    //    public ICollection<BankSetting> BankSettings { get; set; }
-    //}
+    
 
     public class BankAccount
     {

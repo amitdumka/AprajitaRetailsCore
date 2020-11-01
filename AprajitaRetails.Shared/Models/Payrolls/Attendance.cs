@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using AprajitaRetails.Shared.Models.Stores;
 
 namespace AprajitaRetails.Shared.Models.Payrolls
 {

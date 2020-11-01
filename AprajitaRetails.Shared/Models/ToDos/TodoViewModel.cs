@@ -1,5 +1,4 @@
-﻿using AprajitaRetails.Areas.ToDo.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AprajitaRetails.Shared.Models.ToDos
 {

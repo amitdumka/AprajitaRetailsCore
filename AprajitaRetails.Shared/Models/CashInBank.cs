@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AprajitaRetails.Shared.Models.Stores;
 
 namespace AprajitaRetails.Shared.Models
 {

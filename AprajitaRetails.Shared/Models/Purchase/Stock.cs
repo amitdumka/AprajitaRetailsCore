@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AprajitaRetails.Shared.Models.Stores;
+using System.ComponentModel.DataAnnotations;
 
 namespace AprajitaRetails.Shared.Models.Purchase.Models
 {

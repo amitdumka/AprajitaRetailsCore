@@ -1,4 +1,6 @@
 ﻿
+using AprajitaRetails.Data.Json;
+using AprajitaRetails.Shared.Models.Accounts.Banking;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
