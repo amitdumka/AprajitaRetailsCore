@@ -14,17 +14,12 @@ namespace AprajitaRetails.Shared.Models.Sales.Models
 
     #region BaseInvoice
 
-    public class Invoice
+    public class Invoice:BaseST
     {
         [Key]
         public string InvoiceNo { get; set; }
 
-        //Store Info
-        [Display(Name = "Store"), DefaultValue((int)1)]
-        public int StoreId { get; set; }
-
-        public Store Store { get; set; }
-
+        
         [Display(Name = "Customer Name")]
         public int CustomerId { get; set; }
 
