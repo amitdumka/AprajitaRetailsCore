@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails", "Aprajita
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AprajitaRetails.Shared", "AprajitaRetails.Shared\AprajitaRetails.Shared.shproj", "{C8D8A2E6-4D43-4766-8D80-6B9F6A4B1C82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.BL", "AprajitaRetails.BL\AprajitaRetails.BL.csproj", "{E8B79F25-8138-469F-9541-55FC7B03595D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.BL", "AprajitaRetails.BL\AprajitaRetails.BL.csproj", "{E8B79F25-8138-469F-9541-55FC7B03595D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.DL", "AprajitaRetails.DL\AprajitaRetails.DL.csproj", "{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.DL", "AprajitaRetails.DL\AprajitaRetails.DL.csproj", "{C7B7DB2F-2A0D-4D72-BB2A-317F8BB9AE6F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.API", "AprajitaRetails.API\AprajitaRetails.API.csproj", "{16D4031F-988A-4C38-BFDF-B9394FCF02F9}"
 EndProject
@@ -24,6 +24,7 @@ Global
 		AprajitaRetails.Dumps\AprajitaRetails.Dumps.projitems*{1ffd2a6b-426f-4132-8e71-5d351237c784}*SharedItemsImports = 13
 		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{c7b7db2f-2a0d-4d72-bb2a-317f8bb9ae6f}*SharedItemsImports = 5
 		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{c8d8a2e6-4d43-4766-8d80-6b9f6a4b1c82}*SharedItemsImports = 13
+		AprajitaRetails.Shared\AprajitaRetails.Shared.projitems*{e8b79f25-8138-469f-9541-55fc7b03595d}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
