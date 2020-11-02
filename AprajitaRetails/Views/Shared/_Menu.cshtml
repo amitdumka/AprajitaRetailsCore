@@ -1,0 +1,59 @@
+﻿<header>
+    <nav class="navbar navbar-expand-md  navbar-toggleable-sm navbar-light fixed-top  navbar-light white  border-bottom  pb-0 pt-0 ">
+
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="fas fa-bars"></i>
+                <span class="sr-only" aria-hidden="true">Toggle sidebar</span>
+            </a>
+        </div>
+        <!-- Navbar links-->
+        <div class="mr-auto pl-2">
+            <span class="d-none d-md-inline-block">
+                <!--jQuery-->
+                <!--DC content   Need to Check For Our Use-->
+                <div id='dpl-gtm-jq'></div>
+                <!--/DC content-->
+            </span>
+        </div>
+        <!--Navigation icons-->
+        <span id="dpl-navbar-right-buttons">
+            <ul id="dpl-navbar-right-buttons-tmp" class="nav navbar-nav nav-flex-icons ml-auto flex-grow-1">
+
+                <li class="nav-item d-none d-xl-inline-block">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link waves-effect">
+                        <i class="fas fa-home"></i><span class="d-none d-xl-inline-block ml-1">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-xl-inline-block">
+                    <a href="/general/contact/" class="nav-link waves-effect">
+                        <i class="fas fa-envelope"></i><span class="sr-only">Daily Sale</span>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-xl-inline-block">
+                    <a asp-area="Stores" asp-controller="Stores" asp-action="Index" class="nav-link waves-effect">
+                        <i class="fas fa-store"></i><span class="d-none d-xl-inline-block ml-1">Stores</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tools</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item d-xl-none" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Telegram X</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </div>
+                </li>
+                @*<a class="text-danger align-self-center ml-2 auth-modal-toggle" data-auth-modal-tab="sign-in"><i class="fa fa-sign-in-alt"></i></a>
+                    <a class="btn btn-info btn-rounded btn-sm waves-effect waves-light auth-modal-toggle" data-auth-modal-tab="sign-up"><i class="fas fa-user-plus"></i></a>*@
+                <partial name="_LoginPartial" />
+            </ul>
+        </span>
+    </nav>
+
+    <div id="dpl-auth-modal"></div>
+    <partial name="_sidebarnav" />
+</header>

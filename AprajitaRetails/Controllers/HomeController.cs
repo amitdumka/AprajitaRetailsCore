@@ -9,6 +9,7 @@ using AprajitaRetails.Models;
 
 namespace AprajitaRetails.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

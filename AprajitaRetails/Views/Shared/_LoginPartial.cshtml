@@ -3,25 +3,60 @@
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 
-<ul class="navbar-nav">
+<ul class="nav navbar-nav nav-flex-icons d-sm-inline-flex">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        @*<li class="nav-item d-none d-xl-inline-block">
+                <a class="nav-link waves-effect text-info" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fa fa-user-circle"></i></a>
+            </li>*@
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i><span class="d-none d-xl-inline-block ml-1">@User.Identity.Name </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user-tag"></i><span class="d-none d-xl-inline-block ml-1">Profile</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact"><i class="fas fa-user-edit"></i><span class="d-none d-xl-inline-block ml-1">Change Password</a>
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-user-plus"></i><span class="d-none d-xl-inline-block ml-1">Add User</a>
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"><i class="text-danger fa fa-sign-out-alt"></i><span class="d-none d-xl-inline-block ml-1">LogOut</a>
+            </div>
         </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
+        <li class="nav-item d-none d-xl-inline-block">
+            <a class="btn-floating btn-sm aqua-gradient my-0 waves-effect waves-light align-self-center ml-2 "
+               asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <i class="text-danger fa fa-sign-out-alt"></i>
+            </a>
+
         </li>
+        @*<li class="nav-item d-none d-xl-inline-block">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <a class="btn-floating btn-sm aqua-gradient my-0 waves-effect waves-light align-self-center ml-2 ">
+                    <i class="text-danger fa fa-sign-out-alt"></i></a>
+                </form>
+            </li>*@
+        @*<li class="nav-item d-none d-xl-inline-block" >
+                <form class="form-inline form-sm " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark my-0 waves-effect waves-light align-self-center  ">
+                    <i class="text-danger  fa fa-sign-out-alt"></i></button>
+                </form>
+            </li>*@
+        @*<li class="nav-item d-xl-inline-block">
+                <form class="form-inline form-sm " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-danger btn-sm"><i class="fa fa-sign-out-alt red-text fa-lg"></i></button>
+                </form>
+            </li>*@
     }
     else
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <li class="nav-item d-none d-xl-inline-block">
+            <a class="btn btn-warning btn-rounded btn-sm waves-effect waves-light auth-modal-toggle text-danger" asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-user-plus"></i></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <li class="nav-item d-none d-xl-inline-block">
+            <a class="btn btn-warning btn-rounded btn-sm waves-effect waves-light ml-2 auth-modal-toggle text-danger" asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-sign-in-alt"></i></a>
         </li>
+
+        @*<a class="text-danger align-self-center ml-2 auth-modal-toggle" data-auth-modal-tab="sign-in"><i class="fa fa-sign-in-alt"></i></a>
+        <a class="btn btn-info btn-rounded btn-sm waves-effect waves-light auth-modal-toggle" data-auth-modal-tab="sign-up"><i class="fas fa-user-plus"></i></a>*@
+
     }
 </ul>
