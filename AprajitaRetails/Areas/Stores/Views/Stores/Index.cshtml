@@ -9,106 +9,143 @@
 <p>
     <a asp-action="Create" class="btn btn-outline-light-green btn-rounded btn-sm" id="create" data_modal="">Create New</a>
 </p>
-<table class="table table-bordered table-hover table-sm table-striped" >
-    <thead class="bg-success">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.StoreCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StoreName)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.PinCode)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StoreManagerName)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.StoreManagerPhoneNo)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.PanNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GSTNO)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.NoOfEmployees)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.OpeningDate)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ClosingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody class="bg-white">
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreName)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.PinCode)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreManagerName)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.StoreManagerPhoneNo)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.PanNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GSTNO)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.NoOfEmployees)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningDate)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.ClosingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>*@
-            <td class="btn-group">
-                <a class="btn btn-cyan btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId"  >Edit</a> 
-                <a  class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId">Details</a> 
-               <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId" >Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!-- Table with panel -->
+<div class="card card-cascade narrower mt-4 ">
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+        <div>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-th-large mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-columns mt-0"></i>
+            </button>
+        </div>
+
+        <a href="" class="white-text mx-3">Stores</a>
+
+        <div>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-pencil-alt mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="far fa-trash-alt mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                <i class="fas fa-info-circle mt-0"></i>
+            </button>
+        </div>
+    </div>
+    <div class="px-4">
+
+        <div class="table-wrapper">
+            <table class="table bg-white  table-hover table-borderless table-responsive table-striped table-sm table-responsive-sm mb-0">
+                <thead  class="text-danger ">
+                    <tr>
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.StoreCode)
+                        </th>
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.StoreName)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>*@
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.PinCode)
+                            </th>*@
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PhoneNo)
+                        </th>
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.StoreManagerName)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.StoreManagerPhoneNo)
+                            </th>*@
+                       @*<th class="th-lg">
+                            @Html.DisplayNameFor(model => model.PanNo)
+                        </th>*@
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.GSTNO)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.NoOfEmployees)
+                            </th>*@
+                       <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.OpeningDate)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.ClosingDate)
+                            </th>
+                           <th class="th-lg">
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>*@
+                       <th class="th-sm"></th>
+                    </tr>
+                </thead>
+                <tbody >
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StoreCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StoreName)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.PinCode)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StoreManagerName)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.StoreManagerPhoneNo)
+                                </td>*@
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.PanNo)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GSTNO)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.NoOfEmployees)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpeningDate)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.ClosingDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>*@
+                            <td class="btn-group">
+                                <a class="btn btn-cyan btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId">Edit</a>
+                                <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId">Details</a>
+                                <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
 <partial name="_OnlyModalPopUp" />
