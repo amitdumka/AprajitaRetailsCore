@@ -1,11 +1,44 @@
 ﻿using AprajitaRetails.Shared.Models.Indentity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using static AprajitaRetails.Areas.Identity.Pages.Account.LoginModel;
 
 namespace AprajitaRetails.Areas.Identity.Ops
 {
+    public class Auth
+    {
+
+        //TODO: Create API For Login/ Register and LogOut.  then this concept will work. 
+        public static async Task<string> LoginAsync(SignInManager<AppUser> _signInManager, InputModel Input, string returnUrl)
+        {
+            var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                // _logger.LogInformation("User logged in.");
+                return (returnUrl);
+            }
+
+            if (result.IsLockedOut)
+            {
+                // _logger.LogWarning("User account locked out.");
+                return ("./Lockout");
+            }
+            else
+            {
+                // ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return "Error";
+            }
+
+        }
+        public static void Register() { }
+        public static void LogOut()
+        {
+
+        }
+    }
     public static class Seeder
     {
         public static async Task CreateRoles(IServiceProvider serviceProvider)
@@ -13,11 +46,11 @@ namespace AprajitaRetails.Areas.Identity.Ops
             //adding custom roles
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var UserManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
-            
-            string[] roleNames = { "Admin", "StoreManager", "Salesman", "Accountant", "RemoteAccountant", "Member", "PowerUser", "GuestUsers","GuestPowerUsers" };
-            
+
+            string[] roleNames = { "Admin", "StoreManager", "Salesman", "Accountant", "RemoteAccountant", "Member", "PowerUser", "GuestUsers", "GuestPowerUsers" };
+
             IdentityResult roleResult;
-            
+
             foreach (var roleName in roleNames)
             {
                 //creating the roles and seeding them to the database
@@ -31,8 +64,12 @@ namespace AprajitaRetails.Areas.Identity.Ops
             var poweruser = new AppUser
             {
                 UserName = "Admin",
-                Email = "Admin@AprajitaRetails.In", EmployeeId=0, IsEmployee=false, IsWorking=false, 
-                FirstName="Admin", LastName="User"
+                Email = "Admin@AprajitaRetails.In",
+                EmployeeId = 0,
+                IsEmployee = false,
+                IsWorking = false,
+                FirstName = "Admin",
+                LastName = "User"
 
             };
             string UserPassword = "Admin@1234";

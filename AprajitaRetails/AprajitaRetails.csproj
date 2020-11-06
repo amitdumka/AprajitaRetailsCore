@@ -361,10 +361,8 @@
     <Folder Include="Areas\Expenses\Data\" />
     <Folder Include="Areas\Expenses\Models\" />
     <Folder Include="Areas\Expenses\Views\" />
-    <Folder Include="Areas\Payrolls\Controllers\" />
     <Folder Include="Areas\Payrolls\Data\" />
     <Folder Include="Areas\Payrolls\Models\" />
-    <Folder Include="Areas\Payrolls\Views\" />
     <Folder Include="Areas\Purchases\Controllers\" />
     <Folder Include="Areas\Purchases\Data\" />
     <Folder Include="Areas\Purchases\Models\" />

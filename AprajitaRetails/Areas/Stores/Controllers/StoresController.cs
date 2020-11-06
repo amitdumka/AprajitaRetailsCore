@@ -66,7 +66,7 @@ namespace AprajitaRetails.Areas.Stores.Controllers
         }
 
         // GET: Voyager/Stores/Edit/5
-        [Authorize(Roles = "Admin,PowerUser")]
+        //[Authorize(Roles = "Admin,PowerUser")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,7 +87,7 @@ namespace AprajitaRetails.Areas.Stores.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,PowerUser")]
+       // [Authorize(Roles = "Admin,PowerUser")]
         public async Task<IActionResult> Edit(int id, [Bind("StoreId,StoreCode,StoreName,Address,City,PinCode,PhoneNo,StoreManagerName,StoreManagerPhoneNo,PanNo,GSTNO,NoOfEmployees,OpeningDate,ClosingDate,Status")] Store store)
         {
             if (id != store.StoreId)
@@ -119,7 +119,7 @@ namespace AprajitaRetails.Areas.Stores.Controllers
         }
 
         // GET: Voyager/Stores/Delete/5
-        [Authorize(Roles = "Admin,PowerUser")]
+       // [Authorize(Roles = "Admin,PowerUser")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,7 +140,7 @@ namespace AprajitaRetails.Areas.Stores.Controllers
         // POST: Voyager/Stores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,PowerUser")]
+       // [Authorize(Roles = "Admin,PowerUser")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var store = await _context.Stores.FindAsync(id);
