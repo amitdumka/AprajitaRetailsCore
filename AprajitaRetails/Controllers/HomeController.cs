@@ -28,7 +28,11 @@ namespace AprajitaRetails.Controllers
         {
             return View();
         }
-        public IActionResult TestMe()
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+        public IActionResult ContactUs()
         {
             return View();
         }

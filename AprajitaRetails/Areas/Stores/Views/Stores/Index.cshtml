@@ -17,7 +17,7 @@
             </button>
         </div>
 
-        <a href="" class="white-text mx-3">Stores</a>
+        <h3 class="white-text mx-3 ">Stores</h3>
 
         <div>
             <a asp-action="Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a>
@@ -36,8 +36,8 @@
     <div class="px-4">
 
         <div class="table-wrapper ">
-            <table id="dtMaterialDesignExample" cellspacing=" 0" width="100%" class="table table-responsive bg-white table-hover table-borderless table-sm  table-responsive-sm mb-0">
-                <thead class="text-monospace text-muted">
+            <table id="dtMaterialDesignExample" cellspacing=" 0" width="100%" class="table bg-white table-hover  table-bordered table-sm  mb-0">
+                <thead class="mdb-color-text text-center">
                     <tr>
                         <th></th>
                         <th class="th-sm">
@@ -54,25 +54,25 @@
                         <th class="th-sm">
                             @Html.DisplayNameFor(model => model.PhoneNo)
                         </th>
-                        <th class="th-sm">
+                        <th class="th-lg">
                             @Html.DisplayNameFor(model => model.StoreManagerName)
                         </th>
                         <th class="th-sm">
                             @Html.DisplayNameFor(model => model.GSTNO)
                         </th>
 
-                        <th class="th-sm">
+                        <th class="th-lg">
                             @Html.DisplayNameFor(model => model.OpeningDate)
                         </th>
 
                         <th class="th-sm"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center text-primary">
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td></td>
+                            <td class="text-left"></td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StoreCode)
                             </td>
@@ -106,7 +106,7 @@
                             @*<td>
                                     @Html.DisplayFor(modelItem => item.NoOfEmployees)
                                 </td>*@
-                            <td class="">
+                            <td>
                                 @Html.DisplayFor(modelItem => item.OpeningDate)
                             </td>
                             @*<td>
@@ -115,10 +115,10 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>*@
-                            <td class="btn-group">
-                                <a class="btn btn-cyan btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId" onclick="toastr.success('Loading....');">Edit</a>
-                                <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId">Details</a>
-                                <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId">Delete</a>
+                            <td class="btn-group d-inline-flex">
+                                <a class="btn btn-warning btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId" ><i class="fas fa-pencil-alt mt-0"></i></a>
+                                <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId"><i class="fas fa-info-circle mt-0"></i></a>
+                                <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId"><i class="fas fa-trash-alt mt-0"></i></a>
                             </td>
                         </tr>
                     }

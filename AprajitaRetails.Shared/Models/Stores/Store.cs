@@ -14,17 +14,17 @@ namespace AprajitaRetails.Shared.Models.Stores
     public class Store:BaseGT
     {
         public int StoreId { get; set; }
-        [Display(Name = "Store Code")]
+        [Display(Name = "Code")]
         public string StoreCode { get; set; }
-        [Display(Name = "Store Name")]
+        [Display(Name = "Store")]
         public string StoreName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         [Display(Name = "Pin Code")]
         public string PinCode { get; set; }
-        [Display(Name = "Contact No")]
+        [Display(Name = "Contact")]
         public string PhoneNo { get; set; }
-        [Display(Name = "Store Manager Name")]
+        [Display(Name = "Store Manager")]
         public string StoreManagerName { get; set; }
         [Display(Name = "SM Contact No")]
         public string StoreManagerPhoneNo { get; set; }
