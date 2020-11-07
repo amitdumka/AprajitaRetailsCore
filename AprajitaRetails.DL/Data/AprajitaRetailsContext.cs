@@ -3,6 +3,7 @@ using AprajitaRetails.Shared.Models.Accounts.Banking;
 using AprajitaRetails.Shared.Models.Accounts.Expenses;
 using AprajitaRetails.Shared.Models.Indentity;
 using AprajitaRetails.Shared.Models.Payrolls;
+using AprajitaRetails.Shared.Models.Purchase;
 using AprajitaRetails.Shared.Models.Sales;
 using AprajitaRetails.Shared.Models.Stores;
 using AprajitaRetails.Shared.Models.Tailorings;
@@ -25,8 +26,8 @@ namespace AprajitaRetails.DL.Data
             ApplyMigrations(this);
         }
 
-        public DbSet<Store> Stores { get; set; } //Ok
-        public DbSet<TranscationMode> TranscationModes { get; set; } //ok
+        public DbSet<Store> Stores { get; set; } //Ok//UI
+        public DbSet<TranscationMode> TranscationModes { get; set; } //ok//UI
         public DbSet<Salesman> Salesmen { get; set; } //ok
 
         //Banking
@@ -37,33 +38,34 @@ namespace AprajitaRetails.DL.Data
 
         public DbSet<TodoItem> Todos { get; set; }
         public DbSet<FileInfo> Files { get; set; }
-        public DbSet<SaleTaxType> SaleTaxTypes { get; set; } //ok
+        public DbSet<SaleTaxType> SaleTaxTypes { get; set; } //ok//UI
+        public DbSet<PurchaseTaxType> PurchaseTaxTypes { get; set; }//UI
         public DbSet<RegisteredUser> RegisteredUsers { get; set; }
         public DbSet<AppInfo> Apps { get; set; } //ok
 
         //Payrolls
-        public DbSet<Employee> Employees { get; set; } //ok
+        public DbSet<Employee> Employees { get; set; } //ok//UI
 
         public DbSet<EmployeeUser> EmployeeUsers { get; set; }
-        public DbSet<Attendance> Attendances { get; set; } //ok
+        public DbSet<Attendance> Attendances { get; set; } //ok//UI
 
         //Tailoring
-        public DbSet<TalioringBooking> TalioringBookings { get; set; }
+        public DbSet<TalioringBooking> TalioringBookings { get; set; }//UI
 
-        public DbSet<TalioringDelivery> TailoringDeliveries { get; set; }
+        public DbSet<TalioringDelivery> TailoringDeliveries { get; set; }//UI
 
         //End of Day
-        public DbSet<EndOfDay> EndOfDays { get; set; }
+        public DbSet<EndOfDay> EndOfDays { get; set; }//UI
 
-        public DbSet<CashDetail> CashDetail { get; set; }
+        public DbSet<CashDetail> CashDetail { get; set; }//UI
 
         //Rent and Electricity
-        public DbSet<RentedLocation> RentedLocations { get; set; }
+        public DbSet<RentedLocation> RentedLocations { get; set; }//UI
 
-        public DbSet<Rent> Rents { get; set; }
-        public DbSet<ElectricityConnection> ElectricityConnections { get; set; }
-        public DbSet<EletricityBill> EletricityBills { get; set; }
-        public DbSet<EBillPayment> BillPayments { get; set; }
+        public DbSet<Rent> Rents { get; set; }//UI
+        public DbSet<ElectricityConnection> ElectricityConnections { get; set; }//UI
+        public DbSet<EletricityBill> EletricityBills { get; set; }//UI
+        public DbSet<EBillPayment> BillPayments { get; set; } //UI
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -348,10 +348,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Accounts\Controllers\" />
     <Folder Include="Areas\Accounts\Data\" />
     <Folder Include="Areas\Accounts\Models\" />
-    <Folder Include="Areas\Accounts\Views\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Banking\Controllers\" />
     <Folder Include="Areas\Banking\Data\" />
@@ -373,10 +371,8 @@
     <Folder Include="Areas\Sales\Views\" />
     <Folder Include="Areas\Stores\Data\" />
     <Folder Include="Areas\Stores\Models\" />
-    <Folder Include="Areas\Tailoring\Controllers\" />
     <Folder Include="Areas\Tailoring\Data\" />
     <Folder Include="Areas\Tailoring\Models\" />
-    <Folder Include="Areas\Tailoring\Views\" />
     <Folder Include="Areas\Todo\Controllers\" />
     <Folder Include="Areas\Todo\Data\" />
     <Folder Include="Areas\Todo\Models\" />
