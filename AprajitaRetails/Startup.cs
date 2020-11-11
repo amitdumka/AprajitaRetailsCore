@@ -1,4 +1,5 @@
 using AprajitaRetails.Areas.Identity.Data;
+using AprajitaRetails.BL.Services;
 using AprajitaRetails.Data;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Indentity;
@@ -73,7 +74,7 @@ namespace AprajitaRetails
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-            
+
             services.AddAuthorization(options =>
             {
                 options.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -91,7 +92,8 @@ namespace AprajitaRetails
             });
 
             // using Microsoft.AspNetCore.Identity.UI.Services;
-            //services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddTransient<IEmail, EMail>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

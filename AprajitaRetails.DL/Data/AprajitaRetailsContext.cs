@@ -45,6 +45,7 @@ namespace AprajitaRetails.DL.Data
 
         //Payrolls
         public DbSet<Employee> Employees { get; set; } //ok//UI
+        
 
         public DbSet<EmployeeUser> EmployeeUsers { get; set; }
         public DbSet<Attendance> Attendances { get; set; } //ok//UI

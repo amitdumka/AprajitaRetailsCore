@@ -63,7 +63,9 @@ namespace AprajitaRetails.Shared.Models.Payrolls
         public virtual EmployeeUser User { get; set; }
        
     }
-
+    /// <summary>
+    /// Employee User
+    /// </summary>
     public class EmployeeUser
     {
         [Key]
