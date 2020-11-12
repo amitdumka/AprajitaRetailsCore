@@ -79,44 +79,25 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.StoreName)
                             </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.Address)
-                                </td>*@
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.City)
                             </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.PinCode)
-                                </td>*@
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.PhoneNo)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StoreManagerName)
                             </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.StoreManagerPhoneNo)
-                                </td>*@
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.PanNo)
-                                </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.GSTNO)
                             </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.NoOfEmployees)
-                                </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.OpeningDate)
                             </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.ClosingDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </td>*@
                             <td class="btn-group d-inline-flex">
-                                <a class="btn btn-warning btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId" ><i class="fas fa-pencil-alt mt-0"></i></a>
+                                <a class="btn btn-warning btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId"><i class="fas fa-pencil-alt mt-0"></i></a>
                                 <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId"><i class="fas fa-info-circle mt-0"></i></a>
                                 <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId"><i class="fas fa-trash-alt mt-0"></i></a>
                             </td>
@@ -126,9 +107,7 @@
             </table>
         </div>
     </div>
-
 </div>
-
 
 <partial name="_OnlyModalPopUp" />
 
@@ -136,53 +115,51 @@
 {
     <script>
         //$(document).ready(function () {
-            //$('#dtBasicExample').DataTable();
-            //  $('.dataTables_length').addClass('bs-select');
-            $('#dtMaterialDesignExample').dataTable({
-                "pagingType": "full_numbers",
-                columnDefs: [{
-                    orderable: false,
-                    className: 'select-checkbox select-checkbox-all',
-                    targets: 0
-                }],
-                select: {
-                    style: 'multi',
-                    selector: 'td:first-child'
-                },
-                initComplete: function () {
-                    this.api().columns().every(function () {
-                        var column = this;
-                        var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
-                            .appendTo($(column.footer()).empty())
-                            .on('change input', function () {
-                                var val = $(this).val()
+        //$('#dtBasicExample').DataTable();
+        //  $('.dataTables_length').addClass('bs-select');
+        $('#dtMaterialDesignExample').dataTable({
+            "pagingType": "full_numbers",
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox select-checkbox-all',
+                targets: 0
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            },
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                    var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+                        .appendTo($(column.footer()).empty())
+                        .on('change input', function () {
+                            var val = $(this).val()
 
-                                column
-                                    .search(val ? val : '', true, false)
-                                    .draw();
-                            });
+                            column
+                                .search(val ? val : '', true, false)
+                                .draw();
+                        });
 
-                    });
-                }
-            });
+                });
+            }
+        });
 
-           // $('.dataTables_length').addClass('bs-select');
-            //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
-            //    $(this).parent().append($(this).children());
-            //});
-            //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
-            //    const $this = $(this);
-            //    $this.attr("placeholder", "Search");
-            //    $this.removeClass('form-control-sm');
-            //});
-           // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
-           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
-           // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
-           // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
-           // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
-           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
-        //});
-
-
+                   // $('.dataTables_length').addClass('bs-select');
+                    //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
+                    //    $(this).parent().append($(this).children());
+                    //});
+                    //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
+                    //    const $this = $(this);
+                    //    $this.attr("placeholder", "Search");
+                    //    $this.removeClass('form-control-sm');
+                    //});
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+                   // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
+                   // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+                   // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
+                //});
     </script>
 }
