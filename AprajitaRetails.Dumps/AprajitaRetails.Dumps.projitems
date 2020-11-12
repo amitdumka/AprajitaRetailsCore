@@ -107,4 +107,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UnSorteds\SuspenseAccount.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uo\Party.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Views\HTMLPage1.html" />
+  </ItemGroup>
 </Project>

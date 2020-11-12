@@ -38,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="Areas\Admin\Views\Role\AssignRole.cshtml" />
     <None Include="Areas\Admin\Views\Role\Create.cshtml" />
     <None Include="Areas\Admin\Views\Role\Details.cshtml" />
@@ -380,6 +381,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AprajitaRetails.BL\AprajitaRetails.BL.csproj" />
     <ProjectReference Include="..\AprajitaRetails.DL\AprajitaRetails.DL.csproj" />
   </ItemGroup>
 
