@@ -41,7 +41,8 @@ namespace AprajitaRetails.Shared.Models.Payrolls
 
         [Display(Name = "eMail"), EmailAddress]
         public string  EMail { get; set; }
-
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date Of Birth")]
         public DateTime  DateOfBirth { get; set; }
         public string  AdharNumber { get; set; }
         public string  PanNo { get; set; }

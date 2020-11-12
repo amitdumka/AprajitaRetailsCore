@@ -10,6 +10,7 @@ using AprajitaRetails.Shared.Models.Payrolls;
 
 namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
+    
     [Area("Payrolls")]
     public class EmployeesController : Controller
     {
@@ -43,14 +44,14 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 return NotFound();
             }
 
-            return View(employee);
+            return PartialView(employee);
         }
 
         // GET: Payrolls/Employees/Create
         public IActionResult Create()
         {
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId");
-            return View();
+            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName");
+            return PartialView();
         }
 
         // POST: Payrolls/Employees/Create
@@ -66,8 +67,8 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", employee.StoreId);
-            return View(employee);
+            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            return PartialView(employee);
         }
 
         // GET: Payrolls/Employees/Edit/5
@@ -83,8 +84,8 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
             {
                 return NotFound();
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", employee.StoreId);
-            return View(employee);
+            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            return PartialView(employee);
         }
 
         // POST: Payrolls/Employees/Edit/5
@@ -119,8 +120,8 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", employee.StoreId);
-            return View(employee);
+            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            return PartialView(employee);
         }
 
         // GET: Payrolls/Employees/Delete/5
@@ -139,7 +140,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 return NotFound();
             }
 
-            return View(employee);
+            return PartialView(employee);
         }
 
         // POST: Payrolls/Employees/Delete/5

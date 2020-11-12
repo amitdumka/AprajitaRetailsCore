@@ -6,6 +6,7 @@
 $(function () {
     $.ajaxSetup({ cache: false });
     $(document).on('click', 'a[data_modal]',/* $("a[data_modal]").on("click",*/ function (e) {
+   
         if (this.id == "edit") {
             $("#myModalLabel").html("Edit Items");
             $("#modalHead").addClass("modal-warning");
@@ -23,19 +24,19 @@ $(function () {
             $("#modalHead").addClass("modal-info");
         }
         $('#myModalContent').load(this.href, function () {
-
-
+         
             $('#myModal').modal({
                 keyboard: true
             }, 'show');
         });
+     
         return false;
     });
 });
 
 // TODO Function
 $(document).ready(function () {
-
+   
     $('.done-checkbox').on('click', function (e) {
         markCompleted(e.target);
     });

@@ -1,0 +1,160 @@
+﻿<div class="card card-cascade narrower ">
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+        <div>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
+                <i class="fas fa-th-large mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
+                <i class="fas fa-columns mt-0"></i>
+            </button>
+        </div>
+
+        <h3 class="white-text mx-3 ">Stores</h3>
+
+        <div>
+            <a asp-action="Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a>
+
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
+                <i class="fas fa-pencil-alt mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
+                <i class="far fa-trash-alt mt-0"></i>
+            </button>
+            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
+                <i class="fas fa-info-circle mt-0"></i>
+            </button>
+        </div>
+    </div>
+    <div class="px-4">
+
+        <div class="table-wrapper">
+            <table id="dtMaterialDesignExample" cellspacing=" 0" width="100%" class="table bg-white table-hover  table-bordered table-sm  mb-0">
+                <thead class="mdb-color-text text-center">
+                    <tr>
+                        <th></th>
+                        <th class="th-sm">
+                            StoreCode
+                        </th>
+                        <th class="th-sm">
+                            StoreName
+                        </th>
+
+                        <th class="th-sm">
+                            City
+                        </th>
+
+                        <th class="th-sm">
+                            PhoneNo
+                        </th>
+                        <th class="th-lg">
+                            StoreManagerName
+                        </th>
+                        <th class="th-sm">
+                            GSTNO
+                        </th>
+
+                        <th class="th-lg">
+                            OpeningDate
+                        </th>
+
+                        <th class="th-sm"></th>
+                    </tr>
+                </thead>
+                <tbody class="text-center text-primary">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-left"></td>
+                            <td>
+                                StoreCode
+                            </td>
+                            <td>
+                                StoreName
+                            </td>
+
+                            <td>
+                                City
+                            </td>
+
+                            <td>
+                                PhoneNo
+                            </td>
+                            <td>
+                                StoreManagerName
+                            </td>
+                            <td>
+                                GSTNO
+                            </td>
+                            <td>
+                                OpeningDate
+                            </td>
+                            <td class="btn-group d-inline-flex">
+                                <a class="btn btn-warning btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId"><i class="fas fa-pencil-alt mt-0"></i></a>
+                                <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId"><i class="fas fa-info-circle mt-0"></i></a>
+                                <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId"><i class="fas fa-trash-alt mt-0"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<partial name="_OnlyModalPopUp" />
+@section Scripts
+{
+    <script>
+        //$(document).ready(function () {
+        //$('#dtBasicExample').DataTable();
+        //  $('.dataTables_length').addClass('bs-select');
+        $('#dtMaterialDesignExample').dataTable({
+            "pagingType": "full_numbers",
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox select-checkbox-all',
+                targets: 0
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            },
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                    var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+                        .appendTo($(column.footer()).empty())
+                        .on('change input', function () {
+                            var val = $(this).val()
+
+                            column
+                                .search(val ? val : '', true, false)
+                                .draw();
+                        });
+
+                });
+            }
+        });
+
+                   // $('.dataTables_length').addClass('bs-select');
+                    //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
+                    //    $(this).parent().append($(this).children());
+                    //});
+                    //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
+                    //    const $this = $(this);
+                    //    $this.attr("placeholder", "Search");
+                    //    $this.removeClass('form-control-sm');
+                    //});
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+                   // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
+                   // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+                   // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+                   // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
+                //});
+    </script>
+}
