@@ -27,20 +27,78 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-xl-inline-block">
-                    <a href="/general/contact/" class="nav-link waves-effect">
-                        <i class="fas fa-envelope"></i><span class="sr-only">Daily Sale</span>
+                    <a asp-area="Sales" asp-controller="DailySales" asp-action="Index" class="nav-link waves-effect">
+                        <i class="fas fa-shopping-cart"></i><span class="sr-only">Daily Sale</span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-xl-inline-block">
-                    <a href="" class="nav-link waves-effect" data-toggle="modal" data-target="#newLoginForm">
-                        <i class="fas fa-sign-in-alt"></i><span class="sr-only">Login</span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Accounts</span>
                     </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">Sales Tax</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Purchase Tax</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Cash Book</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Trans Mode</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Payments</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Recipets</a>
+                    </div>
                 </li>
-                <li class="nav-item d-none d-xl-inline-block">
-                    <a href="" class="nav-link waves-effect" data-toggle="modal" data-target="#signUpModal">
-                        <i class="fas fa-user-plus"></i><span class="sr-only">Login</span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Sale/Purchase</span>
                     </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">Sales</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Purchase</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">DailySale</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Online Sale</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Payments</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Recipets</a>
+                    </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tailoring</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">Booking</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Deliveries</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Pending Deliveries</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Cash-In/Out</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">Expenses</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Cash Payment</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Cash Reciepts</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Reciepts</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Bank Deposit</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Dues Recovered</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="Rents" asp-action="Index">Rent</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="EBillPayments" asp-action="Index">Electricity</a>
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Payrolls</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="Index">Employee</a>
+                        <a class="dropdown-item" asp-area="Payrools" asp-controller="Attendance" asp-action="Index">Attendance</a>
+                        <a class="dropdown-item" asp-area="Payrools" asp-controller="" asp-action="Index">Salary Payment</a>
+                        <a class="dropdown-item" asp-area="Payrools" asp-controller="Home" asp-action="Index">Adv. Reicpts</a>
+                        <a class="dropdown-item" asp-area="Payrools" asp-controller="Home" asp-action="Index">PaySlips</a>
+                        <a class="dropdown-item" asp-area="Payrools" asp-controller="Home" asp-action="Index">Salary</a>
+                    </div>
+                </li>
+
+
+
                 <li class="nav-item d-none d-xl-inline-block">
                     <a asp-area="Stores" asp-controller="Stores" asp-action="Index" class="nav-link waves-effect">
                         <i class="fas fa-store"></i><span class="d-none d-xl-inline-block ml-1">Stores</span>
@@ -51,7 +109,7 @@
                         <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tools</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
-                        <a class="dropdown-item d-xl-none" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                         <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
                         <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Telegram X</a>
                         <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

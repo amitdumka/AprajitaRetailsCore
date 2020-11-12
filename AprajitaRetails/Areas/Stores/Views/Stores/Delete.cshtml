@@ -9,94 +9,97 @@
 <div>
     <h4>Store</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StoreCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StoreCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StoreName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StoreName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PinCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PinCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StoreManagerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StoreManagerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StoreManagerPhoneNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StoreManagerPhoneNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PanNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PanNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GSTNO)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GSTNO)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NoOfEmployees)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NoOfEmployees)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OpeningDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
+    <table class="table table-borderless">
+        <tr class="row thead-light">
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StoreCode)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.StoreCode)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StoreName)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.StoreName)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.City)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PinCode)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.PinCode)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.PhoneNo)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StoreManagerName)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.StoreManagerName)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StoreManagerPhoneNo)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.StoreManagerPhoneNo)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PanNo)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.PanNo)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GSTNO)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.GSTNO)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NoOfEmployees)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.NoOfEmployees)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OpeningDate)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.OpeningDate)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ClosingDate)
+            </th>
+            <td  class="col-sm-10">
+                @Html.DisplayFor(model => model.ClosingDate)
+            </td >
+            <th  class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <td class="col-sm-10">
+
+                @Html.DisplayFor(model => model.Status)
+                
+            </td>
+        </tr>
+
+    </table>    <form asp-action="Delete">
         <input type="hidden" asp-for="StoreId" />
         <input type="submit" value="Delete" class="btn btn-outline-danger" />  
     </form>

@@ -2,50 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
     <title>@ViewData["Title"] - Aprajita Retails, Dumka</title>
     <link rel="stylesheet" href="~/lib/mdb/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/mdb/css/mdb.min.css" />
+
     <link rel='stylesheet' id='compiled.css-css' href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.19.1.min.css?ver=4.19.1' type='text/css' media='all' />
 
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/mdb/css/addons/datatables2.min.css" rel="stylesheet" />
     <link href="~/lib/mdb/css/addons/datatables-select.min.css" rel="stylesheet" />
-
-
+   
 </head>
 <body class="fixed-sn mdb-skin-custom" data-spy="scroll" data-target="#scrollspy" data-offset="15">
     <header><partial name="_Menu" /></header>
-    <!-- Switch -->
-    <div class="switch-version d-none d-md-block">
-        <a class="switch-to-mdb-jquery" href="/docs/jquery/"><span class="switch-to mdb-jquery " id="jQuery"></span></a>
-        <a class="switch-to-mdb-angular" href="/docs/angular/"><span class="switch-to mdb-angular active" id="Angular"></span></a>
-        <a class="switch-to-mdb-react" href="/docs/react/"><span class="switch-to mdb-react " id="React"></span></a>
-        <a class="switch-to-mdb-vue" href="/docs/vue/"><span class="switch-to mdb-vue " id="Vue"></span></a>
-        <a class="switch-to-mdb-standard" href="/docs/standard/"><span class="switch-to mdb-standard " id="Standard"></span></a>
-        
-    </div>
-
-    <style>
-        .switch-version {
-            z-index: 1000;
-        }
-
-        .switch-to {
-            background-image: url('https://mdbootstrap.com/img/logo/mdb-switch.png');
-        }
-
-            .switch-to.mdb-standard {
-                background-position: 0 -160px;
-            }
-
-        .wow {
-            visibility: hidden;
-        }
-    </style>
-
-
 
     <main role="main" class="">
         <div class="main-wrapper container-fluid">
@@ -64,12 +37,19 @@
     <script src="~/lib/mdb/js/popper.min.js"></script>
     <script src="~/lib/mdb/js/bootstrap.min.js"></script>
     <script src="~/lib/mdb/js/mdb.min.js"></script>
-    <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled.0.min.js?ver=4.19.1' id='mdb-js2-js'></script>
-
+    @*<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled.0.min.js?ver=4.19.1' id='mdb-js2-js'></script>*@
+    
 
     <script src="~/lib/mdb/js/addons/datatables2.min.js"></script>
     <script src="~/lib/mdb/js/addons/datatables-select2.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $(".button-collapse").sideNav();
+            var el = document.querySelector('.custom-scrollbar');
+            var ps = new PerfectScrollbar(el);
+        });
+    </script>
 </body>
 </html>

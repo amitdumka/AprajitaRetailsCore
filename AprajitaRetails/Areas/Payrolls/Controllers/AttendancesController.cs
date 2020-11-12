@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
 
-namespace AprajitaRetails.Areas.Payrolls
+namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
     [Area("Payrolls")]
     public class AttendancesController : Controller
