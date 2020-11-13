@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
+using AprajitaRetails.Ops.Extensions;
+using AprajitaRetails.Ops;
 
 namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
@@ -50,7 +52,8 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         // GET: Payrolls/Employees/Create
         public IActionResult Create()
         {
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName");
+            //ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName");
+            ViewData["StoreId"] = BasicOps.GetCurrentStoreCode(_context);
             return PartialView();
         }
 
@@ -67,7 +70,9 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            //ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            ViewData["StoreId"] = BasicOps.GetCurrentStoreCode(_context);
+
             return PartialView(employee);
         }
 

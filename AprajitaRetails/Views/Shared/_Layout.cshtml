@@ -38,7 +38,7 @@
     <script src="~/lib/mdb/js/bootstrap.min.js"></script>
     <script src="~/lib/mdb/js/mdb.min.js"></script>
     <script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled.0.min.js?ver=4.19.1' id='mdb-js2-js'></script>
-    
+
 
     <script src="~/lib/mdb/js/addons/datatables2.min.js"></script>
     <script src="~/lib/mdb/js/addons/datatables-select2.min.js"></script>
@@ -50,8 +50,10 @@
             $(".button-collapse").sideNav();
             var el = document.querySelector('.custom-scrollbar');
             var ps = new PerfectScrollbar(el);
-            
+
         });
     </script>
+    @Html.PageScripts()
+
 </body>
 </html>
