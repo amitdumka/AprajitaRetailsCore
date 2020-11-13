@@ -97,7 +97,10 @@
 
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
-
+            
+            <input type="hidden" asp-for="UserId" value="@User.Identity.Name"/>
+            <input type="hidden" asp-for="StoreId" value="@ViewBag.StoreId"/>
+            <input type="hidden" asp-for="EntryStatus" value="0"/>
             @*<div class="form-group">
                     <label asp-for="StoreId" class="control-label"></label>
                     <select asp-for="StoreId"class="browser-default custom-select" asp-items="ViewBag.StoreId"></select>
