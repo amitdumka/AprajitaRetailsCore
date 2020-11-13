@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AprajitaRetails.Areas.Identity.Data;
+using AprajitaRetails.Ops;
 using AprajitaRetails.Shared.Models.Indentity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -28,7 +29,7 @@ namespace AprajitaRetails.Areas.Identity.Pages.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
-
+            PostLogin.WriteLogOut(HttpContext.Session);
             return LocalRedirect("/Home");
         }
 
@@ -36,6 +37,7 @@ namespace AprajitaRetails.Areas.Identity.Pages.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+            PostLogin.WriteLogOut(HttpContext.Session);
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);

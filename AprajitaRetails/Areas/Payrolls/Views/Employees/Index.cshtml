@@ -3,9 +3,9 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="card card-cascade narrower ">
+<div class="card card-cascade narrower">
     <!--Table Struct-->
-    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center rounded-pill">
 
         <div>
             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success('Sorry!, Button is not Implemented.');">
@@ -37,8 +37,8 @@
     <div class="px-4">
 
         <div class="table-wrapper ">
-            <table id="dtEmployee" cellspacing=" 0" width="100%" class="table bg-white table-hover  table-borderless table-sm  mb-0">
-                <thead>
+            <table id="dtEmployee" cellspacing=" 0" width="100%" class="table bg-white table-hover  table-sm  mb-0">
+                <thead class="mdb-color-text text-center">
                     <tr>
                         <th></th>
                         <th>
@@ -50,9 +50,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.JoiningDate)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.LeavingDate)
-                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.LeavingDate)
+                            </th>*@
                         <th>
                             @Html.DisplayNameFor(model => model.IsWorking)
                         </th>
@@ -107,7 +107,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center text-primary">
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -121,9 +121,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.JoiningDate)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.LeavingDate)
-                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.LeavingDate)
+                                </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.IsWorking)
                             </td>
@@ -164,7 +164,7 @@
                                     @Html.DisplayFor(modelItem => item.HighestQualification)
                                 </td>*@
                             <td>
-                                @Html.DisplayFor(modelItem => item.Store.StoreName)
+                                @Html.DisplayFor(modelItem => item.Store.City)
                             </td>
                             @*<td>
                                     @Html.DisplayFor(modelItem => item.UserId)
@@ -183,6 +183,31 @@
                         </tr>
                     }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="invisible"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StaffName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MobileNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.JoiningDate)
+                        </th>
+                        <th class="invisible">
+                            @Html.DisplayNameFor(model => model.IsWorking)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Store)
+                        </th>
+
+                        <th class="invisible"></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -196,7 +221,7 @@
 @section Scripts
 {
     <script>
-
+       
         $('#dtEmployee').dataTable({
             "pagingType": "full_numbers",
             columnDefs: [{
@@ -207,23 +232,30 @@
             select: {
                 style: 'multi',
                 selector: 'td:first-child'
+
+            },
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                   
+                        var select = $('<select  class="browser-default custom-select form-control-sm"><option value="" selected>Search</option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                   
+                });
             }
-            //},
-            //initComplete: function () {
-            //    this.api().columns().every(function () {
-            //        var column = this;
-            //        var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
-            //            .appendTo($(column.footer()).empty())
-            //            .on('change input', function () {
-            //                var val = $(this).val()
-
-            //                column
-            //                    .search(val ? val : '', true, false)
-            //                    .draw();
-            //            });
-
-            //    });
-            //}
         });
 
     </script>

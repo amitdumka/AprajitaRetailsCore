@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using AprajitaRetails.Areas.Identity.Data;
 using AprajitaRetails.Shared.Models.Indentity;
+using AprajitaRetails.Ops;
+using AprajitaRetails.DL.Data;
 
 namespace AprajitaRetails.Areas.Identity.Pages.Account
 {
@@ -22,14 +24,16 @@ namespace AprajitaRetails.Areas.Identity.Pages.Account
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly AprajitaRetailsContext db;
 
         public LoginModel(SignInManager<AppUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager, AprajitaRetailsContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            db = context;
         }
 
         [BindProperty]
@@ -85,6 +89,9 @@ namespace AprajitaRetails.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    //Setting UserSession
+                    PostLogin.SetUserSession(HttpContext.Session, db, Input.Email);
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

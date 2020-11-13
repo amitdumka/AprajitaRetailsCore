@@ -9,18 +9,25 @@ using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
 using AprajitaRetails.Ops.Extensions;
 using AprajitaRetails.Ops;
+using Microsoft.AspNetCore.Authorization;
+using AprajitaRetails.BL.Payrolls;
+using Microsoft.AspNetCore.Identity;
+using AprajitaRetails.Shared.Models.Indentity;
 
 namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
     
     [Area("Payrolls")]
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly AprajitaRetailsContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public EmployeesController(AprajitaRetailsContext context)
+        public EmployeesController(AprajitaRetailsContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Payrolls/Employees
@@ -53,7 +60,10 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         public IActionResult Create()
         {
             //ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName");
-            ViewData["StoreId"] = BasicOps.GetCurrentStoreCode(_context);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = storeInfo.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+
             return PartialView();
         }
 
@@ -62,16 +72,19 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,StaffName,MobileNo,JoiningDate,LeavingDate,IsWorking,Category,IsTailors,EMail,DateOfBirth,AdharNumber,PanNo,OtherIdDetails,Address,City,State,FatherName,HighestQualification,StoreId,UserId,EntryStatus,IsReadOnly")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,FirstName,LastName,MobileNo,JoiningDate,LeavingDate,IsWorking,Category,IsTailors,EMail,DateOfBirth,AdharNumber,PanNo,OtherIdDetails,Address,City,State,FatherName,HighestQualification,StoreId,UserId,EntryStatus,IsReadOnly")] Employee employee)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
+                await EmployeeManager.AddEmployeeLoginAsync(_context, employee, _userManager);
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
-            ViewData["StoreId"] = BasicOps.GetCurrentStoreCode(_context);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = storeInfo.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
 
             return PartialView(employee);
         }
@@ -89,7 +102,11 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
             {
                 return NotFound();
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            // ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+           // StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = employee.StoreId;
+            ViewData["UserName"] = employee.UserId;
+
             return PartialView(employee);
         }
 
@@ -98,7 +115,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,StaffName,MobileNo,JoiningDate,LeavingDate,IsWorking,Category,IsTailors,EMail,DateOfBirth,AdharNumber,PanNo,OtherIdDetails,Address,City,State,FatherName,HighestQualification,StoreId,UserId,EntryStatus,IsReadOnly")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FirstName,LastName,MobileNo,JoiningDate,LeavingDate,IsWorking,Category,IsTailors,EMail,DateOfBirth,AdharNumber,PanNo,OtherIdDetails,Address,City,State,FatherName,HighestQualification,StoreId,UserId,EntryStatus,IsReadOnly")] Employee employee)
         {
             if (id != employee.EmployeeId)
             {
@@ -125,7 +142,11 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            // ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreName", employee.StoreId);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = storeInfo.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+
             return PartialView(employee);
         }
 

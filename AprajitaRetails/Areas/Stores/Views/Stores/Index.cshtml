@@ -117,7 +117,8 @@
         //$(document).ready(function () {
         //$('#dtBasicExample').DataTable();
         //  $('.dataTables_length').addClass('bs-select');
-        $('#dtMaterialDesignExample').dataTable({
+        $('input.search').val('');
+      var table=  $('#dtMaterialDesignExample').dataTable({
             "pagingType": "full_numbers",
             columnDefs: [{
                 orderable: false,
@@ -144,7 +145,10 @@
                 });
             }
         });
-
+        $('input.search').val('');
+        table.search('').draw();
+        //table.search("");
+        //table.draw();
                    // $('.dataTables_length').addClass('bs-select');
                     //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
                     //    $(this).parent().append($(this).children());

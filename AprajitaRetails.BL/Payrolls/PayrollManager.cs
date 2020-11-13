@@ -5,35 +5,32 @@ using AprajitaRetails.Shared.Models.Indentity;
 using AprajitaRetails.Shared.Models.Payrolls;
 using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AprajitaRetails.BL.Payrolls
 {
-
     public class EmployeeManager
     {
-
-        public async System.Threading.Tasks.Task AddEmployeeLoginAsync(AprajitaRetailsContext db, Employee employee, UserManager<AppUser> userManager)
-
+        public static async System.Threading.Tasks.Task AddEmployeeLoginAsync(AprajitaRetailsContext db, Employee employee, UserManager<AppUser> userManager)
         {
-            //TODO: here it should be used to take care of Email id if entered to it.
-
-            if (employee.Category == EmpType.StoreManager)
-
-                await UserAdmin.AddUserAsync(userManager, employee.StaffName, true, employee.EmployeeId);
-            else
-                await UserAdmin.AddUserAsync(userManager, employee.StaffName, false, employee.EmployeeId);
-            //TODO: Implement add employee level security and permissions 
-            if (employee.IsWorking)
+            if (employee != null &&  employee.IsWorking)
             {
-                await UserAdmin.AddEmployeeUserAsync(db, employee.StaffName, employee.EmployeeId);
+                await UserAdmin.AddUserAsync(userManager, employee);
+               
+                //if (employee.IsWorking)
+                //{
+
+                //    await UserAdmin.AddEmployeeUserAsync(db, employee.StaffName, employee.EmployeeId);
+                //}
+            }
+            else
+            {
+                throw new Exception();
             }
 
-        }
 
+           
+        }
     }
 
     public class PayrollManager
@@ -114,8 +111,8 @@ namespace AprajitaRetails.BL.Payrolls
             //    }
             //    UpdateOutAmount(db, salPayment.Amount, salPayment.PayMode, salPayment.PaymentDate, false);
             //    HRMBot.NotifyStaffPayment(db, "", salPayment.EmployeeId, salPayment.Amount, "Salary payment for month of " + salPayment.SalaryMonth + "  details: " + salPayment.Details);
-
         }
+
         //public void OnUpdate(AprajitaRetailsContext db, StaffAdvancePayment salPayment)
         //{
         //    var old = db.StaffAdvancePayments.Where(c => c.StaffAdvancePaymentId == salPayment.StaffAdvancePaymentId).Select(d => new { d.Amount, d.PaymentDate, d.PayMode }).FirstOrDefault();
