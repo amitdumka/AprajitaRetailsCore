@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
+using AprajitaRetails.Ops;
 
 namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
@@ -44,15 +45,17 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 return NotFound();
             }
 
-            return View(attendance);
+            return PartialView(attendance);
         }
 
         // GET: Payrolls/Attendances/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId");
-            return View();
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName");
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = storeInfo.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+            return PartialView();
         }
 
         // POST: Payrolls/Attendances/Create
@@ -68,9 +71,11 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", attendance.EmployeeId);
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", attendance.StoreId);
-            return View(attendance);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName", attendance.EmployeeId);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = storeInfo.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+            return PartialView(attendance);
         }
 
         // GET: Payrolls/Attendances/Edit/5
@@ -86,9 +91,11 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", attendance.EmployeeId);
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", attendance.StoreId);
-            return View(attendance);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName", attendance.EmployeeId);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = attendance.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+            return PartialView(attendance);
         }
 
         // POST: Payrolls/Attendances/Edit/5
@@ -123,9 +130,11 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", attendance.EmployeeId);
-            ViewData["StoreId"] = new SelectList(_context.Stores, "StoreId", "StoreId", attendance.StoreId);
-            return View(attendance);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName", attendance.EmployeeId);
+            StoreInfo storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+            ViewData["StoreId"] = attendance.StoreId;
+            ViewData["UserName"] = storeInfo.UserName;
+            return PartialView(attendance);
         }
 
         // GET: Payrolls/Attendances/Delete/5
@@ -145,7 +154,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 return NotFound();
             }
 
-            return View(attendance);
+            return PartialView(attendance);
         }
 
         // POST: Payrolls/Attendances/Delete/5

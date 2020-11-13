@@ -3,9 +3,6 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
 <h4>Attendance</h4>
 <hr />
 <div class="row">
@@ -14,21 +11,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="EmployeeId" class="control-label"></label>
-                <select asp-for="EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="AttDate" class="control-label"></label>
                 <input asp-for="AttDate" class="form-control" />
                 <span asp-validation-for="AttDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="EntryTime" class="control-label"></label>
                 <input asp-for="EntryTime" class="form-control" />
                 <span asp-validation-for="EntryTime" class="text-danger"></span>
-            </div>
+            </div>*@
+        <div class="md-form md-outline input-with-post-icon timepicker" darktheme="true">
+            <input type="text" id="set-dark-theme" class="form-control" placeholder="Select time" asp-for="EntryTime">
+            <label for="set-dark-theme" asp-for="EntryTime"></label>
+            <i class="fas fa-clock  input-prefix"></i>
+            <span asp-validation-for="EntryTime" class="text-danger"></span>
+        </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
+                <select asp-for="Status" class="form-control" asp-items="@Html.GetEnumSelectList<AttUnit>()"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,38 +39,26 @@
                 <input asp-for="Remarks" class="form-control" />
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IsTailoring" class="control-label"></label>
-                <input asp-for="IsTailoring" class="form-control" />
-                <span asp-validation-for="IsTailoring" class="text-danger"></span>
+            @*<div class="form-check">
+            <input asp-for="IsTailoring" class="form-check-input" type="checkbox" />
+            <label asp-for="IsTailoring" class="form-check-label"></label>
+            <span asp-validation-for="IsTailoring" class="text-danger"></span>
+        </div>*@
+            <div class="form-check">
+                <input class="form-check-input" asp-for="IsTailoring" type="checkbox" data-val="true" />
+                <label class="form-check-label" asp-for="IsTailoring"></label>
             </div>
+
+            <input type="hidden" asp-for="UserId" value="@User.Identity.Name" />
+            <input type="hidden" asp-for="StoreId" value="@ViewBag.StoreId" />
+            <input type="hidden" asp-for="EntryStatus" value="0" />
+            <input type="hidden" asp-for="IsReadOnly" value="0" />
+
             <div class="form-group">
-                <label asp-for="StoreId" class="control-label"></label>
-                <select asp-for="StoreId" class ="form-control" asp-items="ViewBag.StoreId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EntryStatus" class="control-label"></label>
-                <select asp-for="EntryStatus" class="form-control"></select>
-                <span asp-validation-for="EntryStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsReadOnly" /> @Html.DisplayNameFor(model => model.IsReadOnly)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary btn-rounded btn-sm" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

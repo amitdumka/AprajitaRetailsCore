@@ -37,7 +37,7 @@
     <div class="px-4">
 
         <div class="table-wrapper ">
-            <table id="dtEmployee" cellspacing=" 0" width="100%" class="table bg-white table-hover  table-sm  mb-0">
+            <table id="dtEmployee" cellspacing=" 0" width="100%" class="table bg-white table-hover table-bordered  table-sm  mb-0">
                 <thead class="mdb-color-text text-center">
                     <tr>
                         <th></th>
@@ -54,6 +54,7 @@
                                 @Html.DisplayNameFor(model => model.LeavingDate)
                             </th>*@
                         <th>
+                            
                             @Html.DisplayNameFor(model => model.IsWorking)
                         </th>
                         <th>
@@ -110,7 +111,7 @@
                 <tbody class="text-center text-primary">
                     @foreach (var item in Model)
                     {
-                        <tr>
+                        <tr >
                             <td></td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StaffName)
@@ -124,8 +125,9 @@
                             @*<td>
                                     @Html.DisplayFor(modelItem => item.LeavingDate)
                                 </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IsWorking)
+                            <td class="smaller">
+                                <input type="checkbox" checked="@item.IsWorking" class="form-check-input smaller"/><label></label>
+                                @*@Html.DisplayFor(modelItem => item.IsWorking)*@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Category)
@@ -185,27 +187,26 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th class="invisible"></th>
+                        <th class="skip"></th>
                         <th>
-                            @Html.DisplayNameFor(model => model.StaffName)
+                            
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.MobileNo)
+                           
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.JoiningDate)
+                           
                         </th>
-                        <th class="invisible">
-                            @Html.DisplayNameFor(model => model.IsWorking)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Category)
+                        <th class="skip">
+                           
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Store)
+                          
+                        <th>
+                           
                         </th>
 
-                        <th class="invisible"></th>
+                        <th class="skip"></th>
                     </tr>
                 </tfoot>
             </table>
@@ -257,6 +258,9 @@
                 });
             }
         });
+        $(".skip").empty();
+        $(".skip").removeClass();
+
 
     </script>
 }

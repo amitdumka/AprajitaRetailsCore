@@ -26,7 +26,8 @@ namespace AprajitaRetails.Shared.Models.Payrolls
 
         public AttUnit Status { get; set; }
         public string Remarks { get; set; }
-        public bool? IsTailoring { get; set; }
+        [Display(Name = "Tailor")]
+        public bool IsTailoring { get; set; }
       
     }
 

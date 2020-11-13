@@ -90,6 +90,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         }
 
         // GET: Payrolls/Employees/Edit/5
+        [Authorize(Roles = "Admin,PowerUser,Accountant")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,6 +116,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,PowerUser,Accountant")]
         public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FirstName,LastName,MobileNo,JoiningDate,LeavingDate,IsWorking,Category,IsTailors,EMail,DateOfBirth,AdharNumber,PanNo,OtherIdDetails,Address,City,State,FatherName,HighestQualification,StoreId,UserId,EntryStatus,IsReadOnly")] Employee employee)
         {
             if (id != employee.EmployeeId)
@@ -151,6 +153,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         }
 
         // GET: Payrolls/Employees/Delete/5
+        [Authorize(Roles = "Admin,PowerUser,Accountant")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -172,6 +175,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         // POST: Payrolls/Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,PowerUser,Accountant")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
