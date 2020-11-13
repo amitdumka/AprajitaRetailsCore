@@ -12,31 +12,33 @@
             <div class="form-group">
                 <label asp-for="EmployeeId" class="control-label"></label>
                 <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="md-form md-outline">
                 <label asp-for="AttDate" class="control-label"></label>
                 <input asp-for="AttDate" class="form-control" />
                 <span asp-validation-for="AttDate" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="EntryTime" class="control-label"></label>
-                <input asp-for="EntryTime" class="form-control" />
-                <span asp-validation-for="EntryTime" class="text-danger"></span>
-            </div>*@
-        <div class="md-form md-outline input-with-post-icon timepicker" darktheme="true">
-            <input type="text" id="set-dark-theme" class="form-control" placeholder="Select time" asp-for="EntryTime">
-            <label for="set-dark-theme" asp-for="EntryTime"></label>
-            <i class="fas fa-clock  input-prefix"></i>
+            <label asp-for="EntryTime" class="control-label"></label>
+            <input asp-for="EntryTime" class="form-control" />
             <span asp-validation-for="EntryTime" class="text-danger"></span>
-        </div>
+        </div>*@
+            <div class="md-form md-outline input-with-post-icon timepicker" darktheme="true" default="now" twelvehour="true">
+                <input type="text" class="form-control" placeholder="Select time" asp-for="EntryTime">
+                <label asp-for="EntryTime"></label>
+                <i class="fas fa-clock  input-prefix"></i>
+                
+            </div>
+           
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
                 <select asp-for="Status" class="form-control" asp-items="@Html.GetEnumSelectList<AttUnit>()"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="md-form md-outline">
                 <label asp-for="Remarks" class="control-label"></label>
-                <input asp-for="Remarks" class="form-control" />
+                <input asp-for="Remarks" class="form-control" placeholder="Remarks" />
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
             @*<div class="form-check">
@@ -44,7 +46,7 @@
             <label asp-for="IsTailoring" class="form-check-label"></label>
             <span asp-validation-for="IsTailoring" class="text-danger"></span>
         </div>*@
-            <div class="form-check">
+            <div class="  form-check">
                 <input class="form-check-input" asp-for="IsTailoring" type="checkbox" data-val="true" />
                 <label class="form-check-label" asp-for="IsTailoring"></label>
             </div>
