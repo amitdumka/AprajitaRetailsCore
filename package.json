@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@material/button": "^8.0.0",
+    "material-components-web": "^8.0.0"
+  }
+}

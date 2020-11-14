@@ -24,15 +24,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.DM", "AprajitaRetails.DM\AprajitaRetails.DM.csproj", "{25F79C46-292C-4431-B773-FA27C86CB788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.DM", "AprajitaRetails.DM\AprajitaRetails.DM.csproj", "{25F79C46-292C-4431-B773-FA27C86CB788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.SO", "AprajitaRetails.SO\AprajitaRetails.SO.csproj", "{BCB85679-BD86-4864-BFCB-A2B2532E6CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.SO", "AprajitaRetails.SO\AprajitaRetails.SO.csproj", "{BCB85679-BD86-4864-BFCB-A2B2532E6CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.Bot", "AprajitaRetails.Bot\AprajitaRetails.Bot.csproj", "{A10ED645-0632-4F7B-8056-9B25AA9CCD23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.Bot", "AprajitaRetails.Bot\AprajitaRetails.Bot.csproj", "{A10ED645-0632-4F7B-8056-9B25AA9CCD23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.Tally", "AprajitaRetails.Tally\AprajitaRetails.Tally.csproj", "{9C3F6A3F-C4B6-490A-ABDA-AFF722AD7EAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.Tally", "AprajitaRetails.Tally\AprajitaRetails.Tally.csproj", "{9C3F6A3F-C4B6-490A-ABDA-AFF722AD7EAF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.Crons", "AprajitaRetails.Crons\AprajitaRetails.Crons.csproj", "{9AC9F8B8-E103-4C98-AEDA-962A5A802EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.eShop", "AprajitaRetails.eShop\AprajitaRetails.eShop.csproj", "{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -81,6 +83,10 @@ Global
 		{9AC9F8B8-E103-4C98-AEDA-962A5A802EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC9F8B8-E103-4C98-AEDA-962A5A802EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC9F8B8-E103-4C98-AEDA-962A5A802EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
