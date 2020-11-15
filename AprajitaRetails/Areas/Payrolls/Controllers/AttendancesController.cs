@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
 using AprajitaRetails.Ops;
+using AprajitaRetails.BL.Validations;
+using AprajitaRetails.BL.Payrolls;
 
 namespace AprajitaRetails.Areas.Payrolls.Controllers
 {
@@ -67,8 +69,18 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (DBValidation.AttendanceDuplicateCheck(_context, attendance))
+                {
+                    ViewBag.ErrorMessage = "Attendance already added!. Possible duplicate entry.";
+                    ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName", attendance.EmployeeId);
+                    StoreInfo storeInfo1 = PostLogin.ReadStoreInfo(HttpContext.Session);
+                    ViewData["StoreId"] = storeInfo1.StoreId;
+                    ViewData["UserName"] = storeInfo1.UserName;
+                    return PartialView(attendance);
+                }
                 _context.Add(attendance);
                 await _context.SaveChangesAsync();
+                new PayrollManager().ONInsertOrUpdate(_context, attendance, false, false);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "StaffName", attendance.EmployeeId);
@@ -116,6 +128,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
                 {
                     _context.Update(attendance);
                     await _context.SaveChangesAsync();
+                    new PayrollManager().ONInsertOrUpdate(_context, attendance, false, true);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -165,6 +178,7 @@ namespace AprajitaRetails.Areas.Payrolls.Controllers
             var attendance = await _context.Attendances.FindAsync(id);
             _context.Attendances.Remove(attendance);
             await _context.SaveChangesAsync();
+            new PayrollManager().ONInsertOrUpdate(_context, attendance, true, false);
             return RedirectToAction(nameof(Index));
         }
 
