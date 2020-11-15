@@ -34,7 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.Tally", "Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.Crons", "AprajitaRetails.Crons\AprajitaRetails.Crons.csproj", "{9AC9F8B8-E103-4C98-AEDA-962A5A802EA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.eShop", "AprajitaRetails.eShop\AprajitaRetails.eShop.csproj", "{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AprajitaRetails.eShop", "AprajitaRetails.eShop\AprajitaRetails.eShop.csproj", "{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprajitaRetails.WebUI", "AprajitaRetails.WebUI\AprajitaRetails.WebUI.csproj", "{D7E4BF1A-B1C9-41C1-8254-FC3643B8AA9D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -87,6 +89,10 @@ Global
 		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FC4F330-EAB0-4D18-AA6D-C0859571C06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E4BF1A-B1C9-41C1-8254-FC3643B8AA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E4BF1A-B1C9-41C1-8254-FC3643B8AA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E4BF1A-B1C9-41C1-8254-FC3643B8AA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E4BF1A-B1C9-41C1-8254-FC3643B8AA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
