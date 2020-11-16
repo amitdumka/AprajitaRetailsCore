@@ -21,13 +21,14 @@
     "ajv": "^6.9.1",
     "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
-    "babel-eslint": "~7.1.1",
+    "babel-eslint": "10.1.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-node-env-inline": "^6.8.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
-    "plugin-proposal-export-default-from": "7.12.1",
+    "@babel/plugin-proposal-export-default-from": "7.12.1",
+    "@babel/plugin-proposal-class-static-block": "7.12.1",
     "cross-env": "^5.2.0",
     "css-loader": "^0.26.1",
     "eslint": "^6.8.0",
@@ -43,12 +44,17 @@
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.2",
     "postcss-mixins": "^5.4.1",
+    "postcss": "8.1.7",
+    "postcss-preset-env": "6.7.0",
+    "postcss-calc":"7.0.5",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-toolbox": "2.0.0-beta.13",
     "redux-devtools-extension": "^1.0.0",
     "style-loader": "^0.13.1",
     "typescript": "^3.7.5",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^2.2.0",
+    "react-toolbox-themr": "1.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,7 +64,8 @@
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/"
+    "lint": "eslint ./src/",
+    "tool-box": "react-toolbox-themr"
   },
   "browserslist": {
     "production": [

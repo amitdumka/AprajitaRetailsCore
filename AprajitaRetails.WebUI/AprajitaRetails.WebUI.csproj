@@ -26,16 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\babel.config.json" />
     <None Remove="ClientApp\src\babel.config.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ClientApp\babel.config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="ClientApp\src\babel.config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
