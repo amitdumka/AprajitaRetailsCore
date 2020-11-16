@@ -20,5 +20,7 @@ https://developer.okta.com/blog/2018/07/02/build-a-secure-crud-app-with-aspnetco
 https://www.ego-cms.com/post/asp-net-core-webpack-react
 https://dzone.com/articles/aspnet-core-crud-with-reactjs-and-entity-framework
 https://docs.microsoft.com/en-us/visualstudio/containers/container-tools-react?view=vs-2019
+
+https://codesandbox.io/s/4j7m47vlm4
  
  */
