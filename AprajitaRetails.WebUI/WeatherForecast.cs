@@ -13,3 +13,12 @@ namespace AprajitaRetails.WebUI
         public string Summary { get; set; }
     }
 }
+/*
+ Helper 
+
+https://developer.okta.com/blog/2018/07/02/build-a-secure-crud-app-with-aspnetcore-and-react
+https://www.ego-cms.com/post/asp-net-core-webpack-react
+https://dzone.com/articles/aspnet-core-crud-with-reactjs-and-entity-framework
+https://docs.microsoft.com/en-us/visualstudio/containers/container-tools-react?view=vs-2019
+ 
+ */
