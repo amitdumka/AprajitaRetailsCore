@@ -1,12 +1,1 @@
-{
-  "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material/button": "^8.0.0",
-    "material-components-web": "^8.0.0",
-    "react-toolbox": "^2.0.0-beta.13"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.12.1"
-  }
-}
+{}
