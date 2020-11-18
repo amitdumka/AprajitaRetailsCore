@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Shared.Models.Payrolls;
+using AprajitaRetails.BL.Payrolls;
 
 namespace AprajitaRetails.API.Controllers
 {
@@ -19,6 +20,25 @@ namespace AprajitaRetails.API.Controllers
         public AttendancesController(AprajitaRetailsContext context)
         {
             _context = context;
+        }
+
+        [HttpGet("EmployeeAttendanceList{id}")]
+        public async Task<EmployeeAttendaceInfo> GetEmployeeAttendanceInfo(int id, DateTime? onDate)
+        {
+           return await PayrollSpecialOps.EmployeeAttendaceListAsync(_context, id, onDate);
+        }
+
+        [HttpPost("StoreClosed")]
+        public async Task<ActionResult> PostStoreClosedAsync(DateTime onDate, string reason, int StoreId, bool isHoliday)
+        {
+            if (await PayrollSpecialOps.StoreClosedAsync(_context, StoreId, onDate, isHoliday, reason))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // GET: api/Attendances
