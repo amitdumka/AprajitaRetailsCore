@@ -27,6 +27,16 @@ namespace AprajitaRetails.API.Controllers
         {
             return await _context.Stores.ToListAsync();
         }
+        [HttpGet("Active")]
+        public async Task<ActionResult<IEnumerable<Store>>> GetActiveStore()
+        {
+            return await _context.Stores.Where(c => c.Status).ToListAsync();
+        }
+        [HttpGet("Closed")]
+        public async Task<ActionResult<IEnumerable<Store>>> GetClosedStore()
+        {
+            return await _context.Stores.Where(c => !c.Status).ToListAsync();
+        }
 
         // GET: api/Stores/5
         [HttpGet("{id}")]
