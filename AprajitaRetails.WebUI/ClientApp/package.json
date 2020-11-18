@@ -51,7 +51,6 @@
     "postcss-mixins": "7.0.1",
     "postcss-preset-env": "6.7.0",
     "react-hot-loader": "4.13.0",
-    "react-toolbox-themr": "^1.0.2",
     "react-transition-group": "4.4.1",
     "redux-devtools-extension": "^1.0.0",
     "style-loader": "^0.13.1",
