@@ -115,28 +115,32 @@
 {
     <script>
         //Web Operations
-        const host = "https://localhost:445533/";
+        const host = "https://localhost:44335/";
         const uri = `${host}api/Stores`;
 
         //Function: Add Store 
         function addStore() {
-            const newStore = {
-            };
+            console.log($('#CreateStore').serialize());
+            var newStoreData = $('#CreateStore').serialize();
+            console.log(JSON.stringify(newStoreData));
+
             fetch(uri, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(item)
+                body: JSON.stringify(newStoreData)
             })
                 .then(response => response.json())
                 .then(() => {
                     toastr("New Store is added successfuly");
-                    
+                    console.log(response);
                     location.reload();
                 })
-                .catch(error => toastr("Unable to able to add!" + error));
+                .catch(error => {
+                    console.error(error); alert(error);
+                });
 
         }
         function showEditForm(id) {
@@ -342,7 +346,7 @@
             }
         });
         $('input.search').val('');
-        table.search('').draw();
+       // table.search('').draw();
                     //table.search("");
                     //table.draw();
                                // $('.dataTables_length').addClass('bs-select');
