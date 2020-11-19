@@ -117,13 +117,23 @@
         //Web Operations
         const host = "https://localhost:44335/";
         const uri = `${host}api/Stores`;
-
-        //Function: Add Store 
+        function objectifyForm(formArray) {
+            //serialize data function
+            var returnArray = {};
+            for (var i = 0; i < formArray.length; i++) {
+                returnArray[formArray[i]['name']] = formArray[i]['value'];
+            }
+            return returnArray;
+        }
+        //Function: Add Store
         function addStore() {
-            console.log($('#CreateStore').serialize());
-            var newStoreData = $('#CreateStore').serialize();
+            console.log($('#CreateStore').serializeArray());
+            var dataArray = $('#CreateStore').serializeArray();
+            var newStoreData = objectifyForm(dataArray);
+            console.log(newStoreData);
             console.log(JSON.stringify(newStoreData));
-
+            
+            
             fetch(uri, {
                 method: 'POST',
                 headers: {
@@ -134,9 +144,10 @@
             })
                 .then(response => response.json())
                 .then(() => {
-                    toastr("New Store is added successfuly");
-                    console.log(response);
-                    location.reload();
+                    alert("New Store is added successfuly");
+                    //alert(response.json());
+                    //console.log("Res:\t"+response.json());
+                    //location.reload();
                 })
                 .catch(error => {
                     console.error(error); alert(error);
@@ -153,7 +164,7 @@
                 method: 'DELETE'
             })
                 .then(() => location.reload())
-                .catch(error => toastr("Unable to delete due to error : "+error));
+                .catch(error => toastr("Unable to delete due to error : " + error));
         }
 
         function updateStore() {
@@ -173,7 +184,7 @@
                 body: JSON.stringify(editStore)
             })
                 .then(() => getItems())
-                .catch(error => toastr("Unable to update item. :"+ error));
+                .catch(error => toastr("Unable to update item. :" + error));
 
             closeInput();
 
@@ -346,24 +357,24 @@
             }
         });
         $('input.search').val('');
-       // table.search('').draw();
-                    //table.search("");
-                    //table.draw();
-                               // $('.dataTables_length').addClass('bs-select');
-                                //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
-                                //    $(this).parent().append($(this).children());
-                                //});
-                                //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
-                                //    const $this = $(this);
-                                //    $this.attr("placeholder", "Search");
-                                //    $this.removeClass('form-control-sm');
-                                //});
-                               // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
-                               // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
-                               // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
-                               // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
-                               // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
-                               // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
-                            //});
+               // table.search('').draw();
+                            //table.search("");
+                            //table.draw();
+                                       // $('.dataTables_length').addClass('bs-select');
+                                        //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
+                                        //    $(this).parent().append($(this).children());
+                                        //});
+                                        //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
+                                        //    const $this = $(this);
+                                        //    $this.attr("placeholder", "Search");
+                                        //    $this.removeClass('form-control-sm');
+                                        //});
+                                       // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+                                       // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+                                       // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
+                                       // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+                                       // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+                                       // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
+                                    //});
     </script>
 }
