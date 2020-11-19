@@ -28,28 +28,32 @@
         $(function () {
            
             $.ajaxSetup({ cache: false });
-            $(document).on('click', 'a[data_modal]',/* $("a[data_modal]").on("click",*/ function (e) {
+            $(document).on('click', 'a[data_modal]', function (e) {
                 
                 if (this.id == "edit") {
                     $("#myModalLabel").html("Edit Items");
+                    $("modalHead").removeClass("model-success model-primary model-info");
                     $("#modalHead").addClass("modal-warning");
                 }
                 else if (this.id == "detail") {
                     $("#myModalLabel").html("Detail Items");
+                    $("modalHead").removeClass("model-warning model-primary model-info");
                     $("#modalHead").addClass("modal-success");
                 }
                 else if (this.id == "create") {
                     $("#myModalLabel").html("Create Items");
+
+                    $("modalHead").removeClass("model-success model-warning model-info");
                     $("#modalHead").addClass("modal-primary");
                 }
                 else if (this.id == "delete") {
                     $("#myModalLabel").html("Delete Items");
+
+                    $("modalHead").removeClass("model-success model-primary model-warning");
                     $("#modalHead").addClass("modal-info");
                 }
                 $('#myModalContent').load(this.href, function () {
-                    $(document).ready(function () {
-                        $('.mdb-select').materialSelect();
-                    });
+                    
                     $('#myModal').modal({
                         keyboard: true
                     }, 'show');
