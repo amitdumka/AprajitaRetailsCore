@@ -125,14 +125,37 @@
             }
             return returnArray;
         }
+
+        $.fn.formToJson = function () {
+            var a = this.serializeArray();
+            var aa = {};
+            for (var i = 0; i < a.length; i++) {
+                aa[a[i]['name']] = a[i]['value'];
+            }
+
+            return JSON.stringify(aa);
+
+        };
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
         //Function: Add Store
         function addStore() {
             console.log($('#CreateStore').serializeArray());
-            var dataArray = $('#CreateStore').serializeArray();
-            var newStoreData = objectifyForm(dataArray);
+            var newStoreData = $('#CreateStore').formToJson();
             console.log(newStoreData);
-            console.log(JSON.stringify(newStoreData));
-            
             
             fetch(uri, {
                 method: 'POST',
@@ -140,7 +163,7 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(newStoreData)
+                body: newStoreData
             })
                 .then(response => response.json())
                 .then(() => {
@@ -357,24 +380,24 @@
             }
         });
         $('input.search').val('');
-               // table.search('').draw();
-                            //table.search("");
-                            //table.draw();
-                                       // $('.dataTables_length').addClass('bs-select');
-                                        //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
-                                        //    $(this).parent().append($(this).children());
+                   // table.search('').draw();
+                                //table.search("");
+                                //table.draw();
+                                           // $('.dataTables_length').addClass('bs-select');
+                                            //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
+                                            //    $(this).parent().append($(this).children());
+                                            //});
+                                            //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
+                                            //    const $this = $(this);
+                                            //    $this.attr("placeholder", "Search");
+                                            //    $this.removeClass('form-control-sm');
+                                            //});
+                                           // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+                                           // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
+                                           // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+                                           // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
                                         //});
-                                        //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
-                                        //    const $this = $(this);
-                                        //    $this.attr("placeholder", "Search");
-                                        //    $this.removeClass('form-control-sm');
-                                        //});
-                                       // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
-                                       // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
-                                       // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
-                                       // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
-                                       // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
-                                       // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
-                                    //});
     </script>
 }
