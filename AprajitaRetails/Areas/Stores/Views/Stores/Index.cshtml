@@ -165,12 +165,20 @@
                 },
                 body: newStoreData
             })
-                .then(response => response.json())
+                .then(response => {
+                   // response.json();
+                    console.log(response);
+                    if (response.ok) toastr.success('New Store is Added Successfuly.');
+                    else toastr.error('Sorry!, Failed to add new Store.');
+                    console.log(response.result);
+                    console.log(response.json());
+                    console.log(response.result);
+                })
                 .then(() => {
-                    alert("New Store is added successfuly");
+                    //alert("New Store is added successfuly");
                     //alert(response.json());
                     //console.log("Res:\t"+response.json());
-                    //location.reload();
+                    location.reload();
                 })
                 .catch(error => {
                     console.error(error); alert(error);
