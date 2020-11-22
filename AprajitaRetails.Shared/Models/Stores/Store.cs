@@ -11,6 +11,7 @@ namespace AprajitaRetails.Shared.Models.Stores
     /// <summary>
     /// Version:5.0
     /// </summary>
+   // [JsonIgnore(Condition = JsonIgnoreCondition.WhenNull)]
     public class Store:BaseGT
     {
         public int StoreId { get; set; }

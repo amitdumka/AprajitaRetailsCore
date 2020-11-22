@@ -11,9 +11,89 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Buffers;
+using System.Buffers.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace AprajitaRetails.API
 {
+    //public class NullableDateTimeToString : JsonConverter<DateTime?>
+    //{
+    //    public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    //    {
+    //       // Console.WriteLine("Reading");
+    //        Debug.Assert(typeToConvert == typeof(DateTime?));
+    //        return reader.GetString() == "" ? null : reader.GetDateTime();
+    //    }
+
+    //    // This method will be ignored on serialization, and the default typeof(DateTime) converter is used instead.
+    //    // This is a bug: https://github.com/dotnet/corefx/issues/41070#issuecomment-560949493
+    //    public override void Write(Utf8JsonWriter writer, DateTime? value, JsonSerializerOptions options)
+    //    {
+    //        //Console.WriteLine("Here - writing");
+
+    //        if (!value.HasValue)
+    //        {
+    //            writer.WriteStringValue("");
+    //        }
+    //        else
+    //        {
+    //            writer.WriteStringValue(value.Value);
+    //        }
+    //    }
+    //}
+    //public class LongToStringConverter : JsonConverter<long>
+    //{
+    //    public override long Read(ref Utf8JsonReader reader, Type type, JsonSerializerOptions options)
+    //    {
+    //        if (reader.TokenType == JsonTokenType.String)
+    //        {
+    //            // try to parse number directly from bytes
+    //            ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
+    //            if (Utf8Parser.TryParse(span, out long number, out int bytesConsumed) && span.Length == bytesConsumed)
+    //                return number;
+
+    //            // try to parse from a string if the above failed, this covers cases with other escaped/UTF characters
+    //            if (Int64.TryParse(reader.GetString(), out number))
+    //                return number;
+    //        }
+
+    //        // fallback to default handling
+    //        return reader.GetInt64();
+    //    }
+
+    //    public override void Write(Utf8JsonWriter writer, long value, JsonSerializerOptions options)
+    //    {
+    //        writer.WriteStringValue(value.ToString());
+    //    }
+    //}
+    //public class IntToStringConverter : JsonConverter<int>
+    //{
+    //    public override int Read(ref Utf8JsonReader reader, Type type, JsonSerializerOptions options)
+    //    {
+    //        if (reader.TokenType == JsonTokenType.String)
+    //        {
+    //            ReadOnlySpan<byte> span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
+    //            if (Utf8Parser.TryParse(span, out int number, out int bytesConsumed) && span.Length == bytesConsumed)
+    //            {
+    //                return number;
+    //            }
+
+    //            if (int.TryParse(reader.GetString(), out number))
+    //            {
+    //                return number;
+    //            }
+    //        }
+
+    //        return reader.GetInt32();
+    //    }
+
+    //    public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
+    //    {
+    //        writer.WriteStringValue(value.ToString());
+    //    }
+    //}
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,8 +107,16 @@ namespace AprajitaRetails.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddDbContext<AprajitaRetailsContext>(options =>
+             services.AddControllers();
+            //services.AddControllers()
+            // .AddJsonOptions(options =>
+            // {
+            //     options.JsonSerializerOptions.Converters.Add(new IntToStringConverter());
+            //     options.JsonSerializerOptions.Converters.Add(new LongToStringConverter());
+            //     options.JsonSerializerOptions.Converters.Add(new NullableDateTimeToString());
+
+            // });
+                services.AddDbContext<AprajitaRetailsContext>(options =>
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")));
             // Register the Swagger generator, defining 1 or more Swagger documents
