@@ -99,7 +99,8 @@
                             <td class="btn-group d-inline-flex">
                                 <a class="btn btn-warning btn-sm btn-rounded" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.StoreId"><i class="fas fa-pencil-alt mt-0"></i></a>
                                 <a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.StoreId"><i class="fas fa-info-circle mt-0"></i></a>
-                                <a class="btn btn-danger btn-sm btn-rounded" id="delete" data_modal="" asp-action="Delete" asp-route-id="@item.StoreId"><i class="fas fa-trash-alt mt-0"></i></a>
+                                <a class="btn btn-danger btn-sm btn-rounded" id="delete_JS" onclick="delStore(@item.StoreId)"><i class="fas fa-trash-alt mt-0"></i></a>
+                                @*data_modal="" asp-action="Delete" asp-route-id="@item.StoreId"*@
                             </td>
                         </tr>
                     }
@@ -110,6 +111,32 @@
 </div>
 
 <partial name="_OnlyModalPopUp" />
+<!-- Modal HTML -->
+<div id="delteModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column">
+                <div class="icon-box">
+                    <i class="material-icons">&#xE5CD;</i>
+                </div>
+                <h4 class="modal-title w-100">Are you sure?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body" >
+                <input type="hidden" value="0" id="delID" />
+                <p>Do you really want to delete these records? This process cannot be undone.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger"  id="delButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 @section Scripts
 {
@@ -152,11 +179,11 @@
             return o;
         };
         //Function: Add Store
-        function addStore() {
+        function addStore() {// Working
             console.log($('#CreateStore').serializeArray());
             var newStoreData = $('#CreateStore').formToJson();
             console.log(newStoreData);
-            
+
             fetch(uri, {
                 method: 'POST',
                 headers: {
@@ -166,22 +193,16 @@
                 body: newStoreData
             })
                 .then(response => {
-                   // response.json();
-                    console.log(response);
                     if (response.ok) toastr.success('New Store is Added Successfuly.');
                     else toastr.error('Sorry!, Failed to add new Store.');
-                    console.log(response.result);
                     console.log(response.json());
-                    console.log(response.result);
                 })
                 .then(() => {
-                    //alert("New Store is added successfuly");
-                    //alert(response.json());
-                    //console.log("Res:\t"+response.json());
+
                     location.reload();
                 })
                 .catch(error => {
-                    console.error(error); alert(error);
+                    console.error(error); toastr.error('Sorry!, Failed to add new Store.');
                 });
 
         }
@@ -189,13 +210,26 @@
             //TODO:: new to pop up
         }
 
-        function deleteStore(id) {
+        function delStore(id) {
 
+            $('#delButton').attr('onClick', `deleteStore(${id})`);
+            $('#delteModal').modal({
+                keyboard: true
+            }, 'show');
+
+        }
+
+        function deleteStore(id) {
+            
             fetch(`${uri}/${id}`, {
                 method: 'DELETE'
             })
-                .then(() => location.reload())
-                .catch(error => toastr("Unable to delete due to error : " + error));
+                .then(() => {
+                    $('#delteModal').modal().dissmed();
+                    toastr.success("Store is deleted Successfully!");
+                    //location.reload();
+                }).then(() => location.reload())
+                .catch(error => toastr.error("Unable to delete due to error : " + error));
         }
 
         function updateStore() {
@@ -388,24 +422,24 @@
             }
         });
         $('input.search').val('');
-                   // table.search('').draw();
-                                //table.search("");
-                                //table.draw();
-                                           // $('.dataTables_length').addClass('bs-select');
-                                            //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
-                                            //    $(this).parent().append($(this).children());
-                                            //});
-                                            //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
-                                            //    const $this = $(this);
-                                            //    $this.attr("placeholder", "Search");
-                                            //    $this.removeClass('form-control-sm');
-                                            //});
-                                           // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
-                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
-                                           // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
-                                           // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
-                                           // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
-                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
-                                        //});
+                                   // table.search('').draw();
+                                                //table.search("");
+                                                //table.draw();
+                                                           // $('.dataTables_length').addClass('bs-select');
+                                                            //$('#dtMaterialDesignExample_wrapper').find('label').each(function () {
+                                                            //    $(this).parent().append($(this).children());
+                                                            //});
+                                                            //$('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function () {
+                                                            //    const $this = $(this);
+                                                            //    $this.attr("placeholder", "Search");
+                                                            //    $this.removeClass('form-control-sm');
+                                                            //});
+                                                           // $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+                                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+                                                           // $('#dtMaterialDesignExample_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
+                                                           // $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+                                                           // $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+                                                           // $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
+                                                        //});
     </script>
 }

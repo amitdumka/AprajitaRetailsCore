@@ -29,7 +29,8 @@
            
             $.ajaxSetup({ cache: false });
             $(document).on('click', 'a[data_modal]', function (e) {
-                
+               
+
                 if (this.id == "edit") {
                     $("#myModalLabel").html("Edit Items");
                     $("modalHead").removeClass("model-success model-primary model-info");
@@ -52,6 +53,7 @@
                     $("modalHead").removeClass("model-success model-primary model-warning");
                     $("#modalHead").addClass("modal-info");
                 }
+
                 $('#myModalContent').load(this.href, function () {
                     
                     $('#myModal').modal({
