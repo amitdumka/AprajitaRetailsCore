@@ -20,26 +20,20 @@ function objectifyForm(formArray) {
 
 $.fn.formToJson = function () {
     var a = this.serializeArray();
-    console.log(a);
+    //console.log(a);
     var aa = {};
-
     var lastName = "";
     for (var i = 0; i < a.length; i++) {
-
-
-
         if (a[i]['name'] != lastName) {
             aa[a[i]['name']] = a[i]['value'];
-            console.log(a[i]['name'] + ":" + a[i]['value']);
+           // console.log(a[i]['name'] + ":" + a[i]['value']);
         }
-        else {
-            console.log(a[i]['name'] + ":" + a[i]['value']);
-            console.log("Check Box Encoutered");
-        }
-
+        //else {
+        //    console.log(a[i]['name'] + ":" + a[i]['value']);
+        //    console.log("Check Box Encoutered");
+        //}
         lastName = a[i]['name'];
     }
-
     return JSON.stringify(aa);
 
 };
@@ -63,8 +57,6 @@ $(function () {
 
     $.ajaxSetup({ cache: false });
     $(document).on('click', 'a[data_modal]', function (e) {
-
-
         if (this.id == "edit") {
             $("#myModalLabel").html("Edit Items");
             $("modalHead").removeClass("model-success model-primary model-info");
@@ -87,13 +79,10 @@ $(function () {
             $("modalHead").removeClass("model-success model-primary model-warning");
             $("#modalHead").addClass("modal-info");
         }
-
         $('#myModalContent').load(this.href, function () {
-
             $('#myModal').modal({
                 keyboard: true
             }, 'show');
-
         });
         return false;
     });
@@ -161,9 +150,9 @@ function deleteModal(activityName, uri, id) {
 
 }
 
-function deleteData(activityName, uri2, id) {
+function deleteData(activityName, uri, id) {
    
-    fetch(`${uri2}/${id}`, {
+    fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
         .then(() => {
@@ -207,4 +196,19 @@ function initDataTable(datatableID) {
     });
     $('input.search').val('');
     return table;
+}
+
+//get functions
+
+function getItems(uri) {
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => _displayItems(data))
+        .catch(error => toastr.error('Unable to get items.', error));
+}
+function getItem(uri,id) {
+    fetch(`${uri}/${id}`)
+        .then(response => response.json())
+        .then(data => _displayItems(data))
+        .catch(error => toastr.error('Unable to get items.', error));
 }
