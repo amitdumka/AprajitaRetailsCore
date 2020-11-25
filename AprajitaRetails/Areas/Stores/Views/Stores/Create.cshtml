@@ -2,14 +2,16 @@
 
 @{
     ViewData["Title"] = "Create";
+    var host = "https://localhost:44335/api/";
+    var uri = host + "Stores";
+    var activityName = "Store";
 }
 
 <h4>Store</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="CreateStore" action="javascript:void(0);" onsubmit="addStore()">
-            @*asp-action="Create"*@
+        <form id="CreateStore" action="javascript:void(0);" onsubmit="addData('CreateStore', '@activityName','@uri');" >
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     @*<input asp-for="StoreId" type="hidden" value="0"/>*@
                 <div class="form-group">
