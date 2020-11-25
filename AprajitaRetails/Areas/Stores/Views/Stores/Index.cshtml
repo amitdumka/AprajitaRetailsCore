@@ -9,7 +9,7 @@
 }
 
 <!-- Table with panel -->
-<div class="card card-cascade narrower ">
+<div class="card card-cascade narrower mb-5">
     <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
         <div>
@@ -112,15 +112,12 @@
         </div>
     </div>
 </div>
+<div class="card-deck"></div>
 
 <partial name="_OnlyModalPopUp" />
 @section Scripts{
     <script src="~/js/curdjs.js"></script>
     <script>
-    initDataTable("dtStore");
-        function deleteM(id) {
-            console.warn(id);
-        deleteModal('@activityName', '@uri', id);
-    }
+    initDataTable("dtStore");       
     </script>
 }

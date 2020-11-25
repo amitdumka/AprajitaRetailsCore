@@ -26,7 +26,7 @@ $.fn.formToJson = function () {
     for (var i = 0; i < a.length; i++) {
         if (a[i]['name'] != lastName) {
             aa[a[i]['name']] = a[i]['value'];
-           // console.log(a[i]['name'] + ":" + a[i]['value']);
+            // console.log(a[i]['name'] + ":" + a[i]['value']);
         }
         //else {
         //    console.log(a[i]['name'] + ":" + a[i]['value']);
@@ -105,7 +105,7 @@ function addData(formName, activityName, uri) {
         .then(response => {
             if (response.ok) toastr.success(`New ${activityName} is Added Successfuly.`);
             else toastr.error(`Sorry!, Failed to add new ${activityName}.`);
-           
+
         })
         .then(() => {
 
@@ -151,7 +151,7 @@ function deleteModal(activityName, uri, id) {
 }
 
 function deleteData(activityName, uri, id) {
-   
+
     fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
@@ -206,9 +206,54 @@ function getItems(uri) {
         .then(data => _displayItems(data))
         .catch(error => toastr.error('Unable to get items.', error));
 }
-function getItem(uri,id) {
+function getItem(uri, id) {
     fetch(`${uri}/${id}`)
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => toastr.error('Unable to get items.', error));
+}
+
+//Function To add Card and header to table
+
+function cardTable(tableId, title) {
+    var titleBar = `<h3 class="white-text mx - 3 " id="titleHeader">${title}</h3>`;
+    var leftButton = '<div><button type = "button" class="btn btn-outline-white btn-rounded btn-sm px-2" ><i class="fas fa-th-large mt-0"></i></button ><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-columns mt-0"></i></button></div >';
+    var rightButton = '<div><a asp-action="Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-pencil-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="far fa-trash-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-info-circle mt-0"></i></button></div >';
+    var cardBar = '<div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">';
+    var cardMain = '<div class="card card-cascade narrower mb-5"></div>';
+    var cardBody = ' <div class="px-4"></div>';
+    var tableWrapepr = ' <div class="table-wrapper "></div>';
+    var tableAtt = 'cellspacing=" 0" width="100%"';
+    var tableclass = "table bg-white table-hover  table-bordered table-sm  mb-0";
+    var theadClass = "mdb-color-text text-center";
+    var thClass = "th-small";
+    var tbodyClass = "text-center text-primary";
+    var tdSelect = '<td class="text-left"></td>';
+    var thSelect = '<th></th>';
+    $(`#${tableId}`).wrap(' <div class="card-deck"></div>');
+    $(`#${tableId}`).wrap(cardMain);
+    $(`#${tableId}`).before(cardBar + leftButton + titleBar + rightButton + "</div>");
+
+    $(`#${tableId}`).wrap(cardBody);
+    $(`#${tableId}`).wrap(tableWrapepr);
+    $(`#${tableId}`).removeClass();
+    $(`#${tableId}`).addClass(tableclass);
+    $(`#${tableId}`).attr(tableAtt);
+    //$(`#${tableId}`).find("<thead>").prepend(thSelect);
+    $(`#${tableId}`).find("tr").prepend(thSelect);
+    $(`#${tableId}`).find("a").addClass("btn btn-sm btn-rounded btn-primary");
+    $(`#${tableId}`).find("a").parent().addClass("btn-group d-inline-flex");
+    $(`#${tableId}`).find("a").parent().attr('id="tdControls"');
+    $(`#${tableId}`).find("thead").addClass(theadClass);
+    $(`#${tableId}`).find("tbody").addClass(tbodyClass);
+
+    var tdChild = $("#tdControls").children().length;
+    console.log(tdChild);
+
+    initDataTable(tableId);
+
+
+
+
+
 }
