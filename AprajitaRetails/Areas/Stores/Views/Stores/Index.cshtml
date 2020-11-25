@@ -157,21 +157,22 @@
             var a = this.serializeArray();
             console.log(a);
             var aa = {};
-            var io = 0;
+            
+            var lastName = "";
             for (var i = 0; i < a.length; i++) {
 
-                if (i = 0) {
-                    aa[a[i]['name']] = a[i]['value'];
-                } else {
-                    if ( a[i]['name'] != a[io]['name']) {
+                 
+
+                if (a[i]['name'] != lastName) {
                         aa[a[i]['name']] = a[i]['value'];
                         console.log(a[i]['name'] + ":" + a[i]['value']);
                     }
-                    else {
-                        console.error("Check Box Encoutered");
+                else {
+                    console.log(a[i]['name'] + ":" + a[i]['value']);
+                        console.log("Check Box Encoutered");
                     }
-                }
-                io = i;
+
+                lastName = a[i]['name'];
             }
 
             return JSON.stringify(aa);
@@ -239,8 +240,9 @@
                 method: 'DELETE'
             })
                 .then(() => {
-                    $('#delteModal').modal().dissmed();
                     toastr.success("Store is deleted Successfully!");
+                    $('#delteModal').modal('dispose');
+
                     //location.reload();
                 }).then(() => location.reload())
                 .catch(error => toastr.error("Unable to delete due to error : " + error));
@@ -261,7 +263,7 @@
                 body: updateStoreData
             })
                 .then(() => toastr.success("Store Details is saved!"))
-                .then(() => location.reload())
+               
                 .catch(error => toastr.error("Unable to update item. :" + error));
 
             //  closeInput();
