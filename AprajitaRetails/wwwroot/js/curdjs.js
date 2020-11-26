@@ -215,7 +215,7 @@ function getItem(uri, id) {
 
 //Function To add Card and header to table
 
-function cardTable(tableId, title) {
+function cardTableInit(tableId, title, idName) {
     var titleBar = `<h3 class="white-text mx - 3 " id="titleHeader">${title}</h3>`;
     var leftButton = '<div><button type = "button" class="btn btn-outline-white btn-rounded btn-sm px-2" ><i class="fas fa-th-large mt-0"></i></button ><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-columns mt-0"></i></button></div >';
     var rightButton = '<div><a asp-action="Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-pencil-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="far fa-trash-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-info-circle mt-0"></i></button></div >';
@@ -230,6 +230,7 @@ function cardTable(tableId, title) {
     var tbodyClass = "text-center text-primary";
     var tdSelect = '<td class="text-left"></td>';
     var thSelect = '<th></th>';
+
     $(`#${tableId}`).wrap(' <div class="card-deck"></div>');
     $(`#${tableId}`).wrap(cardMain);
     $(`#${tableId}`).before(cardBar + leftButton + titleBar + rightButton + "</div>");
@@ -238,22 +239,33 @@ function cardTable(tableId, title) {
     $(`#${tableId}`).wrap(tableWrapepr);
     $(`#${tableId}`).removeClass();
     $(`#${tableId}`).addClass(tableclass);
-    $(`#${tableId}`).attr(tableAtt);
+    $(`#${tableId}`).attr("cellspacing","0");
+    $(`#${tableId}`).attr("width", "100%");
+
     //$(`#${tableId}`).find("<thead>").prepend(thSelect);
-    $(`#${tableId}`).find("tr").prepend(thSelect);
-    $(`#${tableId}`).find("a").addClass("btn btn-sm btn-rounded btn-primary");
+    $(`#${tableId}`).find("thead").children().prepend(thSelect);
+    $(`#${tableId}`).find("tbody").children().prepend(tdSelect);
+
+    //$(`#${tableId}`).find("td").first().removeClass("text-left");
+    $(`#${tableId}`).find("a").addClass("btn btn-sm btn-rounded");
     $(`#${tableId}`).find("a").parent().addClass("btn-group d-inline-flex");
-    $(`#${tableId}`).find("a").parent().attr('id="tdControls"');
+    $(`#${tableId}`).find("a").parent().attr("id","btnGrpId");
     $(`#${tableId}`).find("thead").addClass(theadClass);
     $(`#${tableId}`).find("tbody").addClass(tbodyClass);
+    $(`#${tableId}`).find("a").empty();
+    $(`#${tableId}`).find("a").attr("id", "opsid");
 
-    var tdChild = $("#tdControls").children().length;
-    console.log(tdChild);
+    $(`#${tableId}`).find("a").attr("data_modal", "");
+    var par = $(`#${tableId}`).find("a").parent();
+    par.children().contents("Edit").addClass("btn-danger");
+    //$(`#${tableId}`).find("a").remove();
+    //par.prepend(`<a class="btn btn-sm btn-rounded btn-amber" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.${idName}"><i class="fas fa-pencil-alt mt-0"></i></a>`);
+    //par.append(`<a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.${idName}"><i class="fas fa-info-circle mt-0"></i></a>`);
+    //par.append(`<a class="btn btn-danger btn-sm btn-rounded" id="delete_JS" onclick="deleteM(@item.${idName})"><i class="fas fa-trash-alt mt-0"></i></a>`);
+    $("#btnGrpId").each(function () {
+        $("a").contents("Edit").remove();
+    });
 
     initDataTable(tableId);
-
-
-
-
 
 }

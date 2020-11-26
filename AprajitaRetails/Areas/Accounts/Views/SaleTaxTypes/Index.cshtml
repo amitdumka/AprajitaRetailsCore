@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<AprajitaRetails.Shared.Models.Sales.SaleTaxType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sale Tax Type";
+    var host = "https://localhost:44335/";
+    var uri = host + "api/SaleTaxTypes";
+    var activityName = "SaleTaxType";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table" id="dtSaleTaxType">
     <thead>
         <tr>
@@ -38,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.CompositeRate)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.SaleTaxTypeId">Edit</a> 
+                    <a class="btn-amber" asp-action="Edit" asp-route-id="@item.SaleTaxTypeId">Edit</a> 
                     <a asp-action="Details" asp-route-id="@item.SaleTaxTypeId">Details</a> 
                     <a asp-action="Delete" asp-route-id="@item.SaleTaxTypeId">Delete</a>
                 </td>
@@ -46,9 +45,10 @@
         }
     </tbody>
 </table>
+<partial name="_OnlyModalPopUp" />
 @section Scripts{
     <script src="~/js/curdjs.js"></script>
     <script>
-        cardTable("dtSaleTaxType", "Sale Tax Type");
+       cardTableInit("dtSaleTaxType", "Sale Tax Type","SaleTaxTypeId");
     </script>
 }
