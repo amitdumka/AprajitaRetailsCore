@@ -41,13 +41,13 @@ namespace AprajitaRetails.Areas.Accounts.Controllers
                 return NotFound();
             }
 
-            return View(saleTaxType);
+            return PartialView(saleTaxType);
         }
 
         // GET: Accounts/SaleTaxTypes/Create
         public IActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Accounts/SaleTaxTypes/Create
@@ -63,7 +63,7 @@ namespace AprajitaRetails.Areas.Accounts.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(saleTaxType);
+            return PartialView(saleTaxType);
         }
 
         // GET: Accounts/SaleTaxTypes/Edit/5
@@ -79,7 +79,7 @@ namespace AprajitaRetails.Areas.Accounts.Controllers
             {
                 return NotFound();
             }
-            return View(saleTaxType);
+            return PartialView(saleTaxType);
         }
 
         // POST: Accounts/SaleTaxTypes/Edit/5
@@ -114,7 +114,7 @@ namespace AprajitaRetails.Areas.Accounts.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(saleTaxType);
+            return PartialView(saleTaxType);
         }
 
         // GET: Accounts/SaleTaxTypes/Delete/5
@@ -132,7 +132,7 @@ namespace AprajitaRetails.Areas.Accounts.Controllers
                 return NotFound();
             }
 
-            return View(saleTaxType);
+            return PartialView(saleTaxType);
         }
 
         // POST: Accounts/SaleTaxTypes/Delete/5

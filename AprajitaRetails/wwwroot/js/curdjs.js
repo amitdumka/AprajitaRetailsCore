@@ -215,11 +215,11 @@ function getItem(uri, id) {
 
 //Function To add Card and header to table
 
-function cardTableInit(tableId, title, idName) {
+function cardTableInit(tableId, title, activitName) {
     var titleBar = `<h3 class="white-text mx - 3 " id="titleHeader">${title}</h3>`;
     var leftButton = '<div><button type = "button" class="btn btn-outline-white btn-rounded btn-sm px-2" ><i class="fas fa-th-large mt-0"></i></button ><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-columns mt-0"></i></button></div >';
-    var rightButton = '<div><a asp-action="Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-pencil-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="far fa-trash-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-info-circle mt-0"></i></button></div >';
-    var cardBar = '<div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">';
+    var rightButton = `<div><a href="${activitName}/Create" class="btn btn-outline-white btn-rounded btn-sm px-2" id="create" data_modal=""> <i class="fas fa-plus-circle mt-0"></i></a><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-pencil-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="far fa-trash-alt mt-0"></i></button><button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" onclick="toastr.success("Sorry!, Button is not Implemented.");"><i class="fas fa-info-circle mt-0"></i></button></div >`;
+    var cardBar = '<div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 rounded-pill mb-3 d-flex justify-content-between align-items-center">';
     var cardMain = '<div class="card card-cascade narrower mb-5"></div>';
     var cardBody = ' <div class="px-4"></div>';
     var tableWrapepr = ' <div class="table-wrapper "></div>';
@@ -234,36 +234,51 @@ function cardTableInit(tableId, title, idName) {
     $(`#${tableId}`).wrap(' <div class="card-deck"></div>');
     $(`#${tableId}`).wrap(cardMain);
     $(`#${tableId}`).before(cardBar + leftButton + titleBar + rightButton + "</div>");
-
     $(`#${tableId}`).wrap(cardBody);
     $(`#${tableId}`).wrap(tableWrapepr);
     $(`#${tableId}`).removeClass();
     $(`#${tableId}`).addClass(tableclass);
-    $(`#${tableId}`).attr("cellspacing","0");
+    $(`#${tableId}`).attr("cellspacing", "0");
     $(`#${tableId}`).attr("width", "100%");
-
-    //$(`#${tableId}`).find("<thead>").prepend(thSelect);
     $(`#${tableId}`).find("thead").children().prepend(thSelect);
     $(`#${tableId}`).find("tbody").children().prepend(tdSelect);
-
-    //$(`#${tableId}`).find("td").first().removeClass("text-left");
     $(`#${tableId}`).find("a").addClass("btn btn-sm btn-rounded");
     $(`#${tableId}`).find("a").parent().addClass("btn-group d-inline-flex");
-    $(`#${tableId}`).find("a").parent().attr("id","btnGrpId");
+    $(`#${tableId}`).find("a").parent().attr("id", "btnGrpId");
     $(`#${tableId}`).find("thead").addClass(theadClass);
     $(`#${tableId}`).find("tbody").addClass(tbodyClass);
     $(`#${tableId}`).find("a").empty();
     $(`#${tableId}`).find("a").attr("id", "opsid");
-
-    $(`#${tableId}`).find("a").attr("data_modal", "");
+    //$(`#${tableId}`).find("a").attr("data_modal", "");
     var par = $(`#${tableId}`).find("a").parent();
     par.children().contents("Edit").addClass("btn-danger");
-    //$(`#${tableId}`).find("a").remove();
-    //par.prepend(`<a class="btn btn-sm btn-rounded btn-amber" id="edit" data_modal="" asp-action="Edit" asp-route-id="@item.${idName}"><i class="fas fa-pencil-alt mt-0"></i></a>`);
-    //par.append(`<a class="btn btn-info btn-sm" id="detail" data_modal="" asp-action="Details" asp-route-id="@item.${idName}"><i class="fas fa-info-circle mt-0"></i></a>`);
-    //par.append(`<a class="btn btn-danger btn-sm btn-rounded" id="delete_JS" onclick="deleteM(@item.${idName})"><i class="fas fa-trash-alt mt-0"></i></a>`);
     $("#btnGrpId").each(function () {
-        $("a").contents("Edit").remove();
+        $('a').each(function (i, link) {
+            var newlink = link.href;
+            if (newlink.includes("/Delete/")) {
+                $(this).removeAttr("href");
+                $(this).attr("id", "delete_JS");
+                $(this).addClass("btn-danger")
+                var i = newlink.lastIndexOf("/");             
+                var ids = newlink.substr(i + 1, 20);
+                $(this).append('<i class="fas fa-trash-alt mt-0"></>');
+                $(this).attr("onclick", ` return deleteM(${ids})`);
+                $(this).removeAttr("data_modal");
+              
+            }
+            if (newlink.includes("/Details/")) {
+                $(this).attr("id", "detail");
+                $(this).attr("data_modal","");
+                $(this).addClass("btn-info")
+                $(this).append('<i class="fas fa-info-circle mt-0"></>');
+            }
+            if (newlink.includes("/Edit/")) {
+                $(this).addClass("btn-amber")
+                $(this).attr("data_modal", "");
+                $(this).append('<i class="fas fa-pencil-alt mt-0"></>');
+                $(this).attr("id", "edit");
+            }
+        });
     });
 
     initDataTable(tableId);

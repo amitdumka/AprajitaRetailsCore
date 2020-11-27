@@ -118,6 +118,9 @@
 @section Scripts{
     <script src="~/js/curdjs.js"></script>
     <script>
-    initDataTable("dtStore");       
+        initDataTable("dtStore");
+        function deleteM(id) {
+            deleteModal('@activityName' ,'@uri', id);
+        }
     </script>
 }

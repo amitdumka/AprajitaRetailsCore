@@ -49,6 +49,11 @@
 @section Scripts{
     <script src="~/js/curdjs.js"></script>
     <script>
-       cardTableInit("dtSaleTaxType", "Sale Tax Type","SaleTaxTypeId");
+        cardTableInit("dtSaleTaxType", "Sale Tax Type", "SaleTaxTypes");
+         function deleteM(id) {
+             deleteModal('@activityName', '@uri', id);
+            // alert(id);
+             return false;
+        }
     </script>
 }
