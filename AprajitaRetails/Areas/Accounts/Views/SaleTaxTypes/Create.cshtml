@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>SaleTaxType</h4>
+ 
+<h4>Sale Tax Type</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="TaxType" class="control-label"></label>
-                <select asp-for="TaxType" class="form-control"></select>
+                <select asp-for="TaxType" class="form-control" asp-items="@Html.GetEnumSelectList<TaxType>()"></select>
                 <span asp-validation-for="TaxType" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,8 +31,3 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

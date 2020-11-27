@@ -259,16 +259,16 @@ function cardTableInit(tableId, title, activitName) {
                 $(this).removeAttr("href");
                 $(this).attr("id", "delete_JS");
                 $(this).addClass("btn-danger")
-                var i = newlink.lastIndexOf("/");             
+                var i = newlink.lastIndexOf("/");
                 var ids = newlink.substr(i + 1, 20);
                 $(this).append('<i class="fas fa-trash-alt mt-0"></>');
                 $(this).attr("onclick", ` return deleteM(${ids})`);
                 $(this).removeAttr("data_modal");
-              
+
             }
             if (newlink.includes("/Details/")) {
                 $(this).attr("id", "detail");
-                $(this).attr("data_modal","");
+                $(this).attr("data_modal", "");
                 $(this).addClass("btn-info")
                 $(this).append('<i class="fas fa-info-circle mt-0"></>');
             }
@@ -282,5 +282,16 @@ function cardTableInit(tableId, title, activitName) {
     });
 
     initDataTable(tableId);
+
+}
+
+
+//function to handle edit details and create 
+
+function cedUI() {
+    $("input").each(function (i, link) {
+        
+
+    });
 
 }
