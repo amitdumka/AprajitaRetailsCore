@@ -83,6 +83,14 @@ namespace AprajitaRetails.DL.Data
 
         //Bots
         public DbSet<TelegramAuthUser> TelegramAuthUsers { get; set; }
+
+        public DbSet<DailySale> DailySales { get; set; }
+        public DbSet<OnlineSale> OnlineSales { get; set; }
+        public DbSet<OnlineSaleReturn> OnlineSaleReturns { get; set; }
+        public DbSet<OnlineVendor>OnlineVendors { get; set; }
+        
+        
+
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
