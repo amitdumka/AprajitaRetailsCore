@@ -36,12 +36,25 @@
                         <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Accounts</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About">Sales Tax</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Purchase Tax</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Cash Book</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Trans Mode</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Payments</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Recipets</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="SaleTaxTypes" asp-action="Index">Sales Tax</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="PurchaseTaxTypes" asp-action="Index">Purchase Tax</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="CasgBooks" asp-action="Index">Cash Book</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="TransModes" asp-action="Index">Trans Mode</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="Payments" asp-action="Index">Payments</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="Reciepts" asp-action="Index">Recipets</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Expenses</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="EletricityBills" asp-action="Index">Eletricity Bill</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="EBillPayments" asp-action="Index">Eletricity Bill Payment</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="RentedLocations" asp-action="Index">Rent Location</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="Rents" asp-action="Index">Rent</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="ElectricityConnections" asp-action="Index">Eletricity Connection</a>
+                        <a class="dropdown-item" asp-area="Accounts" asp-controller="Expenses" asp-action="Index">Expenses</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
