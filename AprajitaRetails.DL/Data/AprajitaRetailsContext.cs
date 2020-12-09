@@ -8,6 +8,7 @@ using AprajitaRetails.Shared.Models.Indentity;
 using AprajitaRetails.Shared.Models.Payrolls;
 using AprajitaRetails.Shared.Models.Purchase;
 using AprajitaRetails.Shared.Models.Sales;
+using AprajitaRetails.Shared.Models.Sales.Models;
 using AprajitaRetails.Shared.Models.Stores;
 using AprajitaRetails.Shared.Models.Tailorings;
 using AprajitaRetails.Shared.Models.ToDos;
@@ -85,13 +86,29 @@ namespace AprajitaRetails.DL.Data
         public DbSet<TelegramAuthUser> TelegramAuthUsers { get; set; }
 
         public DbSet<DailySale> DailySales { get; set; }
+
         public DbSet<OnlineSale> OnlineSales { get; set; }
         public DbSet<OnlineSaleReturn> OnlineSaleReturns { get; set; }
         public DbSet<OnlineVendor>OnlineVendors { get; set; }
-        
-        
-
        
+
+        public DbSet<RegularInvoice> RegularInvoices { get; set; }
+        public DbSet<RegularSaleItem> RegularSaleItems { get; set; }
+        public DbSet<PaymentDetail> PaymentDetails { get; set; }
+        public DbSet<CardDetail> CardDetails { get; set; }
+
+        public DbSet<EDC> CardMachine { get; set; }
+        public DbSet<EDCTranscation> CardTranscations { get; set; }
+        public DbSet<MixAndCouponPayment> MixPayments { get; set; }
+        public DbSet<CouponPayment> CouponPayments { get; set; }
+        public DbSet<PointRedeemed> PointRedeemeds { get; set; }
+        public DbSet<DuesList> DuesLists { get; set; }
+        public DbSet<DueRecoverd> DueRecoverds { get; set; }
+
+        public DbSet<CashInHand> CashInHands { get; set; }
+        public DbSet<CashInBank> CashInBanks { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

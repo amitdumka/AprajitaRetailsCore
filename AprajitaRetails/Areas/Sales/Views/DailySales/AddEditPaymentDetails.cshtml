@@ -1,5 +1,5 @@
 ﻿@model AprajitaRetails.Shared.Models.Sales.EDCTranscation
-@{ Layout = null; }
+{ Layout = null; }
 
 <div class="row">
     <div class="col-md-12">
@@ -99,7 +99,7 @@
     {
         <div class="col-md-12 text-center">
             <form asp-action="DeletePayment" asp-route-id="@Model.EDCTranscationId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
-             <label class="text-danger font-italic font-weight-bold">Are you sure to Delete payment details? </label>   <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" />
+                <label class="text-danger font-italic font-weight-bold">Are you sure to Delete payment details? </label>   <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" />
             </form>
 
         </div>

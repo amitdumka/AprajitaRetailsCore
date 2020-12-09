@@ -1,33 +1,34 @@
-﻿using AprajitaRetails.Data;
+﻿using AprajitaRetails.Areas.Sales.Ops;
+using AprajitaRetails.Data;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Models;
 using AprajitaRetails.Shared.Models.Sales;
+
 //using AprajitaRetails.Ops.Triggers;
 //using AprajitaRetails.Ops.Utility;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AprajitaRetails.Sales.Expenses.Controllers
+namespace AprajitaRetails.Areas.Sales.Controllers
 {
     [Area("Sales")]
     [Authorize]
     public class DailySalesController : Controller
     {
-        //Version 3.0
-        private int StoreCodeId = 1;   //TODO:Default Value. For Now.
+        //Version 4.0
+        private int StoreCodeId;   
 
         private readonly AprajitaRetailsContext db;
+
         private SortedList<string, string> SessionData;
         private readonly CultureInfo c = CultureInfo.GetCultureInfo("In");
         private readonly ILogger<DailySalesController> logger;
@@ -41,15 +42,15 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
         // GET: DailySales
         public async Task<IActionResult> Index(int? id, string salesmanId, string currentFilter, string searchString, DateTime? SaleDate, string sortOrder, int? pageNumber)
         {
-            //if (SessionCookies.IsSessionSet(HttpContext))
-            //{
-            //    SessionData = SessionCookies.GetLoginSessionInfo(HttpContext);
-            //    StoreCodeId = Int32.Parse(SessionData[Constants.STOREID]);
-            //}
-            //else
-            //{
-            //    //TODO: Redirect to login Page
-            //}
+            if (SessionCookies.IsSessionSet(HttpContext))
+            {
+                SessionData = SessionCookies.GetLoginSessionInfo(HttpContext);
+                StoreCodeId = Int32.Parse(SessionData[Constants.STOREID]);
+            }
+            else
+            {
+                //TODO: Redirect to login Page
+            }
             ViewData["InvoiceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "inv_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["ManualSortParm"] = sortOrder == "Manual" ? "notManual_desc" : "Manual";
@@ -69,6 +70,10 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
             {
                 //All
                 dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.StoreId == this.StoreCodeId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
+            }
+            else if (id != null && id == 104)
+            {
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == DateTime.Today.AddDays(-1) && c.StoreId == this.StoreCodeId);
             }
             else if (id != null && id == 102)
             {
@@ -119,17 +124,17 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
             var totalManualSale = db.DailySales.Where(c => c.IsManualBill == true && c.SaleDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
             var totalMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
             var totalLastMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month - 1 && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
-           // var duesamt = db.DuesLists.Where(c => c.IsRecovered == false && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var duesamt = db.DuesLists.Where(c => c.IsRecovered == false && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
             var cashinhand = (decimal)0.00;
             try
             {
-              //  var chin = db.CashInHands.Where(c => c.CIHDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).FirstOrDefault();
-               // cashinhand = chin.InHand;
+                var chin = db.CashInHands.Where(c => c.CIHDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).FirstOrDefault();
+                cashinhand = chin.InHand;
             }
             catch (Exception)
             {
                 // Utility.ProcessOpenningClosingBalance(db, DateTime.Today, false, true);
-             //   new CashWork().ProcessOpenningBalance(db, DateTime.Today, StoreCodeId, true);
+             //TODO:   new CashWork().ProcessOpenningBalance(db, DateTime.Today, StoreCodeId, true);
                 cashinhand = (decimal)0.00;
                 //Log.Error("Cash In Hand is null");
             }
@@ -137,7 +142,7 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
             ViewBag.TodaySale = totalSale;
             ViewBag.ManualSale = totalManualSale;
             ViewBag.MonthlySale = totalMonthlySale;
-           // ViewBag.DuesAmount = duesamt;
+            ViewBag.DuesAmount = duesamt;
             ViewBag.CashInHand = cashinhand;
             ViewBag.LastMonthSale = totalLastMonthlySale;
 
@@ -233,37 +238,37 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
             return PartialView();
         }
 
-        public async Task<IActionResult> AddEditPaymentDetails( string InvNo)
+        public async Task<IActionResult> AddEditPaymentDetails(string InvNo)
         {
-           // ViewData["EDCId"] = new SelectList(db.CardMachine, "EDCId", "EDCName");
-            //if (String.IsNullOrEmpty(InvNo))
+            ViewData["EDCId"] = new SelectList(db.CardMachine, "EDCId", "EDCName");
+            if (String.IsNullOrEmpty(InvNo))
             {
                 return NotFound();
             }
-            //else
-            //{
-            //    var paydetails = await db.CardTranscations.Where(c => c.InvoiceNumber == InvNo).FirstOrDefaultAsync();
-               
-            //    if (paydetails == null)
-            //    {
-            //        return View(new EDCTranscation { OnDate = DateTime.Today.Date, InvoiceNumber=InvNo, StoreId = this.StoreCodeId });
-            //    }
-            //    return View(paydetails);
-            //}
-            
+            else
+            {
+                var paydetails = await db.CardTranscations.Where(c => c.InvoiceNumber == InvNo).FirstOrDefaultAsync();
+
+                if (paydetails == null)
+                {
+                    return View(new EDCTranscation { OnDate = DateTime.Today.Date, InvoiceNumber = InvNo, StoreId = this.StoreCodeId });
+                }
+                return View(paydetails);
+            }
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddEditPaymentDetails(int id, [Bind("Amount, InvoiceNumber, CardEndingNumber,  CardType, EDCId, EDCTranscationId, OnDate, StoreId")] EDCTranscation eDC)
         {
-           
+
             if (ModelState.IsValid)
             {
                 //Insert
                 if (eDC.EDCTranscationId == 0)
                 {
-                    
+
                     db.Add(eDC);
                     await db.SaveChangesAsync();
 
@@ -278,14 +283,13 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
                     }
                     catch (DbUpdateConcurrencyException)
                     {
-                    //    if (!CardTranscationExists(eDC.EDCTranscationId))
-                    //    { return NotFound(); }
-                    //    else
-                    //    { throw; }
+                        if (!CardTranscationExists(eDC.EDCTranscationId))
+                        { return NotFound(); }
+                        else
+                        { throw; }
                     }
                 }
-                // return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "Index", db.CardTranscations.ToList()) });
-                return Json(new { isVaild=false, html="apbove line is correct"});
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "Index", db.CardTranscations.ToList()) });
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddEditPaymentDetails", eDC) });
             //TODO: here we need to refresh index page update/add opertation if required other wise no need call this function just pass is valid or not. 
@@ -305,7 +309,9 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
                 dailySale.UserId = User.Identity.Name;
 
                 db.Add(dailySale);
-               // new SalesManager().OnInsert(db, dailySale);
+
+                new SalesManager().OnInsert(db, dailySale);
+                
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -403,7 +409,8 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var dailySale = await db.DailySales.FindAsync(id);
-           // new SalesManager().OnDelete(db, dailySale);
+
+            new SalesManager().OnDelete(db, dailySale);
 
             db.DailySales.Remove(dailySale);
             await db.SaveChangesAsync();
@@ -416,51 +423,20 @@ namespace AprajitaRetails.Sales.Expenses.Controllers
         public async Task<IActionResult> DeletePaymentConfirmed(int id)
         {
             //TODO: here we need to refresh index page delete opertation if required
-            // var transactionModel = await db.CardTranscations.FindAsync(id);
-            //db.CardTranscations.Remove(transactionModel);
-            //await db.SaveChangesAsync();
-            //return Json(new { html = Helper.RenderRazorViewToString(this, "Index", db.CardTranscations.ToList()) });
-            return Json(new
-            {
-                html = ""
-            });
-
+            var transactionModel = await db.CardTranscations.FindAsync(id);
+            db.CardTranscations.Remove(transactionModel);
+            await db.SaveChangesAsync();
+            return Json(new { html = Helper.RenderRazorViewToString(this, "Index", db.CardTranscations.ToList()) });
         }
 
         private bool DailySaleExists(int id)
         {
             return db.DailySales.Any(e => e.DailySaleId == id);
         }
-        //private bool CardTranscationExists(int id)
-        //{
-        //    return db.CardTranscations.Any(e => e.EDCTranscationId == id);
-        //}
-    }
-
-    public class Helper
-    {
-
-        public static string RenderRazorViewToString(Controller controller, string viewName, object model = null)
+        private bool CardTranscationExists(int id)
         {
-            controller.ViewData.Model = model;
-            using (var sw = new StringWriter())
-            {
-                IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
-                ViewEngineResult viewResult = viewEngine.FindView(controller.ControllerContext, viewName, false);
-
-                ViewContext viewContext = new ViewContext(
-                    controller.ControllerContext,
-                    viewResult.View,
-                    controller.ViewData,
-                    controller.TempData,
-                    sw,
-                    new HtmlHelperOptions()
-                );
-                viewResult.View.RenderAsync(viewContext);
-                return sw.GetStringBuilder().ToString();
-            }
+            return db.CardTranscations.Any(e => e.EDCTranscationId == id);
         }
-
     }
 }
 

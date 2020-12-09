@@ -1,5 +1,4 @@
 ﻿@model AprajitaRetails.Shared.Models.Sales.DailySale
-
 @{
     ViewData["Title"] = "Edit";
 }
@@ -66,19 +65,19 @@
                 <input asp-for="Remarks" class="form-control" />
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
-            @if ( Context.User.IsInRole ("Admin") || Context.User.IsInRole ("PowerUser") || Context.User.IsInRole ("StoreManager") )
-            { 
+            @if (Context.User.IsInRole("Admin") || Context.User.IsInRole("PowerUser") || Context.User.IsInRole("StoreManager"))
+            {
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-outline-amber" />
                 </div>
-                }
+            }
         </form>
     </div>
 </div>
 
 @*<div>
-  
-</div>*@
+
+    </div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

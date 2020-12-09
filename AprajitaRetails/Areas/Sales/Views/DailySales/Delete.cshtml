@@ -77,7 +77,7 @@
             @Html.DisplayFor(model => model.Remarks)
         </dd>
     </dl>
-    @if ( Context.User.IsInRole ("Admin")  )
+    @if (Context.User.IsInRole("Admin"))
     {
         <form asp-action="Delete">
             <input type="hidden" asp-for="DailySaleId" />

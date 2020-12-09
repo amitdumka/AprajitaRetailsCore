@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    
+
 }
 <h4>DailySale</h4>
 <hr />
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="SalesmanId" class="control-label">Salesman</label>
-                <select asp-for="SalesmanId" class ="form-control" asp-items="ViewBag.SalesmanId"></select>
+                <select asp-for="SalesmanId" class="form-control" asp-items="ViewBag.SalesmanId"></select>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -65,15 +65,15 @@
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
             <div class="form-group">
-               <input type="submit" value="Create" class="btn btn-outline-amber btn-sm" />
+                <input type="submit" value="Create" class="btn btn-outline-amber btn-sm" />
             </div>
         </form>
     </div>
 </div>
 
 @*<div>
-  
-</div>*@
+
+    </div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
