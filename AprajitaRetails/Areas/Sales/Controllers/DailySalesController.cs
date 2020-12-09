@@ -25,11 +25,12 @@ namespace AprajitaRetails.Areas.Sales.Controllers
     public class DailySalesController : Controller
     {
         //Version 4.0
-        private int StoreCodeId;   
+        private int StoreCodeId=1;   
 
         private readonly AprajitaRetailsContext db;
 
         private SortedList<string, string> SessionData;
+        
         private readonly CultureInfo c = CultureInfo.GetCultureInfo("In");
         private readonly ILogger<DailySalesController> logger;
 
@@ -42,15 +43,16 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         // GET: DailySales
         public async Task<IActionResult> Index(int? id, string salesmanId, string currentFilter, string searchString, DateTime? SaleDate, string sortOrder, int? pageNumber)
         {
-            if (SessionCookies.IsSessionSet(HttpContext))
-            {
-                SessionData = SessionCookies.GetLoginSessionInfo(HttpContext);
-                StoreCodeId = Int32.Parse(SessionData[Constants.STOREID]);
-            }
-            else
-            {
-                //TODO: Redirect to login Page
-            }
+            //TODO: Enable Cookies and then remove fixed value from StoreId
+            //if (SessionCookies.IsSessionSet(HttpContext))
+            //{
+            //    SessionData = SessionCookies.GetLoginSessionInfo(HttpContext);
+            //    StoreCodeId = Int32.Parse(SessionData[Constants.STOREID]);
+            //}
+            //else
+            //{
+            //    //TODO: Redirect to login Page
+            //}
             ViewData["InvoiceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "inv_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["ManualSortParm"] = sortOrder == "Manual" ? "notManual_desc" : "Manual";
@@ -310,7 +312,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
 
                 db.Add(dailySale);
 
-                new SalesManager().OnInsert(db, dailySale);
+               //TODO: new SalesManager().OnInsert(db, dailySale);
                 
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -410,7 +412,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         {
             var dailySale = await db.DailySales.FindAsync(id);
 
-            new SalesManager().OnDelete(db, dailySale);
+            //TODO:  new SalesManager().OnDelete(db, dailySale);
 
             db.DailySales.Remove(dailySale);
             await db.SaveChangesAsync();
