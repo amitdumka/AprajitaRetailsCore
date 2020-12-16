@@ -1,12 +1,15 @@
 ﻿@model PaginatedList<AprajitaRetails.Shared.Models.Sales.DailySale>
 @{
     ViewData["Title"] = "Daily Sales";
+    var host = "https://localhost:44335/";
+    var uri = host + "api/DailySales";
+    var activityName = "DailySales";
 }
 
-<h1 class="text-danger">Daily Sales</h1>
+@*<h2 class="text-danger">Daily Sales</h2>*@
 <div>
     <form asp-action="Index" method="get">
-        <table class="table table-sm table-striped table-bordered table-condensed  bg-white">
+        <table id="idtDailySaleInfo" class="table table-sm table-striped table-bordered table-condensed  bg-white">
             <tr class="text-primary">
                 <th>Today Sale</th>
                 <th>Manual Sale</th>
@@ -31,8 +34,9 @@
 
             <tr class="text-danger form-actions no-color">
 
-                <td class=""><strong> Salesman : @Html.DropDownList("salesmanId", "All")</strong></td>
+                <td class=""> <i class="fa fa-search text-success" aria-hidden="true"></i> <strong> Salesman : @Html.DropDownList("salesmanId", "All")</strong></td>
                 <td>
+                    <i class="fa fa-search text-success" aria-hidden="true"></i>
                     <strong>
                         By Date : @Html.EditorFor(model => model.FirstOrDefault().SaleDate, new { htmlAttributes = new { @value = DateTime.Today.ToString("yyyy-MM-dd") } })
                         @Html.ValidationMessageFor(model => model.FirstOrDefault().SaleDate, "", new { @class = "text-danger" })
@@ -41,24 +45,23 @@
                 <td>
                     <strong>
                         Or
-                        <span class="glyphicon glyphicon-search text-primary" data-feather="search"> </span>  By InvoiceNo :  @*@Html.TextBox("SearchString")*@
+                        <i class="fa fa-search text-success" aria-hidden="true"></i>  By InvoiceNo :
                         <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-                        @*<input type="submit" value="Filter" class=" btn btn-outline-warning btn-sm glyphicon glyphicon-asterisk" />*@
-                        <button type="submit" value="Filter" class=" text-danger btn btn-outline-warning btn-sm glyphicon glyphicon-asterisk"><i class="fa fa-search"></i></button>
+                        <button type="submit" value="Filter" class=" text-danger btn btn-outline-warning btn-sm"><i class="fa fa-search text-danger"></i></button>
                     </strong>
                 </td>
 
             </tr>
 
             <tr>
-                <th><a class="btn  btn-sm btn-default btn-rounded" asp-action="Create" id="create" data_modal=""><span class="text-danger" data-feather="plus-square"></span> Add </a></th>
+                <th><a class="btn  btn-sm btn-default btn-rounded" asp-action="Create" id="create" data_modal=""><span class="text-danger" data-feather="plus-square"></span> Add </i> </a></th>
                 <th></th>
-                <th class="btn-group btn-group-sm" role="group">
-                    <a class="btn btn-sm btn-outline-info mr-1" asp-action="Index" asp-route-id="101">All</a>
-                    <a class="btn btn-sm btn-outline-amber mr-1" asp-action="Index" asp-route-id="0">Today</a>
-                    <a class="btn btn-sm btn-outline-brown mr-1" asp-action="Index" asp-route-id="104">Yesterday</a>
-                    <a class="btn btn-sm btn-outline-deep-orange mr-1" asp-action="Index" asp-route-id="102">Month</a>
-                    <a class="btn btn-sm btn-outline-dark-green mr-1" asp-action="Index" asp-route-id="103">Last Month</a>
+                <th class="btn-group" role="group">
+                    <a class="btn btn-sm btn-outline-info mr-1  btn-rounded" asp-action="Index" asp-route-id="101">All</a>
+                    <a class="btn btn-sm btn-outline-amber mr-1  btn-rounded" asp-action="Index" asp-route-id="0">Today</a>
+                    <a class="btn btn-sm btn-outline-brown mr-1  btn-rounded" asp-action="Index" asp-route-id="104">Yesterday</a>
+                    <a class="btn btn-sm btn-outline-deep-orange mr-1  btn-rounded" asp-action="Index" asp-route-id="102">Month</a>
+                    <a class="btn btn-sm btn-outline-dark-green mr-1  btn-rounded" asp-action="Index" asp-route-id="103">Last Month</a>
                 </th>
             </tr>
 
@@ -67,11 +70,11 @@
 
 </div>
 
-<table class="table table-sm table-responsive-sm table-hover table-striped table-bordered">
-    <thead class="bg-success">
+<table id="dtDailySale" class="table table-sm table-responsive-sm table-hover table-striped table-bordered">
+    <thead >
         <tr>
-            <th class="text-center"><a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">  @Html.DisplayNameFor(model => model.FirstOrDefault().SaleDate)</a></th>
-            <th class="text-center"><a asp-action="Index" asp-route-sortOrder="@ViewData["InvoiceSortParm"]">    @Html.DisplayNameFor(model => model.FirstOrDefault().InvNo)  </a>     </th>
+            <th class="text-center">@*<a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]"></a>*@  @Html.DisplayNameFor(model => model.FirstOrDefault().SaleDate)</th>
+            <th class="text-center">@*<a asp-action="Index" asp-route-sortOrder="@ViewData["InvoiceSortParm"]"></a>*@   @Html.DisplayNameFor(model => model.FirstOrDefault().InvNo)      </th>
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.FirstOrDefault().Amount)
             </th>
@@ -80,7 +83,7 @@
             </th>
             <th class="text-center">Salesman</th>
             <th class="text-center">
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["ManualSortParm"]"> @Html.DisplayNameFor(model => model.FirstOrDefault().IsManualBill)</a>
+                @*<a asp-action="Index" asp-route-sortOrder="@ViewData["ManualSortParm"]"></a>*@ @Html.DisplayNameFor(model => model.FirstOrDefault().IsManualBill)
             </th>
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.FirstOrDefault().IsSaleReturn)
@@ -331,7 +334,7 @@
     </tbody>
 </table>
 
-<partial name="_ModalPop" />
+<partial name="_OnlyModalPopUp" />
 
 
 <style>
@@ -410,11 +413,13 @@ a.btn:hover{
     <div class="loader"></div>
 </div>
 
-
-
 @section Scripts{
-
+    <script src="~/js/curdjs.js"></script>
     <script>
+        cardTableInit("dtDailySale", "Daily Sales", "DailySales");
+        //cardTableInit("dtDailySaleInfo", "Daily Sale", "DailySales");
+         
+   
         $(function () {
             $("#loaderbody").addClass('hide');
 

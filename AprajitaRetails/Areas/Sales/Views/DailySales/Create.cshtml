@@ -40,24 +40,23 @@
                 <select asp-for="SalesmanId" class="form-control" asp-items="ViewBag.SalesmanId"></select>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsDue" /> @Html.DisplayNameFor(model => model.IsDue)
+                <input class="form-check-input" asp-for="IsDue" type="checkbox" data-val="true" />
+                <label class="form-check-label" asp-for="IsDue">
+                    @*@Html.DisplayNameFor(model => model.IsDue)*@
                 </label>
             </div>
+
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsManualBill" /> @Html.DisplayNameFor(model => model.IsManualBill)
-                </label>
+                <input class="form-check-input" asp-for="IsManualBill" type="checkbox" data-val="true" />
+                <label class="form-check-label" asp-for="IsManualBill"></label>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsTailoringBill" /> @Html.DisplayNameFor(model => model.IsTailoringBill)
-                </label>
+                <input class="form-check-input" asp-for="IsTailoringBill" type="checkbox" data-val="true" />
+                <label class="form-check-label" asp-for="IsTailoringBill"></label>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsSaleReturn" /> @Html.DisplayNameFor(model => model.IsSaleReturn)
-                </label>
+                <input class="form-check-input" asp-for="IsSaleReturn" type="checkbox" data-val="true" />
+                <label class="form-check-label" asp-for="IsSaleReturn"></label>
             </div>
             <div class="form-group">
                 <label asp-for="Remarks" class="control-label"></label>
@@ -65,7 +64,7 @@
                 <span asp-validation-for="Remarks" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-outline-amber btn-sm" />
+                <input type="submit" value="Create" class="btn btn-outline-amber btn-sm btn-rounded waves-button" />
             </div>
         </form>
     </div>

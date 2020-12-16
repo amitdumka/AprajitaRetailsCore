@@ -109,7 +109,7 @@ namespace AprajitaRetails.DL.Migrations
                 column: "StoreId",
                 principalTable: "Stores",
                 principalColumn: "StoreId",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_PointRedeemed_DailySales_DailySaleId",
