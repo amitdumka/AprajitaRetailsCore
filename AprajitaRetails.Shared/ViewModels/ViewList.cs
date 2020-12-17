@@ -348,5 +348,4 @@ namespace AprajitaRetails.Shared.ViewModels
         public ICollection<IncomeExpensesVM> Income { get; set; }  // Details of Current Day/ or week
         public ICollection<IncomeExpensesVM> Expenses { get; set; } //Details of Current Day/ or week
     }
-
 }

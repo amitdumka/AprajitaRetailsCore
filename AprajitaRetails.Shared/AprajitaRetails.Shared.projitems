@@ -65,6 +65,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\CashInBank.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CashInHand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ChartJsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\InvoiceSaveReturn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\PrintInvoiceLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\PrintLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\ReceiptDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\ReceiptHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\ReceiptItemDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Printers\ReceiptItemTotal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Voy\Class.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Uploaders\BookEntry.cs" />

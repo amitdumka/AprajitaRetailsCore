@@ -40,6 +40,12 @@ namespace AprajitaRetails.Ops
         public string LastLoginTime { get; set; }
         public bool IsAdmin { get; set; }
 
+        public static bool IsSessionSet(ISession session)
+        {
+            var usrname = SessionOps.Read<string>(session, SessionName.UserName);
+            if (string.IsNullOrEmpty(usrname)) return false; else return true;
+        }
+
         public static PostLogin ReadCookieData(ISession session)
         {
             return new PostLogin
@@ -88,6 +94,12 @@ namespace AprajitaRetails.Ops
         }
 
 
+        /// <summary>
+        /// Set Default Session. 
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="db"></param>
+        /// <param name="UserName"></param>
         public static void SetUserSession(ISession session, AprajitaRetailsContext db, string UserName)
         {
             StoreInfo sInfo = new StoreInfo { StoreId = db.Stores.First().StoreId, UserName = UserName, IsAdmin = false };

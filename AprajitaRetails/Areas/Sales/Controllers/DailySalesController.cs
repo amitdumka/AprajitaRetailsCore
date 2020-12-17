@@ -2,6 +2,7 @@
 using AprajitaRetails.Data;
 using AprajitaRetails.DL.Data;
 using AprajitaRetails.Models;
+using AprajitaRetails.Ops;
 using AprajitaRetails.Shared.Models.Sales;
 
 //using AprajitaRetails.Ops.Triggers;
@@ -18,6 +19,13 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+/*
+ * UI is working. 
+ * Porting with API Pending. 
+ * and Trigger and Utility like cash in hand/bank, saleman, payment details for non cash , UI Element, Session Controll. 
+ */
+
 namespace AprajitaRetails.Areas.Sales.Controllers
 {
     [Area("Sales")]
@@ -25,12 +33,8 @@ namespace AprajitaRetails.Areas.Sales.Controllers
     public class DailySalesController : Controller
     {
         //Version 4.0
-        private int StoreCodeId=1;   
 
         private readonly AprajitaRetailsContext db;
-
-        private SortedList<string, string> SessionData;
-        
         private readonly CultureInfo c = CultureInfo.GetCultureInfo("In");
         private readonly ILogger<DailySalesController> logger;
 
@@ -43,16 +47,26 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         // GET: DailySales
         public async Task<IActionResult> Index(int? id, string salesmanId, string currentFilter, string searchString, DateTime? SaleDate, string sortOrder, int? pageNumber)
         {
-            //TODO: Enable Cookies and then remove fixed value from StoreId
-            //if (SessionCookies.IsSessionSet(HttpContext))
-            //{
-            //    SessionData = SessionCookies.GetLoginSessionInfo(HttpContext);
-            //    StoreCodeId = Int32.Parse(SessionData[Constants.STOREID]);
-            //}
-            //else
-            //{
-            //    //TODO: Redirect to login Page
-            //}
+            // Setting Store Info Here
+            StoreInfo storeInfo = null;
+
+            if (PostLogin.IsSessionSet(HttpContext.Session))
+            {
+                 storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+                if (storeInfo != null)
+                {
+
+                }
+                else
+                {
+                    //TODO: Redirect to login Page
+                }
+            }
+            else
+            {
+                //TODO: Redirect to login Page
+            }
+           
             ViewData["InvoiceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "inv_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["ManualSortParm"] = sortOrder == "Manual" ? "notManual_desc" : "Manual";
@@ -66,26 +80,26 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             }
             ViewData["CurrentFilter"] = searchString;
             //For Current Day
-            var dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == DateTime.Today && c.StoreId == this.StoreCodeId);
+            var dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == DateTime.Today && c.StoreId == storeInfo.StoreId);
 
             if (id != null && id == 101)
             {
                 //All
-                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.StoreId == this.StoreCodeId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.StoreId == storeInfo.StoreId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
             }
             else if (id != null && id == 104)
             {
-                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == DateTime.Today.AddDays(-1) && c.StoreId == this.StoreCodeId);
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == DateTime.Today.AddDays(-1) && c.StoreId == storeInfo.StoreId);
             }
             else if (id != null && id == 102)
             {
                 //Current Month
-                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == this.StoreCodeId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == storeInfo.StoreId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
             }
             else if (id != null && id == 103)
             {
                 //Last Month
-                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month - 1 && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == this.StoreCodeId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month - 1 && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == storeInfo.StoreId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
             }
             else
             {
@@ -94,7 +108,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.InvNo == searchString && c.StoreId == this.StoreCodeId);
+                dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.InvNo == searchString && c.StoreId == storeInfo.StoreId);
                 //return View(await dls.ToListAsync());
             }
             else if (!String.IsNullOrEmpty(salesmanId) || SaleDate != null)
@@ -103,11 +117,11 @@ namespace AprajitaRetails.Areas.Sales.Controllers
 
                 if (SaleDate != null)
                 {
-                    dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == SaleDate && c.StoreId == this.StoreCodeId).OrderByDescending(c => c.DailySaleId);
+                    dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate == SaleDate && c.StoreId == storeInfo.StoreId).OrderByDescending(c => c.DailySaleId);
                 }
                 else
                 {
-                    dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == this.StoreCodeId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
+                    dailySales = db.DailySales.Include(d => d.Salesman).Where(c => c.SaleDate.Month == DateTime.Today.Month && c.SaleDate.Year == DateTime.Today.Year && c.StoreId == storeInfo.StoreId).OrderByDescending(c => c.SaleDate).ThenByDescending(c => c.DailySaleId);
                 }
 
                 if (!String.IsNullOrEmpty(salesmanId))
@@ -122,15 +136,15 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             #region FixedUI
 
             //Fixed Query
-            var totalSale = db.DailySales.Where(c => c.IsManualBill == false && c.SaleDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
-            var totalManualSale = db.DailySales.Where(c => c.IsManualBill == true && c.SaleDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
-            var totalMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
-            var totalLastMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month - 1 && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
-            var duesamt = db.DuesLists.Where(c => c.IsRecovered == false && c.StoreId == this.StoreCodeId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var totalSale = db.DailySales.Where(c => c.IsManualBill == false && c.SaleDate.Date == DateTime.Today.Date && c.StoreId == storeInfo.StoreId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var totalManualSale = db.DailySales.Where(c => c.IsManualBill == true && c.SaleDate.Date == DateTime.Today.Date && c.StoreId == storeInfo.StoreId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var totalMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month && c.StoreId == storeInfo.StoreId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var totalLastMonthlySale = db.DailySales.Where(c => c.SaleDate.Year == DateTime.Today.Year && c.SaleDate.Month == DateTime.Today.Month - 1 && c.StoreId == storeInfo.StoreId).Sum(c => (decimal?)c.Amount) ?? 0;
+            var duesamt = db.DuesLists.Where(c => c.IsRecovered == false && c.StoreId == storeInfo.StoreId).Sum(c => (decimal?)c.Amount) ?? 0;
             var cashinhand = (decimal)0.00;
             try
             {
-                var chin = db.CashInHands.Where(c => c.CIHDate.Date == DateTime.Today.Date && c.StoreId == this.StoreCodeId).FirstOrDefault();
+                var chin = db.CashInHands.Where(c => c.CIHDate.Date == DateTime.Today.Date && c.StoreId == storeInfo.StoreId).FirstOrDefault();
                 cashinhand = chin.InHand;
             }
             catch (Exception)
@@ -236,13 +250,54 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         // GET: DailySales/Create
         public IActionResult Create()
         {
+            // Setting Store Info Here
+            StoreInfo storeInfo = null;
+
+            if (PostLogin.IsSessionSet(HttpContext.Session))
+            {
+                storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+                if (storeInfo != null)
+                {
+                    ViewBag.StoreID = storeInfo.StoreId;
+                    ViewBag.UserNAME = storeInfo.UserName;
+                }
+                else
+                {
+                    //TODO: Redirect to login Page
+                }
+            }
+            else
+            {
+                //TODO: Redirect to login Page
+            }
             ViewData["SalesmanId"] = new SelectList(db.Salesmen, "SalesmanId", "SalesmanName");
             return PartialView();
         }
 
         public async Task<IActionResult> AddEditPaymentDetails(string InvNo)
         {
+            // Setting Store Info Here
+            StoreInfo storeInfo = null;
+            if (PostLogin.IsSessionSet(HttpContext.Session))
+            {
+                storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+                if (storeInfo != null)
+                {
+                    ViewBag.StoreID = storeInfo.StoreId;
+                    ViewBag.UserNAME = storeInfo.UserName;
+                }
+                else
+                {
+                   //TODO: Redirect to login Page
+                }
+            }
+            else
+            {
+                //TODO: Redirect to login Page
+            }
+
             ViewData["EDCId"] = new SelectList(db.CardMachine, "EDCId", "EDCName");
+         
             if (String.IsNullOrEmpty(InvNo))
             {
                 return NotFound();
@@ -253,7 +308,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
 
                 if (paydetails == null)
                 {
-                    return View(new EDCTranscation { OnDate = DateTime.Today.Date, InvoiceNumber = InvNo, StoreId = this.StoreCodeId });
+                    return View(new EDCTranscation { OnDate = DateTime.Today.Date, InvoiceNumber = InvNo, StoreId = storeInfo.StoreId });
                 }
                 return View(paydetails);
             }
@@ -264,16 +319,13 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddEditPaymentDetails(int id, [Bind("Amount, InvoiceNumber, CardEndingNumber,  CardType, EDCId, EDCTranscationId, OnDate, StoreId")] EDCTranscation eDC)
         {
-
             if (ModelState.IsValid)
             {
                 //Insert
                 if (eDC.EDCTranscationId == 0)
                 {
-
                     db.Add(eDC);
                     await db.SaveChangesAsync();
-
                 }
                 //Update
                 else
@@ -296,18 +348,17 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddEditPaymentDetails", eDC) });
             //TODO: here we need to refresh index page update/add opertation if required other wise no need call this function just pass is valid or not. 
         }
-
         // POST: DailySales/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DailySaleId,SaleDate,InvNo,Amount,PayMode,CashAmount,SalesmanId,IsDue,IsManualBill,IsTailoringBill,IsSaleReturn,Remarks")] DailySale dailySale)
+        public async Task<IActionResult> Create([Bind("DailySaleId,SaleDate,InvNo,Amount,PayMode,CashAmount,SalesmanId,IsDue,IsManualBill,IsTailoringBill,IsSaleReturn,Remarks,StoreId")] DailySale dailySale)
         {
             if (ModelState.IsValid)
             {
                 //version 3.0  StoreCode
-                dailySale.StoreId = this.StoreCodeId;
+               // dailySale.StoreId = storeInfo.StoreId;
                 dailySale.UserId = User.Identity.Name;
 
                 db.Add(dailySale);
@@ -327,6 +378,27 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         [Authorize(Roles = "Admin,PowerUser,StoreManager")]
         public async Task<IActionResult> Edit(int? id)
         {
+            // Setting Store Info Here
+            StoreInfo storeInfo = null;
+
+            if (PostLogin.IsSessionSet(HttpContext.Session))
+            {
+                storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+                if (storeInfo != null)
+                {
+                    ViewBag.StoreID = storeInfo.StoreId;
+                    ViewBag.UserNAME = storeInfo.UserName;
+                }
+                else
+                {
+                    //TODO: Redirect to login Page
+                }
+            }
+            else
+            {
+                //TODO: Redirect to login Page
+            }
+
             if (id == null)
             {
                 logger.LogWarning("DailySale:Edit[Get] ID is null!");
@@ -350,7 +422,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,PowerUser,StoreManager")]
-        public async Task<IActionResult> Edit(int id, [Bind("DailySaleId,SaleDate,InvNo,Amount,PayMode,CashAmount,SalesmanId,IsDue,IsManualBill,IsTailoringBill,IsSaleReturn,Remarks")] DailySale dailySale)
+        public async Task<IActionResult> Edit(int id, [Bind("DailySaleId,SaleDate,InvNo,Amount,PayMode,CashAmount,SalesmanId,IsDue,IsManualBill,IsTailoringBill,IsSaleReturn,Remarks,StoreId")] DailySale dailySale)
         {
             if (id != dailySale.DailySaleId)
             {
@@ -361,9 +433,8 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             {
                 try
                 {
-                    dailySale.StoreId = this.StoreCodeId;
+                   // dailySale.StoreId = storeInfo.StoreId;
                     dailySale.UserId = User.Identity.Name;
-
                     db.Update(dailySale);
                     await db.SaveChangesAsync();
                 }

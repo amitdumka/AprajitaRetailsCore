@@ -7,6 +7,7 @@ using AprajitaRetails.Shared.Models.AddressBook;
 using AprajitaRetails.Shared.Models.Indentity;
 using AprajitaRetails.Shared.Models.Payrolls;
 using AprajitaRetails.Shared.Models.Purchase;
+using AprajitaRetails.Shared.Models.Purchase.Models;
 using AprajitaRetails.Shared.Models.Sales;
 using AprajitaRetails.Shared.Models.Sales.Models;
 using AprajitaRetails.Shared.Models.Stores;
@@ -107,6 +108,10 @@ namespace AprajitaRetails.DL.Data
 
         public DbSet<CashInHand> CashInHands { get; set; }
         public DbSet<CashInBank> CashInBanks { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<ProductItem> ProductItems { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
 
 
 
