@@ -115,7 +115,7 @@ namespace AprajitaRetails.Areas.Sales.Controllers
                 };
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 var pItem = new { MRP = (decimal)0.0, ProductName = "Not Found!", TaxRate = (decimal)0, Units = Enum.GetName(typeof(Unit), Unit.Pcs) };
                 JsonResult result = new JsonResult(pItem)
@@ -127,6 +127,8 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             }
             //return Json ( Data=pItem, JsonRequestBehavior = JsonRequestBehavior.AllowGet );
         }
+
+        //TODO: make it API Based as much possible . mosty JSON Based function.
 
         [HttpGet]
         public JsonResult GetSalesmanList()

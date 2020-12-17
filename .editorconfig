@@ -2,3 +2,6 @@
 
 # CS0436: Type conflicts with imported type
 dotnet_diagnostic.CS0436.severity = suggestion
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = silent
