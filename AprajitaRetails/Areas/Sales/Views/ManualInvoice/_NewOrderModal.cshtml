@@ -56,7 +56,6 @@
                             <tr>
                                 <th>Salesman</th>
                                 <th>BarCode</th>
-                                <th></th>
                                 <th>ProductName</th>
                                 <th>Price</th>
                                 <th>Qty</th>
@@ -64,8 +63,13 @@
                             </tr>
                             <tr>
                                 <td><select id="salesMan" name="saleMan" class="form-control"><option>Select Salesman</option></select></td>
-                                <td><input type="text" id="barCode" name="barCode" placeholder="BarCode" class="form-control" /></td>
-                                <td><a id="getBarCode" class="btn btn-sm btn-outline-success">Get</a></td>
+                                <td class="input-group mb-3">
+                                    <input type="text" class="form-control mt-3 " placeholder="BarCode" aria-label="barCode" aria-describedby="getBarCode" id="barCode" name="barCode">
+                                    <button class="btn-unique btn btn-sm m-0 mt-3" type="button" id="getBarCode">Get</button>
+                                </td>
+
+                                @*<td><input type="text" id="barCode" name="barCode" placeholder="BarCode" class="form-control" /></td>
+                                    <td><a id="getBarCode" class="btn btn-sm btn-outline-success">Get</a></td>*@
                                 <td><input type="text" id="productName" name="productName" placeholder="Product Name" class="form-control" /></td>
                                 <td> <input type="number" id="price" name="price" placeholder="Product Price" class="form-control" /></td>
                                 <td>  <input type="number" id="quantity" name="quantity" placeholder="Quantity" class="form-control" /></td>
@@ -95,8 +99,18 @@
                     <hr />
                     <h5 class="purple-text"> Payment Details</h5>
                     <hr />
+                    <div class="form-row form-inline">
+                        <lable class="text-primary mb-3"> Payment Mode : </lable><select class="form-control form-control-sm mb-3 ml-2" id="paymentMode">
+                        <option value="1">Cash</option>
+                        <option value="2">Card</option>
+                        <option value="3">Cheque</option>
+                        <option value="4">Wallet(s)</option>
+                        <option value="5">Eletronic Transfer</option>
+                        <option value="6">Other</option>
+                        </select>
+                    </div>
                     <div>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="tbPayment">
                             <tr>
                                 <th>Cash Amount</th>
                                 <th>Card Amount</th>
@@ -113,13 +127,59 @@
                             </tr>
 
                         </table>
+                        <table id="tblCheque" class="hide" hidden>
+                            <tr>
+                                <th>BankName</th>
+                                <th>Date</th>
+                                <th>Cheque No</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardNo" name="cardNo" placeholder="Card No" value="" class="form-control" /></td>
+                                <td><input type="text" id="cashAmt" name="cashAmt" placeholder="Cash" value="0.0" class="form-control" /></td>
+                            </tr>
 
+                        </table>
+                        <table id="tblNetTransfer" class="hide" hidden>
+                            <tr>
+                                <th>BankName</th>
+                                <th>Date</th>
+                                <th>Cheque No</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardNo" name="cardNo" placeholder="Card No" value="" class="form-control" /></td>
+                                <td><input type="text" id="cashAmt" name="cashAmt" placeholder="Cash" value="0.0" class="form-control" /></td>
+                            </tr>
+
+                        </table>
+                        <table id="tblWallet" class="hide" hidden>
+                            <tr>
+                                <th>BankName</th>
+                                <th>Date</th>
+                                <th>Cheque No</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardType" name="cardType" placeholder="Card Type" value="" class="form-control" /></td>
+                                <td><input type="text" id="cardNo" name="cardNo" placeholder="Card No" value="" class="form-control" /></td>
+                                <td><input type="text" id="cashAmt" name="cashAmt" placeholder="Cash" value="0.0" class="form-control" /></td>
+                            </tr>
+
+                        </table>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                    <button id="saveOrder" type="submit" class="btn btn-sm btn-danger">Save Order</button>
+                    <div class="btn-group">
+                        <button type="reset" class="btn btn-default btn-sm btn-rounded" data-dismiss="modal">Close</button>
+                        <button id="saveOrder" type="submit" class="btn btn-sm btn-danger btn-rounded">Save Invoice</button>
+                    </div>
                 </div>
             </form>
         </div>

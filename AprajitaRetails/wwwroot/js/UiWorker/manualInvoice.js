@@ -93,6 +93,7 @@ $("#getEBarCode").click(function (e) {
     });
 
 });
+
 $("#getBarCode").click(function (e) {
     e.preventDefault();
     if ($.trim($("#barCode").val()) == "") { alert("Kindly Enter BarCode"); return };
@@ -108,6 +109,7 @@ $("#getBarCode").click(function (e) {
     });
 
 });
+
 //After Add A New Order In The List, Clear Clean The Form For Add More Order.
 function clearItem() {
     $("#productName").val('');
@@ -200,6 +202,7 @@ function getInvoiceDetails(data) {
     });
 
 }
+
 function deleteInvoiceNo(data) {
     var param = { id: data };
     var oP = JSON.stringify({ id: data });
@@ -225,6 +228,7 @@ function deleteInvoiceNo(data) {
         }
     });
 }
+
 function getBarCodeData(data) {
     return $.ajax({
         contentType: 'application/json; charset=utf-8',
@@ -238,6 +242,7 @@ function getBarCodeData(data) {
         error: function () { alert("Error!!!"); }
     });
 }
+
 function updateProductDetails(data) {
     $("#price").val(data.mrp);
     $("#quantity").val('0');
@@ -245,6 +250,7 @@ function updateProductDetails(data) {
     $("#units").val(data.units);
 
 }
+
 function saveOrder(data1) {
     return $.ajax({
         contentType: 'application/json; charset=utf-8',//'application / x - www - form - urlencoded',
@@ -265,6 +271,10 @@ function saveOrder(data1) {
     });
 }
 
+$("#paymentMode").change(function () {
+    alert($("#paymentMode option:selected").text());
+    
+});
 $("#deleteInvoice").click(function (e) {
     e.preventDefault();
 
