@@ -1,6 +1,7 @@
-﻿@model AprajitaRetails.Areas.Sales.Models.ManualInvoice
+﻿@*@model AprajitaRetails.Areas.Sales.Models.ManualInvoice*@
+@model AprajitaRetails.Shared.Models.Sales.Models.RegularInvoice
 @{
-    ViewData ["Title"] = "MainView";
+    ViewData["Title"] = "MainView";
 }
 <div class="container">
     <div class="master">
@@ -9,7 +10,7 @@
             <tr>
                 <td>Sale Date</td>
                 <td>
-                    <input  id="saleDate" class="form-control" asp-for="@Model.OnDate" />
+                    <input id="saleDate" class="form-control" asp-for="@Model.OnDate" />
                     <span class="error">Valid order date required (ex: MM-dd-yyyy)</span>
                 </td>
                 <td colspan="2">Customer Name</td>
@@ -136,7 +137,7 @@
                     data: { 'barcode': $(element).val() },
                     success: function (data) {
                         console.log(data)
-                       
+
                         UpdateProductDetails(element, data);
                     },
                     error: function (error) { console.log(error); alert(error); }
@@ -147,8 +148,8 @@
             if (data != null) {
                 var $pname = $(barcode).parents('.mycontainer').find('#product');
                 var $mrpRate = $(barcode).parents('.mycontainer').find('#mrp');
-               // $pname.append.text(data.productName);
-               // $mrpRate.append.text(data.mrp);
+                // $pname.append.text(data.productName);
+                // $mrpRate.append.text(data.mrp);
                 $pname.val(data.productName);
                 $mrpRate.val(data.mrp);
             } else {

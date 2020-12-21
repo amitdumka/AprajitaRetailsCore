@@ -27,12 +27,13 @@ namespace AprajitaRetails.Areas.Sales.Controllers
     {
         private readonly AprajitaRetailsContext aprajitaContext;
         private readonly int StoreId = 1; //TODO: Fixed now
-        private readonly UserManager<IdentityUser> UserManager;
-        private readonly ILogger<ManualInvoiceController> logger;
+       // private readonly UserManager<IdentityUser> UserManager;
+        private readonly ILogger<ManualInvoiceController> _logger;
 
-        public ManualInvoiceController(AprajitaRetailsContext aCtx, UserManager<IdentityUser> userManager, ILogger<ManualInvoiceController> logger)
+        public ManualInvoiceController(AprajitaRetailsContext aCtx, /*UserManager<IdentityUser> userManager,*/ ILogger<ManualInvoiceController> logger)
         {
-            aprajitaContext = aCtx; UserManager = userManager;
+            aprajitaContext = aCtx; //UserManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -71,14 +72,14 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             if (id == null)
             {
                 errMsg = "Kindly send Invoice No!";
-                logger.LogError("ManualInvoice:GetInvoiceDetails # Id is Null!");
+                _logger.LogError("ManualInvoice:GetInvoiceDetails # Id is Null!");
                 return Json(new { Msg = errMsg, Error = "true" });
             }
             retunDetails = SaleHelper.GetInvoiceData(aprajitaContext, (int)id);
             if (retunDetails == null)
             {
                 errMsg = "Invoice Number Not found!";
-                logger.LogError($"ManualInvoice:GetInvoiceDetails # {errMsg}!");
+                _logger.LogError($"ManualInvoice:GetInvoiceDetails # {errMsg}!");
                 return Json(new { Msg = errMsg, Error = "true" });
             }
             retunDetails.Msg = "Data is loaded successfully";

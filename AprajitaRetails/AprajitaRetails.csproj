@@ -13,13 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\Sales\Views\ManualInvoice\**" />
-    <Content Remove="Areas\Sales\Views\ManualInvoice\**" />
-    <EmbeddedResource Remove="Areas\Sales\Views\ManualInvoice\**" />
-    <None Remove="Areas\Sales\Views\ManualInvoice\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="C:\Users\amitn\.nuget\packages\bootstrap\4.5.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
     <Content Remove="C:\Users\amitn\.nuget\packages\bootstrap\4.5.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
     <Content Remove="C:\Users\amitn\.nuget\packages\bootstrap\4.5.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
@@ -56,6 +49,9 @@
     <None Include="Areas\Sales\Views\DailySales\Details.cshtml" />
     <None Include="Areas\Sales\Views\DailySales\Edit.cshtml" />
     <None Include="Areas\Sales\Views\DailySales\Index.cshtml" />
+    <None Include="Areas\Sales\Views\ManualInvoice\Index.cshtml" />
+    <None Include="Areas\Sales\Views\ManualInvoice\MainView.cshtml" />
+    <None Include="Areas\Sales\Views\ManualInvoice\ReprintInvoice.cshtml" />
     <None Include="Areas\Sales\Views\OnlineSaleReturns\Create.cshtml" />
     <None Include="Areas\Sales\Views\OnlineSaleReturns\Delete.cshtml" />
     <None Include="Areas\Sales\Views\OnlineSaleReturns\Details.cshtml" />

@@ -52,10 +52,10 @@ namespace AprajitaRetails.Areas.Sales.Controllers
 
             if (PostLogin.IsSessionSet(HttpContext.Session))
             {
-                 storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
+                storeInfo = PostLogin.ReadStoreInfo(HttpContext.Session);
                 if (storeInfo != null)
                 {
-
+                    logger.Log(LogLevel.Information, "Store Info is not null!");
                 }
                 else
                 {
@@ -145,7 +145,15 @@ namespace AprajitaRetails.Areas.Sales.Controllers
             try
             {
                 var chin = db.CashInHands.Where(c => c.CIHDate.Date == DateTime.Today.Date && c.StoreId == storeInfo.StoreId).FirstOrDefault();
-                cashinhand = chin.InHand;
+                if(chin!=null)
+                    cashinhand = chin.InHand;
+                else
+                {
+                    // Utility.ProcessOpenningClosingBalance(db, DateTime.Today, false, true);
+                 //TODO:   new CashWork().ProcessOpenningBalance(db, DateTime.Today, StoreCodeId, true);
+
+                    cashinhand = (decimal)0.00;
+                }
             }
             catch (Exception)
             {
