@@ -1,0 +1,15 @@
+﻿Name	
+	
+Expense	
+payment	
+reciept	
+Arvind Payment	
+Tailoring	Booking
+	delivery
+	Pending deliver
+Payroll	
+	Salary Payment
+	Salary Adv reciepts
+	
+Homepage	
+Dashboard	

@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<AprajitaRetails.Shared.Models.Sales.OnlineSaleReturn>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Online Sales Return";
+    var host = "https://localhost:44335/";
+    var uri = host + "api/OnlineSalesReturns";
+    var activityName = "OnlineSalesReturn";
 }
+
 
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="dtOnlineSaleReturn">
     <thead>
         <tr>
             <th>
@@ -41,50 +45,64 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RecivedDate)
-            </th>           
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnlineSale.InvNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InvNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VoyagerInvoiceNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VoygerDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VoyagerAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Remarks)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsRecived)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecivedDate)
-            </td>
-          
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OnlineSaleReturnId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OnlineSaleReturnId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OnlineSaleReturnId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OnlineSale.InvNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoyagerInvoiceNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoygerDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoyagerAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRecived)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecivedDate)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OnlineSaleReturnId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OnlineSaleReturnId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OnlineSaleReturnId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<partial name="_OnlyModalPopUp" />
+@section Scripts{
+    <script src="~/js/curdjs.js"></script>
+    <script>
+        cardTableInit("dtOnlineSaleReturn", "Online Sale Retunr", "OnlineSaleReturns");
+         function deleteM(id) {
+             deleteModal('@activityName', '@uri', id);
+            // alert(id);
+             return false;
+        }
+    </script>
+}
